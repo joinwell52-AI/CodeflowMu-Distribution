@@ -23,7 +23,10 @@ installer-manifest.json
 product-manifest.json
 THIRD-PARTY-NOTICES.json
 runtime-security-audit.json
+security-risk-acceptance.json
 ```
+
+`runtime-security-audit.json` records the effective dependency security result for the shipped product. If a low-severity finding is explicitly accepted, `security-risk-acceptance.json` records the rationale and review triggers.
 
 Development candidates are not formal customer releases until every Release Gate passes.
 
@@ -49,7 +52,8 @@ installed-file integrity
 → product manifest
 → SHA-256
 → installed runtime health check
-→ security audit
+→ effective product security audit
+→ explicit low-risk acceptance (if any)
 → third-party license/redistribution gate
 ```
 
