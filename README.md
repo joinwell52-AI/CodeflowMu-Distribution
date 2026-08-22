@@ -4,7 +4,7 @@
 
 > 本仓库不是 CodeFlowMu 源码仓库。正式客户产品只包含经过验证的安装器、校验文件、产品清单、第三方许可/安全证据和客户文档。
 
-当前仓库保持 **Private**。产品源码继续位于独立的私有源码仓库 `joinwell52-AI/codeflowmu`。
+当前仓库保持 **Private**。产品源码继续位于独立的私有源码仓库 `joinwell52-AI/codeflowmu`。当前保持私有是因为产品化与正式发行准备仍在进行；产品完成后，再决定本分发仓库是否对外开放。
 
 ## 客户入口
 
@@ -25,7 +25,10 @@ installer-manifest.json
 product-manifest.json
 THIRD-PARTY-NOTICES.json
 runtime-security-audit.json
+security-risk-acceptance.json
 ```
+
+其中 `runtime-security-audit.json` 记录客户产品实际依赖的安全审计结果；如果存在允许发行的低风险项，必须由 `security-risk-acceptance.json` 逐条记录接受依据和重新审阅条件。未记录的风险不能因为严重级别较低而自动放行。
 
 正式产品必须由 `joinwell52-AI/codeflowmu` 的 `main` 产品流水线生成并通过全部 Release Gate 后发布。
 
@@ -64,13 +67,14 @@ codeflowmu main
 → silent install
 → installed-file SHA-256 verification
 → installed runtime health check
-→ runtime-only security audit
+→ effective-product security audit
+→ explicit low-risk acceptance (if any)
 → third-party license/redistribution gate
 → immutable GitHub Release in CodeflowMu-Distribution
 ```
 
-任何 high/critical 发布阻断项、第三方再分发许可未确认、安装后健康检查失败或产品清单不一致，都必须 fail closed，不得发布。
+任何 critical/high/moderate 未解决安全项、未有明确接受依据的 low 风险、第三方再分发许可未确认、安装后健康检查失败或产品清单不一致，都必须 fail closed，不得发布。
 
 ## 当前状态
 
-CodeFlowMu `V1.9.7` 产品化链路正在验证中；本分发仓库已建立，但在正式 Release Gate 全部通过前不声明正式客户版本。
+CodeFlowMu `V1.9.7` Windows 产品技术链已经完成安装与真实运行验证。当前分发仓库仍保持 Private，正式 Release 继续受第三方再分发许可等 Release Gate 约束；在全部 Gate 通过前不声明正式客户版本。
