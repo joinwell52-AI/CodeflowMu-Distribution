@@ -73,4 +73,4 @@ codeflowmu main
 
 ## 当前状态
 
-CodeFlowMu `V1.9.6` 产品化链路正在验证中；本分发仓库已建立，但在正式 Release Gate 全部通过前不声明正式客户版本。
+CodeFlowMu `V1.9.7` 产品化链路正在验证中；本分发仓库已建立，但在正式 Release Gate 全部通过前不声明正式客户版本。
