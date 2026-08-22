@@ -1,0 +1,36 @@
+name: Distribution Boundary
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-distribution-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Verify required customer documents
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f README.md
+          test -f CUSTOMER-INSTALL.md
+          test -f CUSTOMER-INSTALL.zh-CN.md
+          test -f RELEASE-POLICY.md
+      - name: Reject source and committed product binaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          bad=$(git ls-files | grep -Ei '(^|/)(src|packages|node_modules|tests?|__tests__|research|reports|editions)(/|$)|\.(ts|tsx|map|exe|dll|node|pyc|tgz|zip)$' || true)
+          if [ -n "$bad" ]; then
+            echo 'Distribution repository contains forbidden source/development/binary paths:' >&2
+            printf '%s\n' "$bad" >&2
+            exit 1
+          fi
+          echo 'distribution-boundary: PASS'
