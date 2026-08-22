@@ -23,7 +23,10 @@ installer-manifest.json
 product-manifest.json
 THIRD-PARTY-NOTICES.json
 runtime-security-audit.json
+security-risk-acceptance.json
 ```
+
+`runtime-security-audit.json` 是该版本客户产品的有效依赖安全审计；如果存在被接受的低风险项，`security-risk-acceptance.json` 会给出对应依据和重新审阅条件。
 
 在 Release Gate 全部通过之前，本仓库不会把开发候选产物声明为正式客户版本。
 
@@ -49,7 +52,8 @@ runtime-security-audit.json
 → 产品 manifest
 → SHA-256
 → 安装后 Runtime 健康检查
-→ 安全审计
+→ 有效产品安全审计
+→ 低风险逐条接受（如有）
 → 第三方许可 Gate
 ```
 
