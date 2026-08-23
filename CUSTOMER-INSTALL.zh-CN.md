@@ -10,7 +10,7 @@
 - 不要求预先安装 Python
 - 不要求访问 CodeFlowMu 源码仓库
 
-CodeFlowMu 安装包自带经产品流水线锁定并验证的运行环境。
+CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境。
 
 ## 下载
 
@@ -24,13 +24,14 @@ product-manifest.json
 THIRD-PARTY-NOTICES.json
 runtime-security-audit.json
 security-risk-acceptance.json
+cursor.json
 ```
 
-`runtime-security-audit.json` 是该版本客户产品的有效依赖安全审计；如果存在被接受的低风险项，`security-risk-acceptance.json` 会给出对应依据和重新审阅条件。
+`runtime-security-audit.json` 是该版本客户产品的有效依赖安全审计；如果存在被接受的低风险项，`security-risk-acceptance.json` 会给出对应依据和重新审阅条件。`cursor.json` 是 Cursor Provider 的真实兼容性证据，记录 CodeFlowMu 已验证的 `sdk.v1` bridge 版本、官方 archive SHA-256 和关键兼容检查。
 
 在 Release Gate 全部通过之前，本仓库不会把开发候选产物声明为正式客户版本。
 
-## 安装
+## 安装 CodeFlowMu
 
 1. 校验 `CodeFlowMu-Setup-<version>-win-x64.exe` 的 SHA-256 与 `SHA256SUMS.txt` 一致。
 2. 双击安装器。
@@ -40,6 +41,29 @@ security-risk-acceptance.json
 默认程序文件安装在 Windows `Program Files` 下；可变运行数据与程序文件分离，写入 CodeFlowMu 的产品数据目录。
 
 产品运行不依赖源码目录，也不应依赖开发机上的 Git、npm、系统 Node.js 或系统 Python。
+
+## 启用 Cursor Provider
+
+Cursor 不再作为真实 `@cursor/sdk` 被打进 CodeFlowMu 主安装包。CodeFlowMu 使用独立的 Cursor `sdk.v1` Provider Runtime。
+
+正式版本发布后，先为客户自己的 Cursor 账户配置 `CURSOR_API_KEY`，再运行产品提供的 Provider 安装入口：
+
+```text
+CodeFlowMu --install-cursor-provider
+```
+
+Provider Manager 只接受 CodeFlowMu 声明的候选/已测试版本，下载 Cursor 官方 standalone bridge 和官方 `SHA256SUMS.txt`，校验 SHA-256 与 `sdk.v1` manifest 后安装到 CodeFlowMu 产品数据目录。
+
+典型目录：
+
+```text
+C:\ProgramData\CodeFlowMu\providers\cursor\
+├─ versions\<version>\
+├─ current\
+└─ current.json
+```
+
+Cursor Provider 与 CodeFlowMu 本体使用不同版本生命周期。正式支持的 Provider 版本必须与该 CodeFlowMu Release 附带的 `cursor.json` 一致；不要把未经验证的新 bridge 版本直接当作正式生产版本。
 
 ## 数据与升级
 
@@ -54,17 +78,20 @@ security-risk-acceptance.json
 → 安装后 Runtime 健康检查
 → 有效产品安全审计
 → 低风险逐条接受（如有）
-→ 第三方许可 Gate
+→ Provider 真实兼容测试
+→ Provider compatibility evidence
 ```
+
+Cursor Provider 可独立升级和回滚，不要求仅因为一个兼容的 Provider 更新就重新安装 CodeFlowMu 本体。
 
 ## 卸载
 
 可通过 Windows“已安装的应用/应用和功能”卸载 CodeFlowMu。
 
-卸载程序与客户数据是两个不同边界。正式产品默认不得因为卸载程序而静默删除客户的任务、Evidence、Audit 或其他持久数据。
+卸载程序与客户数据是两个不同边界。正式产品默认不得因为卸载程序而静默删除客户的任务、Evidence、Audit、Provider 状态或其他持久数据。
 
 ## 校验产品来源
 
 正式客户版本只认本仓库的 GitHub Release，并且必须能追溯到 `joinwell52-AI/codeflowmu` 的一个已验证 `main` source commit。
 
-不要把 PR Artifact、feature branch 构建、源码目录压缩包或未经 Release Gate 的 Setup.exe 当作正式客户版本。
+不要把 PR Artifact、feature branch 构建、源码目录压缩包、未经兼容测试的 Provider，或未经 Release Gate 的 Setup.exe 当作正式客户版本。
