@@ -50,9 +50,9 @@ Tasks, reports, approvals, files, live activity and delivery evidence remain con
 
 ## See it in 60 seconds
 
-[![Watch the CodeFlowMu 60-second overview](assets/video-poster.png)](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v1.9.7-candidate.1/CodeFlowMu-60s-overview-v1.9.7.mp4)
+[![Play the CodeFlowMu 60-second product overview](assets/video-poster.png)](https://joinwell52-ai.github.io/joinwell52/assets/video/codeflowmu-product-intro-zh.mp4?v=20-rolefix)
 
-The video uses real product surfaces: the PC control center, task tree, human gate, verification evidence and CodeFlowMu Mobile PWA. [Download the MP4](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v1.9.7-candidate.1/CodeFlowMu-60s-overview-v1.9.7.mp4).
+Click the poster to play in the browser. The video uses real product surfaces: the PC control center, task tree, human gate, verification evidence and CodeFlowMu Mobile PWA. [Fallback: download the 1080p MP4](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v1.9.7-candidate.1/CodeFlowMu-60s-overview-v1.9.7.mp4).
 
 ## Before running the installer: verify, do not merely trust
 
