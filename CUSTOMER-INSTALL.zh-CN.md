@@ -54,6 +54,8 @@ cursor.json
 
 产品运行不依赖源码目录，也不应依赖开发机上的 Git、npm、系统 Node.js 或系统 Python。
 
+安装完成后，建议先按[手把手完成第一个 ShipReady PWA](FIRST-PWA-TASK.zh-CN.md)走通 PM、DEV、QA、OPS 的完整交付闭环，再接入真实业务项目。
+
 ## 使用 Mobile PWA
 
 Mobile PWA 是 CodeFlowMu 的手机端入口，当前公网地址：

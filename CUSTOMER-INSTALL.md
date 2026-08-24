@@ -54,6 +54,8 @@ Program files are installed under Windows Program Files. Mutable runtime/custome
 
 The installed product must not depend on the source checkout, Git, npm, a system Node.js installation, or a system Python installation.
 
+After installation, follow [Your first ShipReady PWA, step by step](FIRST-PWA-TASK.md) to complete one PM, DEV, QA and OPS delivery loop before connecting a real business project.
+
 ## Use the Mobile PWA
 
 The Mobile PWA is the phone entry point for CodeFlowMu. Its current public URL is:
