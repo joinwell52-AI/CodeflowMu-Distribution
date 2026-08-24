@@ -45,8 +45,14 @@ The 60-second overview is a 1920×1080 H.264/AAC MP4 at 24 fps. It shows actual 
 
 Repository visibility may change to **Public** after this reviewed documentation and asset set is committed to `main`. The repository uses a recorded local publication gate instead of GitHub Actions so that publication does not depend on hosted-runner quota. The Release must stay marked **Pre-release**, and the repository description/topics must not use “open source” or imply stable support.
 
+## Publication result
+
+Publication completed on 2026-08-24. Unauthenticated HTTP checks returned 200 for the repository, Releases page, Candidate 1 page, README poster, 60-second video, Windows installer and Mobile PWA. Repository secret scanning, push protection and private vulnerability reporting are enabled; the open secret-alert count was 0 at publication time.
+
 ---
 
 ## 中文结论
 
 本检查只批准“免费公开预览发行仓库”转为 Public，不批准把 `v1.9.7-candidate.1` 提升为稳定正式版。仓库当前发布集合、完整 Git 历史、截图、相对链接、安装包清单和敏感信息检查均通过；安装器未签名、真实 Cursor 账户兼容证据缺失、安全证据的两种统计口径仍已明确披露并继续作为正式发行边界。公开门禁采用有记录的本地检查，不依赖 GitHub Actions 额度。
+
+仓库已于 2026-08-24 完成公开；未登录访问仓库、Release、视频、安装包与 PWA 均返回 200。仓库秘密扫描、push protection 和私密漏洞报告已启用，公开时未发现开放秘密告警。
