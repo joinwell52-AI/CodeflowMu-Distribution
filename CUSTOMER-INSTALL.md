@@ -17,6 +17,13 @@ The installer carries the base product runtimes pinned and verified by the CodeF
 > [!IMPORTANT]
 > This repository does not have a formal GitHub Release yet, so there is currently no downloadable CodeFlowMu installer. This document describes the installation flow after a formal Release becomes available; it does not mean that an installer has already been published.
 
+For installation testing on another Windows x64 computer, use the explicitly non-formal [V1.9.7 Candidate 1 Pre-release](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1):
+
+- [Download the installer directly](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v1.9.7-candidate.1/CodeFlowMu-Setup-1.9.7-win-x64.exe)
+- SHA-256: `15c96e86d0583540793d0178727a1082ef38395831c460c988d9efc4ad2aca86`
+
+This file is for installation testing only. It has not passed the formal Cursor Provider Release Gate and must not be treated as a formal customer or supported release.
+
 Download formal installers only from this repository's [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases). After a Release is published, download at least these files:
 
 ```text

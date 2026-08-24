@@ -10,6 +10,7 @@
 
 - [中文：下载安装、PWA 与升级](CUSTOMER-INSTALL.zh-CN.md)
 - [English: Install, PWA, and Upgrade](CUSTOMER-INSTALL.md)
+- [V1.9.7 Candidate 1 测试安装包](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1)：Pre-release，非正式客户版本
 - [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases)：当前没有正式安装包 Release
 
 当前目标平台：**Windows x64**。
