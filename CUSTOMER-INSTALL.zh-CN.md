@@ -1,6 +1,6 @@
 # CodeFlowMu 客户下载安装与升级
 
-本仓库用于分发 **CodeFlowMu Windows x64 产品安装包**，不提供 CodeFlowMu 源码。
+本仓库用于分发 **CodeFlowMu Windows x64 专有软件的免费公开预览版**，不提供 CodeFlowMu 源码，也不授予开源许可证。
 
 ## 系统要求
 
@@ -15,7 +15,7 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 ## 下载
 
 > [!IMPORTANT]
-> 当前仓库尚未创建正式 GitHub Release，因此现在没有可下载的 CodeFlowMu 安装文件。本文档描述的是正式 Release 上线后的安装流程，不代表安装包已经发布。
+> 当前仓库已经提供可下载的候选 pre-release，但尚无正式支持的稳定版。候选软件只用于预览和安装测试。
 
 需要在另一台 Windows x64 电脑上进行安装测试时，可使用明确标注为非正式版的 [V1.9.7 Candidate 1 Pre-release](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1)：
 
@@ -23,6 +23,8 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 - SHA-256：`15c96e86d0583540793d0178727a1082ef38395831c460c988d9efc4ad2aca86`
 
 该文件只用于安装测试；它没有通过正式 Cursor Provider Release Gate，不得作为正式客户版本或正式支持版本。
+
+候选安装器尚未进行代码签名，可能触发 Windows SmartScreen；运行前必须校验 SHA-256。CodeFlowMu 预览版本身免费，外部 Provider 的账户、服务和调用费用彼此独立。
 
 正式安装包只从本仓库的 [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) 下载。Release 上线后，请下载至少以下文件：
 

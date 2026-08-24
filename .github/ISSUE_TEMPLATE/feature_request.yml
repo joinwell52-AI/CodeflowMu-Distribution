@@ -1,0 +1,43 @@
+name: Preview feedback or feature request
+description: Propose an improvement to the current four-role development team
+title: "[Idea]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the user problem first. The digital employee development machine is a roadmap; proposals should distinguish current-product needs from future-direction ideas.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What cannot the current PM / DEV / QA / OPS workflow do clearly today?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+    validations:
+      required: true
+  - type: dropdown
+    id: horizon
+    attributes:
+      label: Product horizon
+      options:
+        - Current four-role development team
+        - Digital employee development machine roadmap
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Example or acceptance criteria
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I did not include credentials, bind links, private source or customer data.
+          required: true

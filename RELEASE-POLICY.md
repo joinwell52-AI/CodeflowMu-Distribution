@@ -1,6 +1,8 @@
 # CodeFlowMu Distribution Release Policy
 
-This private repository is a customer-distribution boundary, not a source mirror.
+This public repository is a product-distribution boundary, not a source mirror and not an open-source repository.
+
+Public repository visibility does not weaken the separation between publicly downloadable product artifacts and the private CodeFlowMu source repository.
 
 ## Authority
 
@@ -65,10 +67,20 @@ Release tags are immutable. If a release tag already exists, the publication pip
 
 A corrected product requires a new version/tag.
 
+## Preview candidates
+
+A pre-release candidate may be published for public evaluation before every formal customer gate passes only when all of the following are true:
+
+1. GitHub marks it as a Pre-release.
+2. The Release title and notes say that it is not stable or formally supported.
+3. Every known formal-release blocker is stated prominently.
+4. Installer signing status, target platform and verification hash are disclosed.
+5. The candidate is never relabeled in place as a formal release; promotion requires a new immutable tag and complete evidence set.
+
 ## Customer release contents
 
 Formal Windows releases contain the CodeFlowMu installer and verification evidence only. They do not contain the CodeFlowMu source repository, the real Cursor SDK package, or the Cursor bridge binary.
 
-## Current visibility
+## Repository publication gate
 
-This distribution repository is currently Private while productization and formal release preparation are still in progress. A future change in repository visibility does not weaken any release gate above.
+Before the distribution repository becomes or remains Public, its tracked files and full Git history must be checked for source, committed binaries, credentials, customer data and internal-only paths. Public links, screenshots and release metadata must be reviewed, and the README must preserve the free-preview, proprietary-software and candidate-release boundaries.

@@ -1,0 +1,70 @@
+name: Bug report
+description: Report a reproducible CodeFlowMu preview problem
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing CodeFlowMu. Remove API keys, bind links, private source, customer data and personal information before submitting. Security vulnerabilities must be reported privately through the Security tab.
+  - type: input
+    id: version
+    attributes:
+      label: CodeFlowMu version
+      placeholder: v1.9.7-candidate.1
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - PC product
+        - Mobile PWA
+        - Gateway
+        - Cursor Provider
+        - Installer or upgrade
+        - Documentation
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 24H2 x64
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: Use the smallest safe project and list exact steps.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Add sanitized logs or screenshots. Do not attach secrets or customer data.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed credentials, bind links, private source and customer data.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true

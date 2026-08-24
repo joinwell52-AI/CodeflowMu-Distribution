@@ -23,6 +23,15 @@ jobs:
           test -f CUSTOMER-INSTALL.md
           test -f CUSTOMER-INSTALL.zh-CN.md
           test -f RELEASE-POLICY.md
+          test -f PUBLICATION-CHECKLIST.md
+          test -f README.zh-CN.md
+          test -f ARCHITECTURE.md
+          test -f ARCHITECTURE.zh-CN.md
+          test -f SECURITY.md
+          test -f SUPPORT.md
+          test -f LICENSE.md
+          test -f assets/video-poster.png
+          test -f assets/brand/codeflowmu-logo.png
       - name: Reject source and committed product binaries
         shell: bash
         run: |
@@ -34,3 +43,32 @@ jobs:
             exit 1
           fi
           echo 'distribution-boundary: PASS'
+      - name: Verify local Markdown links
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path('.').resolve()
+          missing = []
+          pattern = re.compile(r'!?(?:\[[^\]]*\])\(([^)]+)\)|(?:src|href)="([^"]+)"')
+          for document in root.rglob('*.md'):
+              text = document.read_text(encoding='utf-8')
+              for match in pattern.finditer(text):
+                  target = next(value for value in match.groups() if value)
+                  target = target.strip().split('#', 1)[0]
+                  if not target or '://' in target or target.startswith(('mailto:', '#')):
+                      continue
+                  candidate = (document.parent / target).resolve()
+                  if root not in candidate.parents and candidate != root:
+                      missing.append(f'{document.relative_to(root)}: outside repository: {target}')
+                  elif not candidate.exists():
+                      missing.append(f'{document.relative_to(root)}: missing: {target}')
+          if missing:
+              print('\n'.join(missing), file=sys.stderr)
+              raise SystemExit(1)
+          print('local-markdown-links: PASS')
+          PY

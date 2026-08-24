@@ -1,6 +1,6 @@
 # CodeFlowMu Customer Install and Upgrade
 
-This repository distributes the **CodeFlowMu Windows x64 customer product**. It does not provide the CodeFlowMu source repository.
+This repository distributes the **free public preview of the proprietary CodeFlowMu Windows x64 product**. It does not provide the CodeFlowMu source repository or grant an open-source license.
 
 ## System requirements
 
@@ -15,7 +15,7 @@ The installer carries the base product runtimes pinned and verified by the CodeF
 ## Download
 
 > [!IMPORTANT]
-> This repository does not have a formal GitHub Release yet, so there is currently no downloadable CodeFlowMu installer. This document describes the installation flow after a formal Release becomes available; it does not mean that an installer has already been published.
+> This repository has a downloadable pre-release candidate, but no formally supported stable Release. Candidate software is for preview and installation testing only.
 
 For installation testing on another Windows x64 computer, use the explicitly non-formal [V1.9.7 Candidate 1 Pre-release](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1):
 
@@ -23,6 +23,8 @@ For installation testing on another Windows x64 computer, use the explicitly non
 - SHA-256: `15c96e86d0583540793d0178727a1082ef38395831c460c988d9efc4ad2aca86`
 
 This file is for installation testing only. It has not passed the formal Cursor Provider Release Gate and must not be treated as a formal customer or supported release.
+
+The candidate installer is not code-signed and may trigger Windows SmartScreen. Verify its SHA-256 before running it. CodeFlowMu itself is free during the public preview; external Provider accounts, services and usage charges are separate.
 
 Download formal installers only from this repository's [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases). After a Release is published, download at least these files:
 
