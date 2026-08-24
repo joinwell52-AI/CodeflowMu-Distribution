@@ -4,6 +4,12 @@
   <img src="assets/brand/codeflowmu-logo.png" alt="CodeFlowMu" width="132">
 </p>
 
+<p align="center">
+  <img alt="免费公开预览" src="https://img.shields.io/badge/status-free_preview-0891b2">
+  <img alt="Windows x64" src="https://img.shields.io/badge/platform-Windows_x64-0078D4?logo=windows11">
+  <img alt="专有软件" src="https://img.shields.io/badge/license-proprietary-111827">
+</p>
+
 <p align="center"><strong>把一个软件需求交给本地的 PM · DEV · QA · OPS 四人数字开发团队，获得可见、可接管、可验证、可验收的交付过程。</strong></p>
 
 <p align="center"><strong>软件开发不是一段对话，而是一条由角色、任务、工具、证据和人工决策组成的协作流。</strong></p>
@@ -16,7 +22,7 @@
   <a href="FIRST-PWA-TASK.zh-CN.md">第一个 PWA 任务</a> ·
   <a href="CUSTOMER-INSTALL.zh-CN.md">安装手册</a> ·
   <a href="ARCHITECTURE.zh-CN.md">架构</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases">下载</a>
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1">候选版下载</a>
 </p>
 
 > [!IMPORTANT]
@@ -53,6 +59,14 @@
 4. 安装并启动 **CodeFlowMu**。
 5. 确认顶部连接状态正常，并在设置中注册一个空白示例项目。
 
+在 PowerShell 中校验下载文件：
+
+```powershell
+(Get-FileHash .\CodeFlowMu-Setup-1.9.7-win-x64.exe -Algorithm SHA256).Hash
+```
+
+输出必须为 `15C96E86D0583540793D0178727A1082EF38395831C460C988D9EFC4AD2ACA86`；不一致时不要运行安装器。
+
 > [!WARNING]
 > Candidate 1 尚未签名，Windows SmartScreen 可能警告；正式 Cursor 账户兼容门禁尚未通过。安装根不是业务项目，不能让 Agent 在安装目录中开发。Provider 账户、凭据和可能产生的调用费用与 CodeFlowMu 免费预览彼此独立。
 
@@ -68,7 +82,10 @@
 - 不使用后端、数据库、CDN 或外部 API；
 - 可部署到 GitHub Pages、Cloudflare Pages 或任意 HTTPS 静态站点。
 
-复制下面的任务给 PM：
+<details>
+<summary><strong>展开并复制给 PM 的完整首任务</strong></summary>
+
+<br>
 
 ```text
 请开发并交付一个名为 ShipReady 的静态 PWA 小应用。
@@ -83,7 +100,9 @@ QA 必须逐条验证功能、刷新持久化、响应式、Manifest、Service W
 获得我的明确批准，再返回部署 URL 和验证证据；PM 最后汇总交付和限制。
 ```
 
-完整的逐屏操作、成功信号、角色分工、验收表、静态部署和 PWA 续接流程见：[手把手完成第一个 ShipReady PWA](FIRST-PWA-TASK.zh-CN.md)。
+</details>
+
+**下一步：** 按[手把手完成第一个 ShipReady PWA](FIRST-PWA-TASK.zh-CN.md)逐屏操作，查看成功信号、角色分工、验收表、静态部署和 PWA 续接流程。
 
 ## 第一个任务会发生什么
 
@@ -113,20 +132,14 @@ QA 必须逐条验证功能、刷新持久化、响应式、Manifest、Service W
 
 CodeFlowMu 不是孤立产品，而是一条从治理思想落到软件交付的连续路径：
 
-```text
-TMPA：为什么数字员工必须可治理、可追溯、可验收
-  ↓
-FCoP：任务、报告、问题、复核和证据如何持久化
-  ↓
-PM / DEV / QA / OPS：谁对哪一段工作负责
-  ↓
-Skills / Playbooks：每个角色按什么方法和证据标准工作
-  ↓
-MCP / 受控工具：角色能够连接和调用哪些工程能力
-  ↓
-PC 控制中心 + Mobile PWA：人在何处观察、下令、接管和审批
-  ↓
-REPORT / Evidence / Human Gate：如何证明完成并由人决定结果
+```mermaid
+flowchart LR
+    A["TMPA<br/>治理思想与规范"] --> B["FCoP<br/>任务、报告与证据协议"]
+    B --> C["PM · DEV · QA · OPS<br/>明确角色责任"]
+    C --> D["Skills / Playbooks<br/>方法与证据标准"]
+    D --> E["MCP / 受控工具<br/>授权后的工程能力"]
+    E --> F["PC 控制中心 + Mobile PWA<br/>观察、下令、接管与审批"]
+    F --> G["REPORT · Evidence · Human Gate<br/>证明结果并由人决定"]
 ```
 
 | 层 | 公开项目或产品职责 |

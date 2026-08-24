@@ -10,7 +10,7 @@ This review records **technical readiness for a clearly labeled free-preview rep
 | Check | Result | Evidence |
 | --- | --- | --- |
 | Current tracked/untracked publication set | PASS | No product source, source maps, installers, archives, credentials, customer data or internal task/report directories |
-| Full Git history secret scan | PASS | Gitleaks 8.30.1 scanned all 20 commits; 0 findings |
+| Full Git history secret scan | PASS | Gitleaks 8.30.1 scanned the complete history; 0 findings |
 | Current worktree secret scan | PASS | Gitleaks 8.30.1; 0 findings |
 | Historical object review | PASS | Repository history contains documentation and workflow files only; no large binary history |
 | Public screenshots | PASS | Real product UI reviewed; no credentials, bind links, personal directories or customer data visible |

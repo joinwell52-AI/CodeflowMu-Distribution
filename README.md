@@ -4,6 +4,12 @@
   <img src="assets/brand/codeflowmu-logo.png" alt="CodeFlowMu" width="132">
 </p>
 
+<p align="center">
+  <img alt="Free public preview" src="https://img.shields.io/badge/status-free_preview-0891b2">
+  <img alt="Windows x64" src="https://img.shields.io/badge/platform-Windows_x64-0078D4?logo=windows11">
+  <img alt="Proprietary software" src="https://img.shields.io/badge/license-proprietary-111827">
+</p>
+
 <p align="center"><strong>Turn a software request into a visible, interruptible, verifiable delivery with a local PM · DEV · QA · OPS digital development team.</strong></p>
 
 <p align="center"><strong>Software delivery is not a chat response. It is a collaboration flow made of roles, tasks, tools, evidence and human decisions.</strong></p>
@@ -16,7 +22,7 @@
   <a href="FIRST-PWA-TASK.md">First PWA task</a> ·
   <a href="CUSTOMER-INSTALL.md">Install guide</a> ·
   <a href="ARCHITECTURE.md">Architecture</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases">Downloads</a>
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1">Candidate download</a>
 </p>
 
 > [!IMPORTANT]
@@ -53,6 +59,14 @@ The video uses real product surfaces: the PC control center, task tree, human ga
 4. Install and launch **CodeFlowMu**.
 5. Confirm that the header reports a connected state, then register an empty example project in Settings.
 
+Verify the download in PowerShell:
+
+```powershell
+(Get-FileHash .\CodeFlowMu-Setup-1.9.7-win-x64.exe -Algorithm SHA256).Hash
+```
+
+The output must be `15C96E86D0583540793D0178727A1082EF38395831C460C988D9EFC4AD2ACA86`. Do not run the installer if it differs.
+
 > [!WARNING]
 > Candidate 1 is unsigned and Windows SmartScreen may warn. The formal real-Cursor-account compatibility gate has not passed. The installation root is not a business project and agents must not develop inside it. Provider accounts, credentials and any usage charges are separate from the free CodeFlowMu preview.
 
@@ -68,7 +82,10 @@ The standard first task is not “Hello World.” It is an installable, offline-
 - use no backend, database, CDN or external API;
 - deploy to GitHub Pages, Cloudflare Pages or any HTTPS static host.
 
-Copy this task to PM:
+<details>
+<summary><strong>Expand and copy the complete first task to PM</strong></summary>
+
+<br>
 
 ```text
 Build and deliver a static PWA named ShipReady.
@@ -86,7 +103,9 @@ return the deployment URL and verification evidence. PM must summarize the deliv
 and every known limitation.
 ```
 
-For the screen-by-screen actions, success signals, role handoffs, acceptance table, static deployment and Mobile PWA continuation, follow [Your first ShipReady PWA, step by step](FIRST-PWA-TASK.md).
+</details>
+
+**Next:** follow [Your first ShipReady PWA, step by step](FIRST-PWA-TASK.md) for screen-by-screen actions, success signals, role handoffs, the acceptance table, static deployment and Mobile PWA continuation.
 
 ## What happens during the first task
 
@@ -116,20 +135,14 @@ The human remains ADMIN: defining project scope, holding credentials, approving 
 
 CodeFlowMu is not an isolated app. It is a continuous path from governance ideas to software delivery:
 
-```text
-TMPA: why digital employees must be governable, traceable and reviewable
-  ↓
-FCoP: how tasks, reports, issues, reviews and evidence persist
-  ↓
-PM / DEV / QA / OPS: who owns each part of delivery
-  ↓
-Skills / Playbooks: which method and evidence standard each role follows
-  ↓
-MCP / controlled tools: which engineering capabilities roles may connect to and call
-  ↓
-PC control center + Mobile PWA: where humans observe, instruct, interrupt and approve
-  ↓
-REPORT / Evidence / Human Gate: how completion is proved and a human decides the result
+```mermaid
+flowchart LR
+    A["TMPA<br/>governance ideas and specification"] --> B["FCoP<br/>task, report and evidence protocol"]
+    B --> C["PM · DEV · QA · OPS<br/>explicit role ownership"]
+    C --> D["Skills / Playbooks<br/>methods and evidence standards"]
+    D --> E["MCP / controlled tools<br/>authorized engineering capabilities"]
+    E --> F["PC control center + Mobile PWA<br/>observe, instruct, interrupt and approve"]
+    F --> G["REPORT · Evidence · Human Gate<br/>prove results and let humans decide"]
 ```
 
 | Layer | Public project or product responsibility |
