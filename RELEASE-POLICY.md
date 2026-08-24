@@ -1,6 +1,6 @@
 # CodeFlowMu Distribution Release Policy
 
-This public repository is a product-distribution boundary, not a source mirror and not an open-source repository.
+This repository is a product-distribution boundary intended for a future public preview. It is not a source mirror or an open-source repository.
 
 Public repository visibility does not weaken the separation between publicly downloadable product artifacts and the private CodeFlowMu source repository.
 
@@ -83,4 +83,4 @@ Formal Windows releases contain the CodeFlowMu installer and verification eviden
 
 ## Repository publication gate
 
-Before the distribution repository becomes or remains Public, its tracked files and full Git history must be checked for source, committed binaries, credentials, customer data and internal-only paths. Public links, screenshots and release metadata must be reviewed, and the README must preserve the free-preview, proprietary-software and candidate-release boundaries.
+Before the distribution repository becomes Public, its tracked files and full Git history must be checked for source, committed binaries, credentials, customer data and internal-only paths. Public links, screenshots and release metadata must be reviewed, and the README must preserve the free-preview, proprietary-software and candidate-release boundaries. Passing these checks does not authorize publication by itself: repository-owner acceptance and explicit approval to change visibility are also required.
