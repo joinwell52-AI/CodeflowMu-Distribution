@@ -49,6 +49,22 @@ Tasks, reports, approvals, files, live activity and delivery evidence remain con
 
 The video uses real product surfaces: the PC control center, task tree, human gate, verification evidence and CodeFlowMu Mobile PWA. [Download the MP4](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v1.9.7-candidate.1/CodeFlowMu-60s-overview-v1.9.7.mp4).
 
+## Before running the installer: verify, do not merely trust
+
+A proprietary product cannot honestly claim a reproducible build from source in this repository. CodeFlowMu Distribution uses a **proprietary runtime plus reviewable release evidence**:
+
+| What to verify | Candidate 1 evidence | Current conclusion |
+| --- | --- | --- |
+| Download origin | This repository's GitHub Release and explicit version tag | Accept only the official Release, never a mirror or forwarded file |
+| File integrity | `SHA256SUMS.txt`, `installer-manifest.json` | The installer hash can be recomputed independently |
+| Product boundary | `product-manifest.json`, installed-file inventory | The customer package contains no first-party source or source maps |
+| Third-party content | `THIRD-PARTY-NOTICES.json` | Dependency and license evidence ships with the version |
+| Security state | `runtime-security-audit.json`, `security-risk-acceptance.json` | Reviewed results and accepted risk are recorded separately |
+| Traceability | Release closure evidence and declared source commit | The artifact is traceable, but this is not a public-source reproducible build |
+| Signing and compatibility | Unsigned; formal real-Cursor-account evidence absent | Candidate preview only, not a stable formal release |
+
+This repository does not use a generic `CI Passing` badge as a substitute for per-release artifact evidence. The current publication gate is a recorded local check and does not depend on GitHub Actions quota. See the [public repository readiness review](PUBLICATION-CHECKLIST.md) and [release policy](RELEASE-POLICY.md).
+
 ## Five minutes to start, thirty minutes to a first delivery
 
 ### Five minutes: install and open the control center
@@ -145,15 +161,16 @@ flowchart LR
     F --> G["REPORT · Evidence · Human Gate<br/>prove results and let humans decide"]
 ```
 
-| Layer | Public project or product responsibility |
-| --- | --- |
-| Theory and specification | [TMPA / Digital Employee Works](https://github.com/joinwell52-AI/joinwell52): governance architecture, normative Core, conformance and evidence ideas |
-| Collaboration protocol | [FCoP](https://github.com/joinwell52-AI/FCoP): MIT-licensed file-based behavior-governance protocol |
-| Early product proof | [CodeFlowMu-open](https://github.com/joinwell52-AI/CodeFlowMu-open): earlier open-source four-role team, now maintenance-frozen |
-| Current product | **CodeFlowMu Distribution**: proprietary installed product, isolated Runtime, PC/PWA, Provider lifecycle and release evidence |
-| Long-term direction | **Digital employee development machine**: produce, test, assemble and upgrade employee packages; not a current capability |
+| Path | Entry point | Use it for | Boundary to understand |
+| --- | --- | --- | --- |
+| Theory and specification | [TMPA / Digital Employee Works](https://github.com/joinwell52-AI/joinwell52) | Study governance architecture, normative Core, conformance and evidence ideas | Follow that repository's own license and status |
+| Collaboration protocol | [FCoP](https://github.com/joinwell52-AI/FCoP) | Study or implement the MIT-licensed file-based behavior-governance protocol | The protocol is not the proprietary CodeFlowMu runtime source |
+| Early implementation | [CodeFlowMu-open](https://github.com/joinwell52-AI/CodeFlowMu-open) | Inspect the earlier four-role product proof and historical workflows | Maintenance-frozen; not the current product's Community Edition or Open Core |
+| Current product | **CodeFlowMu Distribution** | Download the proprietary PC/PWA product, report issues and inspect release evidence | A free preview is not open source; the current Release contract controls |
+| Ecosystem integration | Candidate future public SDKs, adapters and examples | Build integrations, adapters and templates against stable interfaces | No compatibility-backed public SDK exists today; this is roadmap only |
+| Long-term product direction | **Digital employee development machine** | Produce, test, assemble and upgrade employee packages | Not a current capability |
 
-The ideas and protocol continue; product engineering and distribution boundaries evolve. CodeFlowMu-open is not the source of the current proprietary product, and its install method, ports, capabilities and support status must not be assumed to apply to Distribution.
+This is a **Spec First + Proprietary Distribution** path, not a relabeling of the early open-source version as the current product's Open Core. The ideas and protocol continue while product engineering and distribution boundaries evolve; old install methods, ports, capabilities and support status do not transfer to Distribution.
 
 ## Skills, MCP, permission and evidence
 
@@ -211,16 +228,24 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 
 The “digital employee development machine” is intended to produce, test, assemble and upgrade reusable digital employee packages. It remains outside the current product promise until those capabilities ship with their own evidence, compatibility and lifecycle contracts.
 
-## What can be public
+### Near-term release gates, not date commitments
 
-| Public-safe | Must remain private |
-| --- | --- |
-| Product ideas, architecture, four-role responsibilities and sanitized real screenshots | Current proprietary product source and private implementation history |
-| Public TMPA and FCoP specifications and project relationships | Internal mother Skills, unreleased governance experiments and private evaluation policy |
-| Skill formats, layers, public templates and sanitized Playbook examples | Customer Skills, business knowledge, tasks, reports, logs and data |
-| MCP's architectural position, controlled tool classes and safety principles | Gateway credentials, Provider keys, customer MCP configuration and private backend topology |
-| Install, first-task, PWA binding and static deployment tutorials | Signing material, release credentials, internal test accounts and private pipelines |
-| Installer, hashes, manifests, third-party notices and reviewed public security evidence | Any build or runtime material that has not passed sanitization and publication review |
+- repository visibility may change only after repository-owner product acceptance;
+- add code signing for a formal installer;
+- add real-account Cursor Provider compatibility evidence;
+- continue to record versions, changes, hashes and compatibility boundaries through GitHub Releases;
+- decide whether to publish SDKs, adapters and examples only after public interfaces, authority models and compatibility tests are stable.
+
+## Openness boundary: current, candidate and proprietary
+
+| Public now | Evaluate after stabilization | Must remain private |
+| --- | --- | --- |
+| Product ideas, architecture, four-role responsibilities and sanitized real screenshots | Versioned public APIs and a minimal SDK | Current proprietary product source and private implementation history |
+| Public TMPA and FCoP specifications and project relationships | Sanitized adapter, example and template repositories | Unreleased governance experiments and private evaluation policy |
+| Skill formats, layers, public templates and sanitized Playbook examples | Extension kits with explicit authority and compatibility contracts | Customer Skills, business knowledge, tasks, reports, logs and data |
+| MCP's architectural position, controlled tool classes and safety principles | Security-reviewed client protocols and adapter examples | Gateway credentials, Provider keys, customer MCP configuration and private backend topology |
+| Install, first-task, PWA binding and static deployment tutorials | Standalone static examples and verification tools | Signing material, release credentials, internal test accounts and private pipelines |
+| Installer, hashes, manifests, third-party notices and reviewed public security evidence | Versioned compatibility matrices and migration examples | Any build or runtime material that has not passed sanitization and publication review |
 
 Public repository visibility does not make the product open source. Technical checks also do not complete product acceptance; only the repository owner's explicit acceptance and publication approval can authorize a future visibility change.
 

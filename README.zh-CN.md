@@ -49,6 +49,22 @@
 
 视频使用真实产品界面，展示 PC 控制中心、任务树、人工门禁、验证证据和 CodeFlowMu Mobile PWA。[直接下载 MP4](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v1.9.7-candidate.1/CodeFlowMu-60s-overview-v1.9.7.mp4)。
 
+## 运行安装包之前：先验证，而不是先信任
+
+闭源产品不能假装成“从本仓库源码可复现构建”。CodeFlowMu Distribution 采用的是**专有运行时 + 可审阅的发行证据**：
+
+| 要验证什么 | Candidate 1 提供的证据 | 当前结论 |
+| --- | --- | --- |
+| 下载来源 | 本仓库的 GitHub Release 与明确版本标签 | 只接受官方 Release，不接受网盘或转发文件 |
+| 文件完整性 | `SHA256SUMS.txt`、`installer-manifest.json` | 安装器哈希可独立复算 |
+| 产品边界 | `product-manifest.json`、安装文件清单 | 客户安装包不包含第一方源码或 Source Map |
+| 第三方成分 | `THIRD-PARTY-NOTICES.json` | 依赖与许可证据随版本发布 |
+| 安全状态 | `runtime-security-audit.json`、`security-risk-acceptance.json` | 已审查结果与已接受风险分开记录 |
+| 可追溯性 | Release closure evidence 与声明的源提交 | 可以追溯产物，但不等同于公开源码可复现构建 |
+| 签名与兼容 | 未签名；正式 Cursor 真实账户证据缺失 | 只能作为 Candidate 预览，不能称为稳定正式版 |
+
+本仓库不以一个泛化的 `CI Passing` 徽章代替逐版本产物证据。当前公开门禁采用有记录的本地检查，不依赖 GitHub Actions 额度；完整边界见[公开仓库门禁记录](PUBLICATION-CHECKLIST.md)和[发行政策](RELEASE-POLICY.md)。
+
 ## 五分钟启动，半小时完成第一个任务
 
 ### 五分钟：安装并打开控制中心
@@ -142,15 +158,16 @@ flowchart LR
     F --> G["REPORT · Evidence · Human Gate<br/>证明结果并由人决定"]
 ```
 
-| 层 | 公开项目或产品职责 |
-| --- | --- |
-| 理论与规范 | [TMPA / Digital Employee Works](https://github.com/joinwell52-AI/joinwell52)：治理架构、规范 Core、符合性与证据思想 |
-| 协作协议 | [FCoP](https://github.com/joinwell52-AI/FCoP)：MIT 许可的文件化行为治理协议 |
-| 早期产品验证 | [CodeFlowMu-open](https://github.com/joinwell52-AI/CodeFlowMu-open)：早期开源四角色团队，现已维护冻结 |
-| 当前产品 | **CodeFlowMu Distribution**：专有安装产品、独立 Runtime、PC/PWA、Provider 与发行证据 |
-| 长期路线 | **数字员工开发机**：生产、测试、装配和升级数字员工包；尚不是当前能力 |
+| 路径 | 入口 | 适合做什么 | 必须知道的边界 |
+| --- | --- | --- | --- |
+| 理论与规范 | [TMPA / Digital Employee Works](https://github.com/joinwell52-AI/joinwell52) | 研究治理架构、规范 Core、符合性与证据思想 | 按该仓库自身许可与状态使用 |
+| 协作协议 | [FCoP](https://github.com/joinwell52-AI/FCoP) | 研究或实现 MIT 许可的文件化行为治理协议 | 协议不是 CodeFlowMu 商业运行时源码 |
+| 早期实现 | [CodeFlowMu-open](https://github.com/joinwell52-AI/CodeFlowMu-open) | 阅读早期四角色产品验证和历史工作流 | 已维护冻结，不是当前产品的 Community Edition 或 Open Core |
+| 当前产品 | **CodeFlowMu Distribution** | 下载并使用专有 PC/PWA 产品，提交问题和阅读发行证据 | 免费预览不等于开源；以当前 Release 合同为准 |
+| 生态接入 | 未来公开 SDK、Adapters、Examples 的候选方向 | 在稳定接口上开发集成、适配器和模板 | 当前没有可承诺兼容性的公共 SDK；发布前只属于路线 |
+| 长期产品路线 | **数字员工开发机** | 生产、测试、装配和升级数字员工包 | 尚不是当前能力 |
 
-思想和协议连续，产品工程与发行边界升级。`CodeFlowMu-open` 不是当前专有产品的源码，旧版安装方式、端口、能力和支持状态也不能直接套用到当前版本。
+这是一条 **Spec First + Proprietary Distribution** 路径，不是把早期开源版重新命名为当前产品的 Open Core。思想和协议连续，产品工程与发行边界升级；旧版安装方式、端口、能力和支持状态不能直接套用到 Distribution。
 
 ## Skill、MCP、权限与证据
 
@@ -208,16 +225,24 @@ PC 启动 CodeFlowMu
 
 “数字员工开发机”将面向可复用数字员工包的生产、测试、装配和升级。在这些能力真实交付并具备自己的证据、兼容和生命周期合同之前，不进入当前产品承诺。
 
-## 哪些可以公开
+### 近期发行门禁，不是日期承诺
 
-| 可以公开 | 必须保持私有 |
-| --- | --- |
-| 产品思想、架构、四角色职责和真实脱敏截图 | 当前专有产品源码和私有实现历史 |
-| TMPA、FCoP 公开规范与项目关系 | 内部母版 Skill、未发布治理实验和私有评估策略 |
-| Skill 格式、分层、公开模板和脱敏 Playbook 示例 | 客户项目 Skill、业务知识、任务、报告、日志和数据 |
-| MCP 在架构中的位置、受控工具分类和安全原则 | Gateway 凭据、Provider 密钥、客户 MCP 配置和私有后台拓扑 |
-| 安装、第一次任务、PWA 绑定和静态部署教程 | 签名材料、发行凭据、内部测试账户和私有流水线 |
-| 安装包、哈希、manifest、第三方许可与公开安全证据 | 未完成脱敏和公开审查的任何构建或运行材料 |
+- 完成仓库所有者产品验收后，才允许把发行仓库转为 Public；
+- 为正式安装器补齐代码签名；
+- 补齐 Cursor Provider 的真实账户兼容证据；
+- 继续通过 GitHub Releases 记录版本、变更、哈希与兼容边界；
+- 只有公共接口稳定、权限模型明确并能做兼容测试后，才决定是否发布 SDK、Adapters 和 Examples。
+
+## 开放边界：现在、候选路线与商业壁垒
+
+| 现在可以公开 | 稳定后可评估开放 | 必须保持私有 |
+| --- | --- | --- |
+| 产品思想、架构、四角色职责和真实脱敏截图 | 版本化公共 API 与最小 SDK | 当前专有产品源码和私有实现历史 |
+| TMPA、FCoP 公开规范与项目关系 | 脱敏的 Adapters、Examples 与模板仓库 | 未发布治理实验和私有评估策略 |
+| Skill 格式、分层、公开模板和脱敏 Playbook 示例 | 具备权限与兼容合同的扩展开发包 | 客户 Skill、业务知识、任务、报告、日志和数据 |
+| MCP 的架构位置、受控工具分类和安全原则 | 经安全审查的客户端协议与适配示例 | Gateway 凭据、Provider 密钥、客户 MCP 配置和私有后台拓扑 |
+| 安装、首任务、PWA 绑定和静态部署教程 | 独立静态示例应用与验证工具 | 签名材料、发行凭据、内部测试账户和私有流水线 |
+| 安装包、哈希、manifest、第三方许可与公开安全证据 | 版本化兼容矩阵与迁移示例 | 未完成脱敏和公开审查的任何构建或运行材料 |
 
 仓库可见性变为 Public 不等于产品开源。技术检查通过也不等于产品验收完成；只有仓库所有者明确验收并批准后才能公开。
 
