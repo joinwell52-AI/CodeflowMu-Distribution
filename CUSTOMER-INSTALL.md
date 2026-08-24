@@ -14,7 +14,10 @@ The installer carries the base product runtimes pinned and verified by the CodeF
 
 ## Download
 
-After a formal release is published, download at least these files from the matching GitHub Release:
+> [!IMPORTANT]
+> This repository does not have a formal GitHub Release yet, so there is currently no downloadable CodeFlowMu installer. This document describes the installation flow after a formal Release becomes available; it does not mean that an installer has already been published.
+
+Download formal installers only from this repository's [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases). After a Release is published, download at least these files:
 
 ```text
 CodeFlowMu-Setup-<version>-win-x64.exe
@@ -41,6 +44,36 @@ Development candidates are not formal customer releases until every Release Gate
 Program files are installed under Windows Program Files. Mutable runtime/customer data is kept outside the installed program tree.
 
 The installed product must not depend on the source checkout, Git, npm, a system Node.js installation, or a system Python installation.
+
+## Use the Mobile PWA
+
+The Mobile PWA is the phone entry point for CodeFlowMu. Its current public URL is:
+
+<https://ai.chedian.cc/cfm/>
+
+The PWA cannot execute work independently from CodeFlowMu on the PC. Keep CodeFlowMu running on the PC and bind the phone to that PC Runtime instance.
+
+### Public Gateway binding
+
+1. Start CodeFlowMu on the PC.
+2. Open **Mobile** in the left navigation and select **Refresh**.
+3. Confirm that Gateway is online and that a **Public Gateway bind QR** is shown.
+4. Scan the QR code with the phone browser, or open the displayed bind link on the phone.
+5. Confirm that the phone appears under **Bound devices** on the PC.
+6. Use the phone browser menu to choose **Add to Home Screen** or **Install app**.
+
+Public Gateway mode does not require the phone and PC to share a LAN, but the PC must be able to connect to the CodeFlowMu Gateway and the phone must be able to open the HTTPS URL above.
+
+### LAN binding
+
+1. Connect the phone and PC to the same Wi-Fi network.
+2. Select **Refresh** on the PC's **Mobile** page.
+3. Scan the **LAN bind QR**, or open the LAN bind link on the phone.
+4. If the phone cannot open the link, allow inbound TCP port `18766` for CodeFlowMu in Windows Firewall, then refresh the binding information.
+
+Do not share a QR code or bind link with unrelated people. Bind each phone separately and revoke lost or retired devices under **Mobile → Bound devices** on the PC. If the bind code expires, Gateway goes offline, or the PC is shut down, restart CodeFlowMu and select **Refresh** to generate current binding information.
+
+The PWA, Mobile API, Gateway, and PC product have independent versions. A PWA update does not mean that a PC installer has been released, and a PC installer update must not be described as a completed PWA update.
 
 ## Enable the Cursor Provider
 

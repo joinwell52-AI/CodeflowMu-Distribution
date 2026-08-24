@@ -14,7 +14,10 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 
 ## 下载
 
-正式版本发布后，请从本仓库对应 GitHub Release 下载至少以下文件：
+> [!IMPORTANT]
+> 当前仓库尚未创建正式 GitHub Release，因此现在没有可下载的 CodeFlowMu 安装文件。本文档描述的是正式 Release 上线后的安装流程，不代表安装包已经发布。
+
+正式安装包只从本仓库的 [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) 下载。Release 上线后，请下载至少以下文件：
 
 ```text
 CodeFlowMu-Setup-<version>-win-x64.exe
@@ -41,6 +44,36 @@ cursor.json
 默认程序文件安装在 Windows `Program Files` 下；可变运行数据与程序文件分离，写入 CodeFlowMu 的产品数据目录。
 
 产品运行不依赖源码目录，也不应依赖开发机上的 Git、npm、系统 Node.js 或系统 Python。
+
+## 使用 Mobile PWA
+
+Mobile PWA 是 CodeFlowMu 的手机端入口，当前公网地址：
+
+<https://ai.chedian.cc/cfm/>
+
+PWA 不能脱离 PC 上的 CodeFlowMu 单独执行任务。使用时需要保持 PC 上的 CodeFlowMu 正在运行，并完成手机与该 PC Runtime 实例的绑定。
+
+### 公网 Gateway 绑定
+
+1. 在 PC 上启动 CodeFlowMu。
+2. 在左侧导航打开 **移动端**，点击 **刷新**。
+3. 确认 Gateway 状态为在线，并显示 **公网 Gateway 绑定二维码**。
+4. 用手机浏览器扫描该二维码；也可以复制页面显示的绑定链接到手机打开。
+5. 完成绑定后，手机会出现在 PC 的 **已绑定设备** 列表中。
+6. 在手机浏览器菜单中选择“添加到主屏幕”或“安装应用”，即可像普通应用一样打开 PWA。
+
+公网 Gateway 模式不要求手机与电脑位于同一个局域网，但 PC 必须能够连接 CodeFlowMu Gateway，手机也必须能够访问上述 HTTPS 地址。
+
+### 局域网绑定
+
+1. 让手机与电脑连接同一个 Wi-Fi。
+2. 在 PC 的 **移动端** 页面点击 **刷新**。
+3. 扫描 **局域网绑定二维码**，或复制局域网绑定链接到手机。
+4. 如果手机打不开链接，请在 Windows 防火墙中允许 CodeFlowMu 的 TCP `18766` 端口入站，然后重新刷新绑定信息。
+
+请勿把二维码或绑定链接发送给无关人员。每台手机需要独立绑定；手机丢失或不再使用时，应在 PC 的 **移动端 → 已绑定设备** 中解除绑定。绑定码过期、Gateway 离线或 PC 已关闭时，重新启动 CodeFlowMu 并点击 **刷新** 生成新的绑定信息。
+
+PWA、Mobile API、Gateway 和 PC 主程序使用独立版本号。PWA 页面更新不等于 PC 安装包已经发布，PC 安装包升级也不应被描述为 PWA 已完成升级。
 
 ## 启用 Cursor Provider
 

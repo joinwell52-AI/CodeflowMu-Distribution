@@ -8,9 +8,9 @@
 
 ## 客户入口
 
-- [中文：下载安装与升级](CUSTOMER-INSTALL.zh-CN.md)
-- [English: Install and Upgrade](CUSTOMER-INSTALL.md)
-- GitHub Releases：本仓库的 Releases 页面
+- [中文：下载安装、PWA 与升级](CUSTOMER-INSTALL.zh-CN.md)
+- [English: Install, PWA, and Upgrade](CUSTOMER-INSTALL.md)
+- [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases)：当前没有正式安装包 Release
 
 当前目标平台：**Windows x64**。
 
