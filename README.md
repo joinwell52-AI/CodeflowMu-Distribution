@@ -1,8 +1,16 @@
 # CodeFlowMu
 
 <p align="center">
-  <img src="assets/brand/codeflowmu-logo.png" alt="CodeFlowMu" width="132">
+  <img src="assets/hero-banner.png" alt="CodeFlowMu: Commands Flow, Intelligence Follows" width="100%">
 </p>
+
+<p align="center"><strong>Your AI development team, commanded from your phone: PM · DEV · QA · OPS ready for the next task.</strong></p>
+
+<p align="center">Send a software goal, follow progress remotely, take over critical actions and accept the delivery; engineering runs on your authorized Windows development machine.</p>
+
+<p align="center">Not another chat. A real flow from planning and implementation to verification, delivery and human decision.</p>
+
+<p align="center"><strong>Start the control center in 5 minutes · Run a first installable, offline-capable and statically hostable PWA task in 30 minutes</strong></p>
 
 <p align="center">
   <img alt="Free public preview" src="https://img.shields.io/badge/status-free_preview-0891b2">
@@ -10,19 +18,16 @@
   <img alt="Proprietary software" src="https://img.shields.io/badge/license-proprietary-111827">
 </p>
 
-<p align="center"><strong>Turn a software request into a visible, interruptible, verifiable delivery with a local PM · DEV · QA · OPS digital development team.</strong></p>
-
-<p align="center"><strong>Software delivery is not a chat response. It is a collaboration flow made of roles, tasks, tools, evidence and human decisions.</strong></p>
-
 <p align="center">Free public preview · Proprietary software · Windows x64 · Local-first control plane</p>
 
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1"><strong>Download Candidate</strong></a> ·
+  <a href="#see-it-in-60-seconds">Watch 60 seconds</a> ·
   <a href="#five-minutes-to-start-thirty-minutes-to-a-first-delivery">Quickstart</a> ·
   <a href="FIRST-PWA-TASK.md">First PWA task</a> ·
   <a href="CUSTOMER-INSTALL.md">Install guide</a> ·
-  <a href="ARCHITECTURE.md">Architecture</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1">Candidate download</a>
+  <a href="ARCHITECTURE.md">Architecture &amp; boundaries</a>
 </p>
 
 > [!IMPORTANT]

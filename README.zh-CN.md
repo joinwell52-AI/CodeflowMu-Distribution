@@ -1,8 +1,16 @@
 # CodeFlowMu
 
 <p align="center">
-  <img src="assets/brand/codeflowmu-logo.png" alt="CodeFlowMu" width="132">
+  <img src="assets/hero-banner.png" alt="CodeFlowMu：指令成流，智能随行" width="100%">
 </p>
+
+<p align="center"><strong>手机指挥的 AI 开发团队：PM · DEV · QA · OPS 随时接单。</strong></p>
+
+<p align="center">从手机下达软件目标、远程查看进度、接管关键动作并验收交付；实际工程在你授权的 Windows 开发机上执行。</p>
+
+<p align="center">不是“再聊一次”，而是让需求真正经历规划、实现、验证、交付和人工决策。</p>
+
+<p align="center"><strong>5 分钟启动控制中心 · 30 分钟跑通第一个可安装、可离线、可静态托管的 PWA 任务</strong></p>
 
 <p align="center">
   <img alt="免费公开预览" src="https://img.shields.io/badge/status-free_preview-0891b2">
@@ -10,19 +18,16 @@
   <img alt="专有软件" src="https://img.shields.io/badge/license-proprietary-111827">
 </p>
 
-<p align="center"><strong>把一个软件需求交给本地的 PM · DEV · QA · OPS 四人数字开发团队，获得可见、可接管、可验证、可验收的交付过程。</strong></p>
-
-<p align="center"><strong>软件开发不是一段对话，而是一条由角色、任务、工具、证据和人工决策组成的协作流。</strong></p>
-
 <p align="center">免费公开预览 · 专有软件 · Windows x64 · 本地优先控制面</p>
 
 <p align="center">
   <a href="README.md">English</a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1"><strong>下载 Candidate</strong></a> ·
+  <a href="#60-秒看懂产品">观看 60 秒</a> ·
   <a href="#五分钟启动半小时完成第一个任务">快速开始</a> ·
   <a href="FIRST-PWA-TASK.zh-CN.md">第一个 PWA 任务</a> ·
   <a href="CUSTOMER-INSTALL.zh-CN.md">安装手册</a> ·
-  <a href="ARCHITECTURE.zh-CN.md">架构</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1">候选版下载</a>
+  <a href="ARCHITECTURE.zh-CN.md">架构与边界</a>
 </p>
 
 > [!IMPORTANT]
