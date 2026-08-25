@@ -168,7 +168,7 @@ CodeFlowMu 是这套公开三段架构中的工程实现：TMPA 定义治理理�
 
 运行闭环是：**CodeFlowMu 工作动作 → FCoP 协作证据 → TMPA 治理重建 → CodeFlowMu 治理使用**。本图只表达可公开的语义关系，不披露私有部署拓扑、供应商配置、内部类名或凭据，也不据此新增任何符合性声明。
 
-公开资料：[TMPA A1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-architecture-paper-a1.0) · [TMPA S1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-core-specification-s1.0) · [TMPA–FCoP–CodeFlowMu I1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/implementation-case-i1.0) · [FCoP](https://joinwell52-ai.github.io/FCoP/) · [产品架构详解](ARCHITECTURE.zh-CN.md)
+公开资料：[TMPA A1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-architecture-paper-a1.0) · [TMPA S1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-core-specification-s1.0) · [TMPA–FCoP–CodeFlowMu I1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/implementation-case-i1.0) · [FCoP](https://joinwell52-ai.github.io/FCoP/) · [公开架构与信任边界](ARCHITECTURE.zh-CN.md)
 
 | 路径 | 入口 | 适合做什么 | 必须知道的边界 |
 | --- | --- | --- | --- |
@@ -262,7 +262,7 @@ PC 启动 CodeFlowMu
 
 - [手把手完成第一个 ShipReady PWA](FIRST-PWA-TASK.zh-CN.md)
 - [中文安装、Provider、Mobile PWA 与升级说明](CUSTOMER-INSTALL.zh-CN.md)
-- [架构与信任边界](ARCHITECTURE.zh-CN.md)
+- [公开架构与信任边界](ARCHITECTURE.zh-CN.md)
 - [English README](README.md)
 - [Release Policy](RELEASE-POLICY.md)
 - [公开仓库门禁记录](PUBLICATION-CHECKLIST.md)
