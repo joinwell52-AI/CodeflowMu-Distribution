@@ -152,19 +152,26 @@ The example demonstrates the central principle: **commands flow, evidence return
 
 The human remains ADMIN: defining project scope, holding credentials, approving external writes and risky operations, and accepting the final result from reports and evidence.
 
-## From theory to engineering
+## Public architecture: TMPA → FCoP → CodeFlowMu
 
-CodeFlowMu is not an isolated app. It is a continuous path from governance ideas to software delivery:
+CodeFlowMu is the engineering implementation in a public three-part architecture: TMPA defines governance theory and normative semantics, FCoP turns collaboration and evidence into a tool-executable protocol, and CodeFlowMu provides the Agent programming Runtime that performs real engineering work.
 
-```mermaid
-flowchart LR
-    A["TMPA<br/>governance ideas and specification"] --> B["FCoP<br/>task, report and evidence protocol"]
-    B --> C["PM · DEV · QA · OPS<br/>explicit role ownership"]
-    C --> D["Skills / Playbooks<br/>methods and evidence standards"]
-    D --> E["MCP / controlled tools<br/>authorized engineering capabilities"]
-    E --> F["PC control center + Mobile PWA<br/>observe, instruct, interrupt and approve"]
-    F --> G["REPORT · Evidence · Human Gate<br/>prove results and let humans decide"]
-```
+<p align="center">
+  <picture>
+    <source srcset="assets/architecture/tmpa-fcop-codeflowmu-public-architecture.svg" type="image/svg+xml">
+    <img src="assets/architecture/tmpa-fcop-codeflowmu-public-architecture.png" alt="TMPA–FCoP–CodeFlowMu public architecture" width="100%">
+  </picture>
+</p>
+
+| System | Public position | What it contributes | What it is not |
+| --- | --- | --- | --- |
+| **TMPA** | Theory and normative governance layer | Governance objects, role/action relationships, Reader semantics and conformance criteria | An application Runtime or tool host |
+| **FCoP** | File-based collaboration and evidence protocol | TASK / REPORT / REVIEW / ISSUE records, lifecycle semantics, references and tool entry points such as PyPI and MCP | The CodeFlowMu Runtime or a substitute for real execution |
+| **CodeFlowMu** | Agent programming engineering Runtime | A **Runtime Foundation**, pluggable **Execution Slots**, and a controlled **Capability Bus** for models, Skills, MCP tools and local engineering tools | A new name for TMPA or FCoP |
+
+The operational loop is explicit: **CodeFlowMu work actions → FCoP collaboration evidence → TMPA governance reconstruction → CodeFlowMu governance use**. This diagram is a public semantic view; it does not disclose private deployment topology, provider configuration, internal class names or credentials, and it does not make a new conformance claim.
+
+Public references: [TMPA A1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-architecture-paper-a1.0) · [TMPA S1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-core-specification-s1.0) · [TMPA–FCoP–CodeFlowMu I1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/implementation-case-i1.0) · [FCoP](https://joinwell52-ai.github.io/FCoP/) · [Detailed product architecture](ARCHITECTURE.md)
 
 | Path | Entry point | Use it for | Boundary to understand |
 | --- | --- | --- | --- |

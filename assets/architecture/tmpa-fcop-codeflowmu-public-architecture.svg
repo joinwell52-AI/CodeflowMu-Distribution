@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1600" viewBox="0 0 1920 1600" role="img" aria-labelledby="title desc">
+  <title id="title">TMPA–FCoP–CodeFlowMu 公开架构</title>
+  <desc id="desc">面向公开发布的 TMPA、FCoP 与 CodeFlowMu 语义关系、Agent 编程运行结构及治理证据闭环，不包含私有版本、内部类名、精确权限面或本地路径。</desc>
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#f7f5ff"/>
+    </linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#071426"/>
+      <stop offset="0.58" stop-color="#172554"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="tmpaFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5f3ff"/>
+      <stop offset="1" stop-color="#faf5ff"/>
+    </linearGradient>
+    <linearGradient id="fcopFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ecfeff"/>
+      <stop offset="1" stop-color="#f0fdfa"/>
+    </linearGradient>
+    <linearGradient id="runtimeFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef2ff"/>
+      <stop offset="1" stop-color="#f5f3ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-12%" width="120%" height="138%">
+      <feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="blueArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <marker id="purpleArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#7c3aed"/>
+    </marker>
+    <marker id="orangeArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ea580c"/>
+    </marker>
+    <style>
+      text { font-family: "Microsoft YaHei", "Noto Sans CJK SC", "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .title { font-size: 47px; font-weight: 900; fill: white; letter-spacing: .2px; }
+      .subtitle { font-size: 20px; font-weight: 560; fill: #c7d2fe; }
+      .section { font-size: 23px; font-weight: 900; }
+      .sectionSub { font-size: 13px; font-weight: 650; fill: #64748b; }
+      .boxTitle { font-size: 18px; font-weight: 850; text-anchor: middle; }
+      .boxSub { font-size: 13px; font-weight: 590; fill: #64748b; text-anchor: middle; }
+      .small { font-size: 12px; font-weight: 650; fill: #64748b; }
+      .tiny { font-size: 11px; font-weight: 650; fill: #64748b; }
+      .chip { font-size: 11px; font-weight: 850; text-anchor: middle; }
+      .onDark { fill: white; }
+      .onDarkSub { fill: #ddd6fe; }
+    </style>
+  </defs>
+
+  <rect width="1920" height="1600" fill="url(#page)"/>
+
+  <!-- Header -->
+  <rect width="1920" height="146" fill="url(#header)"/>
+  <g transform="translate(58 30)">
+    <rect x="0" y="6" width="72" height="72" rx="20" fill="#4f46e5"/>
+    <circle cx="36" cy="42" r="15" fill="none" stroke="white" stroke-width="4"/>
+    <line x1="36" y1="17" x2="36" y2="28" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <line x1="36" y1="56" x2="36" y2="67" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <line x1="11" y1="42" x2="22" y2="42" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <line x1="50" y1="42" x2="61" y2="42" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <text x="96" y="43" class="title">TMPA–FCoP–CodeFlowMu 公开架构</text>
+    <text x="98" y="79" class="subtitle">Theory &amp; Specification · Protocol &amp; Evidence · Agent Programming Runtime</text>
+  </g>
+  <g transform="translate(1552 38)">
+    <rect width="308" height="66" rx="33" fill="white" fill-opacity="0.11" stroke="#a5b4fc" stroke-opacity="0.6"/>
+    <circle cx="32" cy="33" r="10" fill="#22c55e"/>
+    <text x="54" y="28" font-size="14" font-weight="850" class="onDark">PUBLIC ARCHITECTURE</text>
+    <text x="54" y="49" font-size="12" font-weight="650" style="fill:#c7d2fe">公开来源对齐 · 无私有实现细节</text>
+  </g>
+
+  <!-- 1. Public semantic relation -->
+  <g filter="url(#shadow)">
+    <rect x="52" y="174" width="1816" height="276" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="82" y="213" class="section">1. Public Semantic Relation / 公开语义关系</text>
+    <text x="1834" y="212" class="sectionSub" text-anchor="end">理论与规范 → 可复用协议 Profile → 下游工程系统</text>
+
+    <rect x="82" y="238" width="500" height="170" rx="18" fill="url(#tmpaFill)" stroke="#8b5cf6" stroke-width="2.5"/>
+    <rect x="82" y="238" width="500" height="40" rx="18" fill="#7c3aed"/>
+    <rect x="82" y="257" width="500" height="21" fill="#7c3aed"/>
+    <text x="332" y="265" class="boxTitle onDark">TMPA / 文本化多智能体流程架构</text>
+    <text x="332" y="307" class="boxSub">Architecture Paper A1.0 · Core Specification S1.0</text>
+    <text x="332" y="335" class="boxSub">治理对象 · Reader 行为 · 符合性准则</text>
+    <text x="332" y="363" class="boxSub">定义事实、责任、生命周期与治理结论的语义</text>
+    <rect x="162" y="374" width="340" height="23" rx="11" fill="#ede9fe"/>
+    <text x="332" y="390" class="chip" fill="#6d28d9">独立理论与规范，不是 Runtime</text>
+
+    <rect x="710" y="238" width="500" height="170" rx="18" fill="url(#fcopFill)" stroke="#14b8a6" stroke-width="2.5"/>
+    <rect x="710" y="238" width="500" height="40" rx="18" fill="#0f766e"/>
+    <rect x="710" y="257" width="500" height="21" fill="#0f766e"/>
+    <text x="960" y="265" class="boxTitle onDark">FCoP / 文件型协作与证据协议</text>
+    <text x="960" y="307" class="boxSub">TASK · REPORT · REVIEW · ISSUE · Lifecycle</text>
+    <text x="960" y="335" class="boxSub">项目可见协作事实 · 可重建证据 Profile</text>
+    <text x="960" y="363" class="boxSub">PyPI SDK · MCP Tools · 参考实现</text>
+    <rect x="790" y="374" width="340" height="23" rx="11" fill="#ccfbf1"/>
+    <text x="960" y="390" class="chip" fill="#0f766e">可工具执行的协议，不是应用 Runtime</text>
+
+    <rect x="1338" y="238" width="500" height="170" rx="18" fill="#eff6ff" stroke="#3b82f6" stroke-width="2.5"/>
+    <rect x="1338" y="238" width="500" height="40" rx="18" fill="#1d4ed8"/>
+    <rect x="1338" y="257" width="500" height="21" fill="#1d4ed8"/>
+    <text x="1588" y="265" class="boxTitle onDark">CodeFlowMu / Agent 编程工程 Runtime</text>
+    <text x="1588" y="307" class="boxSub">运行底座 · 执行插槽 · 工具能力总线</text>
+    <text x="1588" y="335" class="boxSub">受治理执行 · 恢复 · 持久工作证据</text>
+    <text x="1588" y="363" class="boxSub">产生协作事实，并消费治理重建结果</text>
+    <rect x="1418" y="374" width="340" height="23" rx="11" fill="#dbeafe"/>
+    <text x="1588" y="390" class="chip" fill="#1d4ed8">FCoP 下游采用者与工程参考环境</text>
+  </g>
+
+  <path d="M592 323 L698 323" stroke="#7c3aed" stroke-width="4" marker-end="url(#purpleArrow)"/>
+  <text x="645" y="307" class="tiny" text-anchor="middle">实现治理语义子集</text>
+  <path d="M1220 323 L1326 323" stroke="#0f766e" stroke-width="4" marker-end="url(#blueArrow)"/>
+  <text x="1273" y="307" class="tiny" text-anchor="middle">采用协议基础设施</text>
+
+  <!-- 2. Agent work loop -->
+  <g filter="url(#shadow)">
+    <rect x="52" y="480" width="1816" height="194" rx="22" fill="#ecfdf5" stroke="#34d399" stroke-width="2"/>
+    <text x="82" y="519" class="section" fill="#047857">2. Governed Agent Work Loop / 受治理的 Agent 工作闭环</text>
+    <text x="1834" y="518" class="sectionSub" text-anchor="end">Agent 负责推理与行动；人类和授权角色保留业务决定权</text>
+
+    <rect x="82" y="550" width="300" height="82" rx="15" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="232" y="582" class="boxTitle">Work Context</text>
+    <text x="232" y="608" class="boxSub">目标、角色、任务与约束</text>
+    <rect x="442" y="550" width="300" height="82" rx="15" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="592" y="582" class="boxTitle">Reason &amp; Plan</text>
+    <text x="592" y="608" class="boxSub">理解、拆解与路径选择</text>
+    <rect x="802" y="550" width="300" height="82" rx="15" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="952" y="582" class="boxTitle">Select Capability</text>
+    <text x="952" y="608" class="boxSub">按角色和任务使用能力</text>
+    <rect x="1162" y="550" width="300" height="82" rx="15" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="1312" y="582" class="boxTitle">Execute &amp; Verify</text>
+    <text x="1312" y="608" class="boxSub">工具行动与结果验证</text>
+    <rect x="1522" y="550" width="300" height="82" rx="15" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="1672" y="582" class="boxTitle">Evidence &amp; Handoff</text>
+    <text x="1672" y="608" class="boxSub">报告、证据与下一轮工作</text>
+  </g>
+
+  <g stroke="#2563eb" stroke-width="3" marker-end="url(#blueArrow)">
+    <line x1="382" y1="591" x2="430" y2="591"/>
+    <line x1="742" y1="591" x2="790" y2="591"/>
+    <line x1="1102" y1="591" x2="1150" y2="591"/>
+    <line x1="1462" y1="591" x2="1510" y2="591"/>
+  </g>
+
+  <path d="M960 674 L960 705" stroke="#2563eb" stroke-width="4" marker-end="url(#blueArrow)"/>
+
+  <!-- 3. Public CodeFlowMu composition -->
+  <g filter="url(#shadow)">
+    <rect x="52" y="714" width="1816" height="354" rx="22" fill="url(#runtimeFill)" stroke="#6d28d9" stroke-width="3"/>
+    <rect x="52" y="714" width="1816" height="58" rx="22" fill="#37308a"/>
+    <rect x="52" y="748" width="1816" height="24" fill="#37308a"/>
+    <text x="82" y="753" class="section onDark">3. CodeFlowMu Public Composition / 公开工程构成</text>
+    <text x="1834" y="752" class="sectionSub onDarkSub" text-anchor="end">CodeFlowMu = 运行底座 + 执行插槽 + 工具能力总线</text>
+
+    <rect x="82" y="802" width="530" height="202" rx="18" fill="#ffffff" stroke="#c4b5fd" stroke-width="2"/>
+    <text x="347" y="838" class="boxTitle" fill="#3730a3">Runtime Foundation / 运行底座</text>
+    <text x="347" y="874" class="boxSub">任务身份与生命周期</text>
+    <text x="347" y="902" class="boxSub">持久事实与状态一致性</text>
+    <text x="347" y="930" class="boxSub">投递、交付、恢复与审计</text>
+    <text x="347" y="958" class="boxSub">确定性轨道维护工程秩序</text>
+    <rect x="157" y="969" width="380" height="23" rx="11" fill="#e0e7ff"/>
+    <text x="347" y="985" class="chip" fill="#3730a3">不通过模型推断替代业务判断</text>
+
+    <rect x="694" y="802" width="530" height="202" rx="18" fill="#ffffff" stroke="#c4b5fd" stroke-width="2"/>
+    <text x="959" y="838" class="boxTitle" fill="#3730a3">Execution Slots / 执行插槽</text>
+    <text x="959" y="874" class="boxSub">Host Adapter Boundary</text>
+    <text x="959" y="902" class="boxSub">会话、工作上下文与行动桥接</text>
+    <text x="959" y="930" class="boxSub">Provider 能力按发行版本声明</text>
+    <text x="959" y="958" class="boxSub">替换 Host 不改变协议与治理边界</text>
+    <rect x="769" y="969" width="380" height="23" rx="11" fill="#e0e7ff"/>
+    <text x="959" y="985" class="chip" fill="#3730a3">具体 Provider 以公开版本说明为准</text>
+
+    <rect x="1306" y="802" width="532" height="202" rx="18" fill="#ffffff" stroke="#c4b5fd" stroke-width="2"/>
+    <text x="1572" y="838" class="boxTitle" fill="#3730a3">Capability Bus / 工具能力总线</text>
+    <text x="1572" y="874" class="boxSub">Host 原生工程工具</text>
+    <text x="1572" y="902" class="boxSub">FCoP 协议工具 · MCP · Skills</text>
+    <text x="1572" y="930" class="boxSub">外部系统与工作区能力</text>
+    <text x="1572" y="958" class="boxSub">能力按角色、任务和授权装配</text>
+    <rect x="1382" y="969" width="380" height="23" rx="11" fill="#e0e7ff"/>
+    <text x="1572" y="985" class="chip" fill="#3730a3">能力接入不等于运行事实所有权</text>
+
+    <line x1="96" y1="1028" x2="1824" y2="1028" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
+    <line x1="96" y1="1043" x2="1824" y2="1043" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+    <text x="960" y="1059" class="tiny" text-anchor="middle">Deterministic Work Rail / 确定性工作轨道</text>
+  </g>
+
+  <path d="M960 1068 L960 1099" stroke="#ea580c" stroke-width="4" stroke-dasharray="7 6" marker-end="url(#orangeArrow)"/>
+
+  <!-- 4. Public evidence loop -->
+  <g filter="url(#shadow)">
+    <rect x="52" y="1108" width="1816" height="360" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="82" y="1147" class="section">4. Public Evidence &amp; Governance Loop / 公开证据与治理闭环</text>
+    <text x="1834" y="1146" class="sectionSub" text-anchor="end">CodeFlowMu → FCoP → TMPA → CodeFlowMu</text>
+
+    <rect x="82" y="1190" width="368" height="208" rx="18" fill="#eff6ff" stroke="#60a5fa" stroke-width="2"/>
+    <text x="266" y="1228" class="boxTitle" fill="#1d4ed8">CodeFlowMu Work Actions</text>
+    <text x="266" y="1267" class="boxSub">任务投递 · Agent 行动</text>
+    <text x="266" y="1296" class="boxSub">工具结果 · 报告交付</text>
+    <text x="266" y="1325" class="boxSub">运行状态由 Runtime 自己维护</text>
+    <rect x="124" y="1350" width="284" height="25" rx="12" fill="#dbeafe"/>
+    <text x="266" y="1367" class="chip" fill="#1d4ed8">发布需要协作的持久工件</text>
+
+    <rect x="510" y="1190" width="368" height="208" rx="18" fill="url(#fcopFill)" stroke="#14b8a6" stroke-width="2"/>
+    <text x="694" y="1228" class="boxTitle" fill="#0f766e">FCoP Collaboration Evidence</text>
+    <text x="694" y="1267" class="boxSub">TASK · REPORT · REVIEW · ISSUE</text>
+    <text x="694" y="1296" class="boxSub">Lifecycle · roles · relations</text>
+    <text x="694" y="1325" class="boxSub">项目可见、可检查、可重建</text>
+    <rect x="552" y="1350" width="284" height="25" rx="12" fill="#ccfbf1"/>
+    <text x="694" y="1367" class="chip" fill="#0f766e">协议事实不自动等于业务真值</text>
+
+    <rect x="938" y="1190" width="368" height="208" rx="18" fill="url(#tmpaFill)" stroke="#a855f7" stroke-width="2"/>
+    <text x="1122" y="1228" class="boxTitle" fill="#7e22ce">TMPA Governance Reconstruction</text>
+    <text x="1122" y="1267" class="boxSub">聚合候选事实</text>
+    <text x="1122" y="1296" class="boxSub">验证对象、关系、责任与生命周期</text>
+    <text x="1122" y="1325" class="boxSub">保留冲突、不确定与证据边界</text>
+    <rect x="980" y="1350" width="284" height="25" rx="12" fill="#f3e8ff"/>
+    <text x="1122" y="1367" class="chip" fill="#7e22ce">确定性读取，不回写运行状态</text>
+
+    <rect x="1366" y="1190" width="454" height="208" rx="18" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+    <text x="1593" y="1228" class="boxTitle" fill="#3730a3">CodeFlowMu Governance Use</text>
+    <text x="1593" y="1267" class="boxSub">项目视图 · 工作流 · Review</text>
+    <text x="1593" y="1296" class="boxSub">Recovery · Audit · Human Approval</text>
+    <text x="1593" y="1325" class="boxSub">治理结果参与门禁与下一轮工作</text>
+    <rect x="1418" y="1350" width="350" height="25" rx="12" fill="#e0e7ff"/>
+    <text x="1593" y="1367" class="chip" fill="#3730a3">事实辅助决定，不取代业务裁决</text>
+
+    <rect x="128" y="1422" width="1664" height="27" rx="13" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="960" y="1440" class="chip" fill="#475569">公开声明边界：本图描述架构关系，不公开私有实现拓扑，也不构成新的版本符合性或认证声明。</text>
+  </g>
+
+  <g stroke-width="4" fill="none">
+    <path d="M450 1294 L498 1294" stroke="#ea580c" stroke-dasharray="7 6" marker-end="url(#orangeArrow)"/>
+    <path d="M878 1294 L926 1294" stroke="#7c3aed" marker-end="url(#purpleArrow)"/>
+    <path d="M1306 1294 L1354 1294" stroke="#7c3aed" marker-end="url(#purpleArrow)"/>
+  </g>
+
+  <!-- The only long feedback path remains outside content panels. -->
+  <path d="M1820 1294 L1888 1294 L1888 591 L1822 591" fill="none" stroke="#ea580c" stroke-width="4" stroke-dasharray="8 7" stroke-linejoin="round" marker-end="url(#orangeArrow)"/>
+
+  <!-- Footer -->
+  <line x1="58" y1="1514" x2="1862" y2="1514" stroke="#cbd5e1"/>
+  <text x="58" y="1544" class="small">公开语义：TMPA 定义理论与规范；FCoP 提供协作与证据协议；CodeFlowMu 负责 Agent 编程运行和治理消费。</text>
+  <text x="1862" y="1544" class="small" text-anchor="end">Public semantic view · A1.0 / S1.0 / I1.0 terminology</text>
+  <text x="58" y="1576" class="small">Sources: Digital Employee Works · TMPA Publications · FCoP Official Site · CodeFlowMu Open</text>
+  <text x="1862" y="1576" class="small" text-anchor="end">No private version, provider list, tool count, class name, source path, credential or runtime history</text>
+</svg>
