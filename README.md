@@ -171,7 +171,7 @@ CodeFlowMu is the engineering implementation in a public three-part architecture
 
 The operational loop is explicit: **CodeFlowMu work actions → FCoP collaboration evidence → TMPA governance reconstruction → CodeFlowMu governance use**. This diagram is a public semantic view; it does not disclose private deployment topology, provider configuration, internal class names or credentials, and it does not make a new conformance claim.
 
-Public references: [TMPA A1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-architecture-paper-a1.0) · [TMPA S1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-core-specification-s1.0) · [TMPA–FCoP–CodeFlowMu I1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/implementation-case-i1.0) · [FCoP](https://joinwell52-ai.github.io/FCoP/) · [Detailed product architecture](ARCHITECTURE.md)
+Public references: [TMPA A1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-architecture-paper-a1.0) · [TMPA S1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-core-specification-s1.0) · [TMPA–FCoP–CodeFlowMu I1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/implementation-case-i1.0) · [FCoP](https://joinwell52-ai.github.io/FCoP/) · [Public architecture and trust boundaries](ARCHITECTURE.md)
 
 | Path | Entry point | Use it for | Boundary to understand |
 | --- | --- | --- | --- |
@@ -265,7 +265,7 @@ Public repository visibility does not make the product open source. Technical ch
 
 - [Your first ShipReady PWA, step by step](FIRST-PWA-TASK.md)
 - [Install, Provider, Mobile PWA and upgrade guide](CUSTOMER-INSTALL.md)
-- [Architecture and trust boundaries](ARCHITECTURE.md)
+- [Public architecture and trust boundaries](ARCHITECTURE.md)
 - [中文 README](README.zh-CN.md)
 - [Release policy](RELEASE-POLICY.md)
 - [Public repository readiness review](PUBLICATION-CHECKLIST.md)
