@@ -149,19 +149,26 @@ QA 必须逐条验证功能、刷新持久化、响应式、Manifest、Service W
 
 人始终是 ADMIN：决定项目范围，持有凭据，批准外部写入和风险操作，并依据报告与证据完成最终验收。
 
-## 从理论到工程
+## 公开架构：TMPA → FCoP → CodeFlowMu
 
-CodeFlowMu 不是孤立产品，而是一条从治理思想落到软件交付的连续路径：
+CodeFlowMu 是这套公开三段架构中的工程实现：TMPA 定义治理理论与规范语义，FCoP 将协作与证据落成可由工具执行的协议，CodeFlowMu 则提供执行真实工程工作的 Agent 编程 Runtime。
 
-```mermaid
-flowchart LR
-    A["TMPA<br/>治理思想与规范"] --> B["FCoP<br/>任务、报告与证据协议"]
-    B --> C["PM · DEV · QA · OPS<br/>明确角色责任"]
-    C --> D["Skills / Playbooks<br/>方法与证据标准"]
-    D --> E["MCP / 受控工具<br/>授权后的工程能力"]
-    E --> F["PC 控制中心 + Mobile PWA<br/>观察、下令、接管与审批"]
-    F --> G["REPORT · Evidence · Human Gate<br/>证明结果并由人决定"]
-```
+<p align="center">
+  <picture>
+    <source srcset="assets/architecture/tmpa-fcop-codeflowmu-public-architecture.svg" type="image/svg+xml">
+    <img src="assets/architecture/tmpa-fcop-codeflowmu-public-architecture.png" alt="TMPA–FCoP–CodeFlowMu 公开架构" width="100%">
+  </picture>
+</p>
+
+| 系统 | 公开定位 | 提供什么 | 不是什么 |
+| --- | --- | --- | --- |
+| **TMPA** | 理论与规范治理层 | 治理对象、角色与动作关系、Reader 语义、符合性判定 | 应用 Runtime 或工具宿主 |
+| **FCoP** | 文件型协作与证据协议 | TASK / REPORT / REVIEW / ISSUE 记录、生命周期语义、引用关系，以及 PyPI、MCP 等工具入口 | CodeFlowMu Runtime，也不替代真实执行 |
+| **CodeFlowMu** | Agent 编程工程 Runtime | 由**运行底座、执行插槽、能力总线**构成，接入模型、Skills、MCP 工具和本地工程工具 | TMPA 或 FCoP 的改名 |
+
+运行闭环是：**CodeFlowMu 工作动作 → FCoP 协作证据 → TMPA 治理重建 → CodeFlowMu 治理使用**。本图只表达可公开的语义关系，不披露私有部署拓扑、供应商配置、内部类名或凭据，也不据此新增任何符合性声明。
+
+公开资料：[TMPA A1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-architecture-paper-a1.0) · [TMPA S1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/tmpa-core-specification-s1.0) · [TMPA–FCoP–CodeFlowMu I1.0](https://joinwell52-ai.github.io/joinwell52/zh/publications/implementation-case-i1.0) · [FCoP](https://joinwell52-ai.github.io/FCoP/) · [产品架构详解](ARCHITECTURE.zh-CN.md)
 
 | 路径 | 入口 | 适合做什么 | 必须知道的边界 |
 | --- | --- | --- | --- |
