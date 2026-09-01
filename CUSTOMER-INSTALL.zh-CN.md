@@ -15,12 +15,12 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 ## 下载
 
 > [!IMPORTANT]
-> 当前仓库提供 `V2.2.1 Preview 11` 预发行版，但尚无正式支持的稳定版。预发行软件只用于免费预览和安装测试。
+> 当前仓库提供 `V2.2.1 Preview 15` 预发行版，但尚无正式支持的稳定版。预发行软件只用于免费预览和安装测试。
 
-需要在另一台 Windows x64 电脑上进行安装测试时，可使用明确标注为非正式版的 [V2.2.1 Preview 11](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.11)：
+需要在另一台 Windows x64 电脑上进行安装测试时，可使用明确标注为非正式版的 [V2.2.1 Preview 15](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.15)：
 
-- [直接下载安装程序](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.11/CodeFlowMu-Setup-2.2.1-win-x64.exe)
-- SHA-256：`a07eeaa52d8baabf3beabbd2668f6abf4c85571b60aa4aad97195005922bc515`
+- [直接下载安装程序](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.15/CodeFlowMu-Setup-2.2.1-preview.15-win-x64.exe)
+- SHA-256：`6923af6c5b00f15c799413a03123db01ad4a0456bd67ec921847da684016e9be`
 
 该安装包已经自动完成隔离静默安装和安装后程序启动检查。该基础验收不包含外部 Provider 账户配置、手机端业务任务或升级场景，不得据此把预发行版描述为正式客户版本或稳定支持版本。
 
@@ -33,7 +33,7 @@ CodeFlowMu-Setup-<version>-<candidate>-win-x64.exe
 SHA256SUMS.txt
 ```
 
-当前 Preview 11 仍使用旧文件名；从下一候选开始，文件名包含完整候选号，避免同一产品版本的多个 Preview 安装包互相混淆。
+Preview 15 的文件名包含完整候选号，避免同一产品版本的多个 Preview 安装包互相混淆。
 
 其他产品清单、模块配置、安全审计和安装验收明细由发行工作台保存在内部版本记录中，不作为客户附件散发。Cursor 采用独立的 `sdk.v1` Provider Runtime，不把真实 Cursor SDK 或客户账户凭据打入安装包。
 
@@ -46,7 +46,7 @@ SHA256SUMS.txt
 3. 按安装向导完成安装。
 4. 从开始菜单或桌面快捷方式启动 **CodeFlowMu**。
 
-当前可下载的 Preview 11 使用其安装器既有目录规则。从 Preview 15 起，手动运行安装器会先显示 CodeFlowMu 品牌欢迎页、产品名称、完整候选号和 Logo，再明确显示可编辑的安装目录选择页，并在真正写入文件前的确认页再次显示目标目录；记住的旧目录只作为可修改的默认值，不会跳过目录选择。
+当前可下载的 Preview 15 会先显示 CodeFlowMu 品牌欢迎页、产品名称、完整候选号和 Logo，再明确显示可编辑的安装目录选择页，并在真正写入文件前的确认页再次显示目标目录；记住的旧目录只作为可修改的默认值，不会跳过目录选择。
 
 默认建议把程序文件安装在 Windows `Program Files` 下；可变运行数据与程序文件分离，写入 CodeFlowMu 的产品数据目录。
 

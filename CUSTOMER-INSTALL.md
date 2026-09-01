@@ -15,12 +15,12 @@ The installer carries the base product runtimes pinned and verified by the CodeF
 ## Download
 
 > [!IMPORTANT]
-> This repository provides V2.2.1 Preview 11, but no formally supported stable release. Prerelease software is for free preview and installation testing only.
+> This repository provides V2.2.1 Preview 15, but no formally supported stable release. Prerelease software is for free preview and installation testing only.
 
-For installation testing on another Windows x64 computer, use the explicitly non-formal [V2.2.1 Preview 11](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.11):
+For installation testing on another Windows x64 computer, use the explicitly non-formal [V2.2.1 Preview 15](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.15):
 
-- [Download the installer directly](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.11/CodeFlowMu-Setup-2.2.1-win-x64.exe)
-- SHA-256: `a07eeaa52d8baabf3beabbd2668f6abf4c85571b60aa4aad97195005922bc515`
+- [Download the installer directly](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.15/CodeFlowMu-Setup-2.2.1-preview.15-win-x64.exe)
+- SHA-256: `6923af6c5b00f15c799413a03123db01ad4a0456bd67ec921847da684016e9be`
 
 The installer passed automatic isolated silent installation and installed-program startup checks. This basic acceptance does not configure an external Provider account or cover mobile business tasks and upgrade scenarios, and it must not be treated as a formal or stable supported release.
 
@@ -33,7 +33,7 @@ CodeFlowMu-Setup-<version>-<candidate>-win-x64.exe
 SHA256SUMS.txt
 ```
 
-Preview 11 still uses the legacy filename. Beginning with the next candidate, the filename contains the complete candidate number so multiple Preview builds of one product version cannot be confused.
+The Preview 15 filename contains the complete candidate number so multiple Preview builds of one product version cannot be confused.
 
 Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record instead of being distributed as customer attachments. Cursor is managed as a separate `sdk.v1` Provider Runtime; the installer does not bundle the real Cursor SDK or customer credentials.
 
@@ -46,7 +46,7 @@ Development candidates are not formal customer releases until every Release Gate
 3. Complete the installation wizard.
 4. Start **CodeFlowMu** from the Start menu or desktop shortcut.
 
-The currently downloadable Preview 11 retains its existing installer-directory behavior. Beginning with Preview 15, an interactive install first presents a CodeFlowMu-branded welcome page with the product name, complete candidate number and logo. It then shows an editable destination chooser and repeats the final destination on the confirmation page before writing files. A remembered previous directory is only an editable default and no longer suppresses the chooser.
+The currently downloadable Preview 15 first presents a CodeFlowMu-branded welcome page with the product name, complete candidate number and logo. It then shows an editable destination chooser and repeats the final destination on the confirmation page before writing files. A remembered previous directory is only an editable default and no longer suppresses the chooser.
 
 Windows Program Files remains the recommended default. Mutable runtime/customer data is kept outside the installed program tree.
 
