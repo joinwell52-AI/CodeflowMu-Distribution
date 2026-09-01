@@ -15,12 +15,12 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 ## 下载
 
 > [!IMPORTANT]
-> 当前仓库提供 `V2.2.1 Preview 10` 预发行版，但尚无正式支持的稳定版。预发行软件只用于免费预览和安装测试。
+> 当前仓库提供 `V2.2.1 Preview 11` 预发行版，但尚无正式支持的稳定版。预发行软件只用于免费预览和安装测试。
 
-需要在另一台 Windows x64 电脑上进行安装测试时，可使用明确标注为非正式版的 [V2.2.1 Preview 10](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.10)：
+需要在另一台 Windows x64 电脑上进行安装测试时，可使用明确标注为非正式版的 [V2.2.1 Preview 11](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.11)：
 
-- [直接下载安装程序](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.10/CodeFlowMu-Setup-2.2.1-win-x64.exe)
-- SHA-256：`ff608eaf6a07e5976d306cebf613c2867fddd01122316ae4bdec9403b371d9fe`
+- [直接下载安装程序](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.11/CodeFlowMu-Setup-2.2.1-win-x64.exe)
+- SHA-256：`a07eeaa52d8baabf3beabbd2668f6abf4c85571b60aa4aad97195005922bc515`
 
 该安装包已经自动完成隔离静默安装和安装后程序启动检查。该基础验收不包含外部 Provider 账户配置、手机端业务任务或升级场景，不得据此把预发行版描述为正式客户版本或稳定支持版本。
 

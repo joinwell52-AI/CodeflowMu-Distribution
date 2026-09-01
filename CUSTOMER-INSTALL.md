@@ -15,12 +15,12 @@ The installer carries the base product runtimes pinned and verified by the CodeF
 ## Download
 
 > [!IMPORTANT]
-> This repository provides V2.2.1 Preview 10, but no formally supported stable release. Prerelease software is for free preview and installation testing only.
+> This repository provides V2.2.1 Preview 11, but no formally supported stable release. Prerelease software is for free preview and installation testing only.
 
-For installation testing on another Windows x64 computer, use the explicitly non-formal [V2.2.1 Preview 10](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.10):
+For installation testing on another Windows x64 computer, use the explicitly non-formal [V2.2.1 Preview 11](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.11):
 
-- [Download the installer directly](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.10/CodeFlowMu-Setup-2.2.1-win-x64.exe)
-- SHA-256: `ff608eaf6a07e5976d306cebf613c2867fddd01122316ae4bdec9403b371d9fe`
+- [Download the installer directly](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.11/CodeFlowMu-Setup-2.2.1-win-x64.exe)
+- SHA-256: `a07eeaa52d8baabf3beabbd2668f6abf4c85571b60aa4aad97195005922bc515`
 
 The installer passed automatic isolated silent installation and installed-program startup checks. This basic acceptance does not configure an external Provider account or cover mobile business tasks and upgrade scenarios, and it must not be treated as a formal or stable supported release.
 

@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.md">English</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.10"><strong>下载 V2.2.1 Preview 10</strong></a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.11"><strong>下载 V2.2.1 Preview 11</strong></a> ·
   <a href="#60-秒看懂产品">观看 60 秒</a> ·
   <a href="#五分钟启动半小时完成第一个任务">快速开始</a> ·
   <a href="FIRST-PWA-TASK.zh-CN.md">第一个 PWA 任务</a> ·
@@ -31,7 +31,7 @@
 </p>
 
 > [!IMPORTANT]
-> 这是 **CodeFlowMu 专有软件免费公开预览版**的发行仓库，不是源码仓库，也不授予开源许可证。当前 `v2.2.1-preview.10` 已通过隔离安装与安装后启动验收，但安装器尚未签名，仍是预发行版，不是稳定版或正式支持版本。仓库目前保持 Private；转为 Public 仍需单独完成公开检查与明确批准。
+> 这是 **CodeFlowMu 专有软件免费公开预览版**的发行仓库，不是源码仓库，也不授予开源许可证。当前 `v2.2.1-preview.11` 已通过隔离安装与安装后启动验收，但安装器尚未签名，仍是预发行版，不是稳定版或正式支持版本。仓库目前保持 Private；转为 Public 仍需单独完成公开检查与明确批准。
 
 ## 为什么不是另一个聊天窗口
 
@@ -58,7 +58,7 @@
 
 闭源产品不能假装成“从本仓库源码可复现构建”。CodeFlowMu Distribution 采用的是**专有运行时 + 可审阅的发行证据**：
 
-| 要验证什么 | V2.2.1 Preview 10 提供的内容 | 当前结论 |
+| 要验证什么 | V2.2.1 Preview 11 提供的内容 | 当前结论 |
 | --- | --- | --- |
 | 下载来源 | 本仓库的 GitHub Release 与明确版本标签 | 只接受官方 Release，不接受网盘或转发文件 |
 | 文件完整性 | `SHA256SUMS.txt` | 安装器哈希可独立复算；不一致时不要运行 |
@@ -72,8 +72,8 @@ Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、�
 ### 五分钟：安装并打开控制中心
 
 1. 使用 Windows 10/11 x64 电脑。
-2. 从 [V2.2.1 Preview 10](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.10) 下载安装器和 `SHA256SUMS.txt`。
-3. 校验安装器 SHA-256：`ff608eaf6a07e5976d306cebf613c2867fddd01122316ae4bdec9403b371d9fe`。
+2. 从 [V2.2.1 Preview 11](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.11) 下载安装器和 `SHA256SUMS.txt`。
+3. 校验安装器 SHA-256：`a07eeaa52d8baabf3beabbd2668f6abf4c85571b60aa4aad97195005922bc515`。
 4. 安装并启动 **CodeFlowMu**。
 5. 确认顶部连接状态正常，并在设置中注册一个空白示例项目。
 
@@ -83,10 +83,10 @@ Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、�
 (Get-FileHash .\CodeFlowMu-Setup-2.2.1-win-x64.exe -Algorithm SHA256).Hash
 ```
 
-输出必须为 `FF608EAF6A07E5976D306CEBF613C2867FDDD01122316AE4BDEC9403B371D9FE`；不一致时不要运行安装器。
+输出必须为 `A07EEAA52D8BAABF3BEABBD2668F6ABF4C85571B60AA4AAD97195005922BC515`；不一致时不要运行安装器。
 
 > [!WARNING]
-> V2.2.1 Preview 10 尚未签名，Windows SmartScreen 可能警告。自动验收只证明安装包可以在隔离目录安装并正常启动，不代表外部 Provider 账户已经替用户完成配置。安装根不是业务项目，不能让 Agent 在安装目录中开发。Provider 账户、凭据和可能产生的调用费用与 CodeFlowMu 免费预览彼此独立。
+> V2.2.1 Preview 11 尚未签名，Windows SmartScreen 可能警告。自动验收只证明安装包可以在隔离目录安装并正常启动，不代表外部 Provider 账户已经替用户完成配置。安装根不是业务项目，不能让 Agent 在安装目录中开发。Provider 账户、凭据和可能产生的调用费用与 CodeFlowMu 免费预览彼此独立。
 
 ### 半小时：让团队交付一个真正的静态 PWA
 
@@ -190,7 +190,7 @@ CodeFlowMu 是这套公开三段架构中的工程实现：TMPA 定义治理理�
 | **Evidence** | 如何证明文件、命令、测试或页面真实产生 | 证据本身不能替人接受业务风险 |
 | **Human Gate** | 谁批准外部写入、敏感动作和最终交付 | 技术检查不能替代人的产品验收 |
 
-V2.2.1 Preview 10 包含 Skill schema、FCoP 受控 MCP 执行边界和 Browser Use 运行组件；具体能力只有在产品实际提供、项目启用并获得授权时才可使用。本 README 不承诺自动安装任意社区 MCP，也不把未验证工具描述为正式支持能力。
+V2.2.1 Preview 11 包含 Skill schema、FCoP 受控 MCP 执行边界和 Browser Use 运行组件；具体能力只有在产品实际提供、项目启用并获得授权时才可使用。本 README 不承诺自动安装任意社区 MCP，也不把未验证工具描述为正式支持能力。
 
 ## 真实产品界面
 
