@@ -26,22 +26,14 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 
 候选安装器尚未进行代码签名，可能触发 Windows SmartScreen；运行前必须校验 SHA-256。CodeFlowMu 预览版本身免费，外部 Provider 的账户、服务和调用费用彼此独立。
 
-正式安装包只从本仓库的 [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) 下载。Release 上线后，请下载至少以下文件：
+安装包只从本仓库的 [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) 下载。客户只需下载以下两个文件：
 
 ```text
 CodeFlowMu-Setup-<version>-win-x64.exe
 SHA256SUMS.txt
-installer-manifest.json
-installation-acceptance.json
-product-manifest.json
-product-profile.json
-THIRD-PARTY-NOTICES.json
-runtime-security-audit.json
-security-risk-acceptance.json
-update-manifest.preview.json
 ```
 
-`installation-acceptance.json` 记录与安装包哈希绑定的隔离安装和启动结果；`runtime-security-audit.json` 是该版本客户产品的有效依赖安全审计；如果存在被接受的风险项，`security-risk-acceptance.json` 会给出依据和重新审阅条件。Cursor 采用独立的 `sdk.v1` Provider Runtime，不把真实 Cursor SDK 或客户账户凭据打入安装包。
+其他产品清单、模块配置、安全审计和安装验收明细由发行工作台保存在内部版本记录中，不作为客户附件散发。Cursor 采用独立的 `sdk.v1` Provider Runtime，不把真实 Cursor SDK 或客户账户凭据打入安装包。
 
 在 Release Gate 全部通过之前，本仓库不会把开发候选产物声明为正式客户版本。
 

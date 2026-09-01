@@ -58,18 +58,14 @@
 
 闭源产品不能假装成“从本仓库源码可复现构建”。CodeFlowMu Distribution 采用的是**专有运行时 + 可审阅的发行证据**：
 
-| 要验证什么 | V2.2.1 Preview 10 提供的证据 | 当前结论 |
+| 要验证什么 | V2.2.1 Preview 10 提供的内容 | 当前结论 |
 | --- | --- | --- |
 | 下载来源 | 本仓库的 GitHub Release 与明确版本标签 | 只接受官方 Release，不接受网盘或转发文件 |
-| 文件完整性 | `SHA256SUMS.txt`、`installer-manifest.json` | 安装器哈希可独立复算 |
-| 产品边界 | `product-manifest.json`、安装文件清单 | 客户安装包不包含第一方源码或 Source Map |
-| 第三方成分 | `THIRD-PARTY-NOTICES.json` | 依赖与许可证据随版本发布 |
-| 安全状态 | `runtime-security-audit.json`、`security-risk-acceptance.json` | 已审查结果与已接受风险分开记录 |
-| 可追溯性 | Release closure evidence 与声明的源提交 | 可以追溯产物，但不等同于公开源码可复现构建 |
-| 安装与启动 | `installation-acceptance.json` | 隔离静默安装与安装后 `/api/v2/health` 启动检查通过 |
+| 文件完整性 | `SHA256SUMS.txt` | 安装器哈希可独立复算；不一致时不要运行 |
+| 安装与启动 | Release 说明中的自动验收结论 | 隔离静默安装与安装后 `/api/v2/health` 启动检查通过 |
 | 签名与 Provider | 安装器未签名；Cursor 采用外部 `sdk.v1` Provider | 只能作为 Preview，不能称为稳定正式版；Provider 账户与兼容验证独立管理 |
 
-本仓库不以一个泛化的 `CI Passing` 徽章代替逐版本产物证据。当前公开门禁采用有记录的本地检查，不依赖 GitHub Actions 额度；完整边界见[公开仓库门禁记录](PUBLICATION-CHECKLIST.md)和[发行政策](RELEASE-POLICY.md)。
+Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、模块配置、安全审计和安装验收明细保存在发行工作台的内部版本记录中，不要求客户辨认或下载一组流水线 JSON。本仓库不以一个泛化的 `CI Passing` 徽章代替逐版本检查；完整边界见[公开仓库门禁记录](PUBLICATION-CHECKLIST.md)和[发行政策](RELEASE-POLICY.md)。
 
 ## 五分钟启动，半小时完成第一个任务
 

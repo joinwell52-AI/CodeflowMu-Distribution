@@ -58,18 +58,14 @@ Click the poster to play in the browser. The video uses real product surfaces: t
 
 A proprietary product cannot honestly claim a reproducible build from source in this repository. CodeFlowMu Distribution uses a **proprietary runtime plus reviewable release evidence**:
 
-| What to verify | V2.2.1 Preview 10 evidence | Current conclusion |
+| What to verify | V2.2.1 Preview 10 provides | Current conclusion |
 | --- | --- | --- |
 | Download origin | This repository's GitHub Release and explicit version tag | Accept only the official Release, never a mirror or forwarded file |
-| File integrity | `SHA256SUMS.txt`, `installer-manifest.json` | The installer hash can be recomputed independently |
-| Product boundary | `product-manifest.json`, installed-file inventory | The customer package contains no first-party source or source maps |
-| Third-party content | `THIRD-PARTY-NOTICES.json` | Dependency and license evidence ships with the version |
-| Security state | `runtime-security-audit.json`, `security-risk-acceptance.json` | Reviewed results and accepted risk are recorded separately |
-| Traceability | Release closure evidence and declared source commit | The artifact is traceable, but this is not a public-source reproducible build |
-| Install and startup | `installation-acceptance.json` | Isolated silent installation and installed `/api/v2/health` startup checks passed |
+| File integrity | `SHA256SUMS.txt` | The installer hash can be recomputed independently; do not run a mismatch |
+| Install and startup | Automatic acceptance result in the Release notes | Isolated silent installation and installed `/api/v2/health` startup checks passed |
 | Signing and provider | Unsigned installer; Cursor uses an external `sdk.v1` Provider | Preview only, not a stable formal release; provider accounts and compatibility are managed separately |
 
-This repository does not use a generic `CI Passing` badge as a substitute for per-release artifact evidence. The current publication gate is a recorded local check and does not depend on GitHub Actions quota. See the [public repository readiness review](PUBLICATION-CHECKLIST.md) and [release policy](RELEASE-POLICY.md).
+The Release download page intentionally contains only the installer and `SHA256SUMS.txt`. Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record; customers are not asked to identify or download a collection of pipeline JSON files. See the [public repository readiness review](PUBLICATION-CHECKLIST.md) and [release policy](RELEASE-POLICY.md) for the boundary.
 
 ## Five minutes to start, thirty minutes to a first delivery
 

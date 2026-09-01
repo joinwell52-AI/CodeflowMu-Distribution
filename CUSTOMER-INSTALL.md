@@ -26,22 +26,14 @@ The installer passed automatic isolated silent installation and installed-progra
 
 The candidate installer is not code-signed and may trigger Windows SmartScreen. Verify its SHA-256 before running it. CodeFlowMu itself is free during the public preview; external Provider accounts, services and usage charges are separate.
 
-Download formal installers only from this repository's [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases). After a Release is published, download at least these files:
+Download installers only from this repository's [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases). Customers need only these two files:
 
 ```text
 CodeFlowMu-Setup-<version>-win-x64.exe
 SHA256SUMS.txt
-installer-manifest.json
-installation-acceptance.json
-product-manifest.json
-product-profile.json
-THIRD-PARTY-NOTICES.json
-runtime-security-audit.json
-security-risk-acceptance.json
-update-manifest.preview.json
 ```
 
-`installation-acceptance.json` records isolated install and startup results bound to the installer hash. `runtime-security-audit.json` records the effective dependency security result for the shipped product. If a finding is explicitly accepted, `security-risk-acceptance.json` records the rationale and review triggers. Cursor is managed as a separate `sdk.v1` Provider Runtime; the installer does not bundle the real Cursor SDK or customer credentials.
+Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record instead of being distributed as customer attachments. Cursor is managed as a separate `sdk.v1` Provider Runtime; the installer does not bundle the real Cursor SDK or customer credentials.
 
 Development candidates are not formal customer releases until every Release Gate passes.
 
