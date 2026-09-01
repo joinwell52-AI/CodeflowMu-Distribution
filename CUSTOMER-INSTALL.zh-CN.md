@@ -15,14 +15,14 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 ## 下载
 
 > [!IMPORTANT]
-> 当前仓库已经提供可下载的候选 pre-release，但尚无正式支持的稳定版。候选软件只用于预览和安装测试。
+> 当前仓库提供 `V2.2.1 Preview 10` 预发行版，但尚无正式支持的稳定版。预发行软件只用于免费预览和安装测试。
 
-需要在另一台 Windows x64 电脑上进行安装测试时，可使用明确标注为非正式版的 [V1.9.7 Candidate 1 Pre-release](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1)：
+需要在另一台 Windows x64 电脑上进行安装测试时，可使用明确标注为非正式版的 [V2.2.1 Preview 10](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.10)：
 
-- [直接下载安装程序](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v1.9.7-candidate.1/CodeFlowMu-Setup-1.9.7-win-x64.exe)
-- SHA-256：`15c96e86d0583540793d0178727a1082ef38395831c460c988d9efc4ad2aca86`
+- [直接下载安装程序](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.10/CodeFlowMu-Setup-2.2.1-win-x64.exe)
+- SHA-256：`ff608eaf6a07e5976d306cebf613c2867fddd01122316ae4bdec9403b371d9fe`
 
-该文件只用于安装测试；它没有通过正式 Cursor Provider Release Gate，不得作为正式客户版本或正式支持版本。
+该安装包已经自动完成隔离静默安装和安装后程序启动检查。该基础验收不包含外部 Provider 账户配置、手机端业务任务或升级场景，不得据此把预发行版描述为正式客户版本或稳定支持版本。
 
 候选安装器尚未进行代码签名，可能触发 Windows SmartScreen；运行前必须校验 SHA-256。CodeFlowMu 预览版本身免费，外部 Provider 的账户、服务和调用费用彼此独立。
 
@@ -32,14 +32,16 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 CodeFlowMu-Setup-<version>-win-x64.exe
 SHA256SUMS.txt
 installer-manifest.json
+installation-acceptance.json
 product-manifest.json
+product-profile.json
 THIRD-PARTY-NOTICES.json
 runtime-security-audit.json
 security-risk-acceptance.json
-cursor.json
+update-manifest.preview.json
 ```
 
-`runtime-security-audit.json` 是该版本客户产品的有效依赖安全审计；如果存在被接受的低风险项，`security-risk-acceptance.json` 会给出对应依据和重新审阅条件。`cursor.json` 是 Cursor Provider 的真实兼容性证据，记录 CodeFlowMu 已验证的 `sdk.v1` bridge 版本、官方 archive SHA-256 和关键兼容检查。
+`installation-acceptance.json` 记录与安装包哈希绑定的隔离安装和启动结果；`runtime-security-audit.json` 是该版本客户产品的有效依赖安全审计；如果存在被接受的风险项，`security-risk-acceptance.json` 会给出依据和重新审阅条件。Cursor 采用独立的 `sdk.v1` Provider Runtime，不把真实 Cursor SDK 或客户账户凭据打入安装包。
 
 在 Release Gate 全部通过之前，本仓库不会把开发候选产物声明为正式客户版本。
 

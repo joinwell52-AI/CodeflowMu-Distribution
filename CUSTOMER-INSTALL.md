@@ -15,14 +15,14 @@ The installer carries the base product runtimes pinned and verified by the CodeF
 ## Download
 
 > [!IMPORTANT]
-> This repository has a downloadable pre-release candidate, but no formally supported stable Release. Candidate software is for preview and installation testing only.
+> This repository provides V2.2.1 Preview 10, but no formally supported stable release. Prerelease software is for free preview and installation testing only.
 
-For installation testing on another Windows x64 computer, use the explicitly non-formal [V1.9.7 Candidate 1 Pre-release](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1):
+For installation testing on another Windows x64 computer, use the explicitly non-formal [V2.2.1 Preview 10](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.10):
 
-- [Download the installer directly](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v1.9.7-candidate.1/CodeFlowMu-Setup-1.9.7-win-x64.exe)
-- SHA-256: `15c96e86d0583540793d0178727a1082ef38395831c460c988d9efc4ad2aca86`
+- [Download the installer directly](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.10/CodeFlowMu-Setup-2.2.1-win-x64.exe)
+- SHA-256: `ff608eaf6a07e5976d306cebf613c2867fddd01122316ae4bdec9403b371d9fe`
 
-This file is for installation testing only. It has not passed the formal Cursor Provider Release Gate and must not be treated as a formal customer or supported release.
+The installer passed automatic isolated silent installation and installed-program startup checks. This basic acceptance does not configure an external Provider account or cover mobile business tasks and upgrade scenarios, and it must not be treated as a formal or stable supported release.
 
 The candidate installer is not code-signed and may trigger Windows SmartScreen. Verify its SHA-256 before running it. CodeFlowMu itself is free during the public preview; external Provider accounts, services and usage charges are separate.
 
@@ -32,14 +32,16 @@ Download formal installers only from this repository's [GitHub Releases](https:/
 CodeFlowMu-Setup-<version>-win-x64.exe
 SHA256SUMS.txt
 installer-manifest.json
+installation-acceptance.json
 product-manifest.json
+product-profile.json
 THIRD-PARTY-NOTICES.json
 runtime-security-audit.json
 security-risk-acceptance.json
-cursor.json
+update-manifest.preview.json
 ```
 
-`runtime-security-audit.json` records the effective dependency security result for the shipped product. If a low-severity finding is explicitly accepted, `security-risk-acceptance.json` records the rationale and review triggers. `cursor.json` records the real Cursor Provider compatibility result for the release, including the verified `sdk.v1` bridge version, official archive SHA-256, and create/send/stream checks.
+`installation-acceptance.json` records isolated install and startup results bound to the installer hash. `runtime-security-audit.json` records the effective dependency security result for the shipped product. If a finding is explicitly accepted, `security-risk-acceptance.json` records the rationale and review triggers. Cursor is managed as a separate `sdk.v1` Provider Runtime; the installer does not bundle the real Cursor SDK or customer credentials.
 
 Development candidates are not formal customer releases until every Release Gate passes.
 

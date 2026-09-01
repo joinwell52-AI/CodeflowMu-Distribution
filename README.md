@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1"><strong>Download Candidate</strong></a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.10"><strong>Download V2.2.1 Preview 10</strong></a> ·
   <a href="#see-it-in-60-seconds">Watch 60 seconds</a> ·
   <a href="#five-minutes-to-start-thirty-minutes-to-a-first-delivery">Quickstart</a> ·
   <a href="FIRST-PWA-TASK.md">First PWA task</a> ·
@@ -31,7 +31,7 @@
 </p>
 
 > [!IMPORTANT]
-> This is the distribution repository for a **free public preview of proprietary software**. It is not the CodeFlowMu source repository and it grants no open-source license. The current `v1.9.7-candidate.1` download is an unsigned pre-release candidate, not a stable or formally supported release. The repository remains Private pending product acceptance and explicit publication approval.
+> This is the distribution repository for a **free public preview of proprietary software**. It is not the CodeFlowMu source repository and it grants no open-source license. The current `v2.2.1-preview.10` passed isolated-install and installed-startup acceptance, but the installer is unsigned and remains a prerelease rather than a stable or formally supported release. The repository remains Private; making it Public still requires separate publication checks and explicit approval.
 
 ## Why this is not another chat window
 
@@ -52,13 +52,13 @@ Tasks, reports, approvals, files, live activity and delivery evidence remain con
 
 [![Play the CodeFlowMu 60-second product overview](assets/video-poster.png)](https://joinwell52-ai.github.io/joinwell52/assets/video/codeflowmu-product-intro-zh.mp4?v=21-role-matrix)
 
-Click the poster to play in the browser. The video uses real product surfaces: the PC control center, task tree, human gate, verification evidence and CodeFlowMu Mobile PWA. [Fallback: download the 1080p MP4](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v1.9.7-candidate.1/CodeFlowMu-60s-overview-v1.9.7.mp4).
+Click the poster to play in the browser. The video uses real product surfaces: the PC control center, task tree, human gate, verification evidence and CodeFlowMu Mobile PWA. [Fallback: open the 1080p MP4 directly](https://joinwell52-ai.github.io/joinwell52/assets/video/codeflowmu-product-intro-zh.mp4?v=21-role-matrix).
 
 ## Before running the installer: verify, do not merely trust
 
 A proprietary product cannot honestly claim a reproducible build from source in this repository. CodeFlowMu Distribution uses a **proprietary runtime plus reviewable release evidence**:
 
-| What to verify | Candidate 1 evidence | Current conclusion |
+| What to verify | V2.2.1 Preview 10 evidence | Current conclusion |
 | --- | --- | --- |
 | Download origin | This repository's GitHub Release and explicit version tag | Accept only the official Release, never a mirror or forwarded file |
 | File integrity | `SHA256SUMS.txt`, `installer-manifest.json` | The installer hash can be recomputed independently |
@@ -66,7 +66,8 @@ A proprietary product cannot honestly claim a reproducible build from source in 
 | Third-party content | `THIRD-PARTY-NOTICES.json` | Dependency and license evidence ships with the version |
 | Security state | `runtime-security-audit.json`, `security-risk-acceptance.json` | Reviewed results and accepted risk are recorded separately |
 | Traceability | Release closure evidence and declared source commit | The artifact is traceable, but this is not a public-source reproducible build |
-| Signing and compatibility | Unsigned; formal real-Cursor-account evidence absent | Candidate preview only, not a stable formal release |
+| Install and startup | `installation-acceptance.json` | Isolated silent installation and installed `/api/v2/health` startup checks passed |
+| Signing and provider | Unsigned installer; Cursor uses an external `sdk.v1` Provider | Preview only, not a stable formal release; provider accounts and compatibility are managed separately |
 
 This repository does not use a generic `CI Passing` badge as a substitute for per-release artifact evidence. The current publication gate is a recorded local check and does not depend on GitHub Actions quota. See the [public repository readiness review](PUBLICATION-CHECKLIST.md) and [release policy](RELEASE-POLICY.md).
 
@@ -75,21 +76,21 @@ This repository does not use a generic `CI Passing` badge as a substitute for pe
 ### Five minutes: install and open the control center
 
 1. Use a Windows 10/11 x64 machine.
-2. Download the installer and `SHA256SUMS.txt` from [V1.9.7 Candidate 1](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v1.9.7-candidate.1).
-3. Verify installer SHA-256: `15c96e86d0583540793d0178727a1082ef38395831c460c988d9efc4ad2aca86`.
+2. Download the installer and `SHA256SUMS.txt` from [V2.2.1 Preview 10](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.10).
+3. Verify installer SHA-256: `ff608eaf6a07e5976d306cebf613c2867fddd01122316ae4bdec9403b371d9fe`.
 4. Install and launch **CodeFlowMu**.
 5. Confirm that the header reports a connected state, then register an empty example project in Settings.
 
 Verify the download in PowerShell:
 
 ```powershell
-(Get-FileHash .\CodeFlowMu-Setup-1.9.7-win-x64.exe -Algorithm SHA256).Hash
+(Get-FileHash .\CodeFlowMu-Setup-2.2.1-win-x64.exe -Algorithm SHA256).Hash
 ```
 
-The output must be `15C96E86D0583540793D0178727A1082EF38395831C460C988D9EFC4AD2ACA86`. Do not run the installer if it differs.
+The output must be `FF608EAF6A07E5976D306CEBF613C2867FDDD01122316AE4BDEC9403B371D9FE`. Do not run the installer if it differs.
 
 > [!WARNING]
-> Candidate 1 is unsigned and Windows SmartScreen may warn. The formal real-Cursor-account compatibility gate has not passed. The installation root is not a business project and agents must not develop inside it. Provider accounts, credentials and any usage charges are separate from the free CodeFlowMu preview.
+> V2.2.1 Preview 10 is unsigned and Windows SmartScreen may warn. Automatic acceptance proves only that the package installs in an isolated directory and that the installed program starts; it does not configure an external Provider account for the user. The installation root is not a business project and agents must not develop inside it. Provider accounts, credentials and any usage charges are separate from the free CodeFlowMu preview.
 
 ### Thirty minutes: have the team deliver a real static PWA
 
@@ -196,7 +197,7 @@ This is a **Spec First + Proprietary Distribution** path, not a relabeling of th
 | **Evidence** | How is a real file, command, test or page demonstrated? | Evidence cannot accept business risk for a human |
 | **Human Gate** | Who approves external writes, sensitive actions and final delivery? | Technical checks cannot replace product acceptance |
 
-Candidate 1 ships a Skill schema, a controlled FCoP MCP execution boundary and Browser Use runtime components. A capability is usable only when the product actually ships it, the project enables it and the operation is authorized. This README does not promise automatic installation of arbitrary community MCP servers or formal support for unverified tools.
+V2.2.1 Preview 10 ships a Skill schema, a controlled FCoP MCP execution boundary and Browser Use runtime components. A capability is usable only when the product actually ships it, the project enables it and the operation is authorized. This README does not promise automatic installation of arbitrary community MCP servers or formal support for unverified tools.
 
 ## Real product surfaces
 
