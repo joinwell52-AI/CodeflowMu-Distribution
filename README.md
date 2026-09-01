@@ -33,6 +33,9 @@
 > [!IMPORTANT]
 > This is the distribution repository for a **free public preview of proprietary software**. It is not the CodeFlowMu source repository and it grants no open-source license. The current `v2.2.1-preview.11` passed isolated-install and installed-startup acceptance, but the installer is unsigned and remains a prerelease rather than a stable or formally supported release. The repository remains Private; making it Public still requires separate publication checks and explicit approval.
 
+> [!NOTE]
+> The next candidate, `V2.2.1 Preview 12`, has passed local build, isolated-install and startup acceptance. It adds an interactive destination chooser and complete-release version detection followed by a confirmed full-installer upgrade. It has not been uploaded, so this page continues to list Preview 11 as the downloadable release and does not retroactively promise these additions for Preview 11.
+
 ## Why this is not another chat window
 
 An answer is not a delivery. Real software work needs scope, ownership, execution, verification, rework, evidence and a final decision. CodeFlowMu brings that lifecycle into one local control plane:
@@ -53,6 +56,37 @@ Tasks, reports, approvals, files, live activity and delivery evidence remain con
 [![Play the CodeFlowMu 60-second product overview](assets/video-poster.png)](https://joinwell52-ai.github.io/joinwell52/assets/video/codeflowmu-product-intro-zh.mp4?v=21-role-matrix)
 
 Click the poster to play in the browser. The video uses real product surfaces: the PC control center, task tree, human gate, verification evidence and CodeFlowMu Mobile PWA. [Fallback: open the 1080p MP4 directly](https://joinwell52-ai.github.io/joinwell52/assets/video/codeflowmu-product-intro-zh.mp4?v=21-role-matrix).
+
+## Install once, then upgrade by version
+
+Beginning with `V2.2.1 Preview 12`, the Windows distribution uses full-installer upgrades. Customers do not need to revisit the download page for each release:
+
+```text
+First or manual installation
+→ choose the destination in the installer
+→ confirm the final destination before files are written
+
+A higher complete release version is detected
+→ ask the user before downloading anything
+→ the user confirms “Download and install”
+→ download the full Windows installer
+→ verify manifest signature, origin, size and SHA-256
+→ silently apply it to the existing installation directory
+→ verify the installed product version and candidate number
+→ restart CodeFlowMu
+```
+
+Version control compares both the product version and release candidate:
+
+- `V2.2.1-preview.11 < V2.2.1-preview.12`;
+- `V2.2.1 < V2.2.2`;
+- the same complete version is not downloaded again;
+- an older version is never treated as an upgrade.
+
+Only an accepted and explicitly published prerelease can become the signed update target. Drafts, local builds and unpublished candidates cannot trigger a customer upgrade. The updater preserves the existing installation directory; projects, tasks, reports and other mutable customer data must not be treated as replaceable program files.
+
+> [!CAUTION]
+> While this repository remains Private, ordinary external customers cannot anonymously read its update feed or Release assets. External customer upgrades can be enabled only after publication acceptance and an explicit switch to Public, or through a future supported authenticated download service. This change never alters repository visibility automatically.
 
 ## Before running the installer: verify, do not merely trust
 
@@ -232,6 +266,14 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 - human gates and project authority boundaries;
 - Mobile PWA bound to a running PC;
 - external Provider lifecycle plus release manifests, security and third-party license evidence.
+
+### Engineering-accepted, awaiting the next candidate release
+
+- interactive destination selection before installation;
+- update detection using both product version and release-candidate number;
+- user-confirmed download, verification and installation of the full Windows installer;
+- post-upgrade version verification, preservation of the current install directory and automatic restart;
+- update-feed activation only after the Workbench publishes an accepted prerelease.
 
 ### Roadmap only
 

@@ -44,7 +44,9 @@ Development candidates are not formal customer releases until every Release Gate
 3. Complete the installation wizard.
 4. Start **CodeFlowMu** from the Start menu or desktop shortcut.
 
-Program files are installed under Windows Program Files. Mutable runtime/customer data is kept outside the installed program tree.
+The currently downloadable Preview 11 retains its existing installer-directory behavior. Beginning with Preview 12, an interactive installation explicitly shows the destination chooser and repeats the final destination on the confirmation page before writing files. A remembered previous directory is only an editable default and no longer suppresses the chooser.
+
+Windows Program Files remains the recommended default. Mutable runtime/customer data is kept outside the installed program tree.
 
 The installed product must not depend on the source checkout, Git, npm, a system Node.js installation, or a system Python installation.
 
@@ -106,6 +108,10 @@ Cursor Provider versions have a lifecycle separate from the CodeFlowMu applicati
 ## Data and upgrades
 
 Upgrades must not treat customer work data as application files. Back up important workspaces, Evidence, Audit, Reports, and configuration before major upgrades.
+
+Beginning with Preview 12, the PC product checks a signed feed using both the product version and the release-candidate number. It prompts before downloading a higher complete version. After confirmation, it downloads the full installer, verifies signature, origin, size and SHA-256, applies the upgrade silently to the current installation directory, and restarts CodeFlowMu. The same version is not downloaded twice and an older version is never selected as an upgrade.
+
+The Workbench activates an update only after the installer passes isolated-install and normal-startup acceptance and a maintainer explicitly publishes the candidate as a prerelease. While the repository is Private, unauthenticated external customers cannot use the GitHub update feed; this does not bypass publication acceptance.
 
 Every formal upgrade remains subject to:
 
