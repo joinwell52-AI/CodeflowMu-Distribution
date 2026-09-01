@@ -34,7 +34,7 @@
 > This is the distribution repository for a **free public preview of proprietary software**. It is not the CodeFlowMu source repository and it grants no open-source license. The current `v2.2.1-preview.11` passed isolated-install and installed-startup acceptance, but the installer is unsigned and remains a prerelease rather than a stable or formally supported release. The repository remains Private; making it Public still requires separate publication checks and explicit approval.
 
 > [!NOTE]
-> The next candidate, `V2.2.1 Preview 12`, has passed local build, isolated-install and startup acceptance. It adds an interactive destination chooser and complete-release version detection followed by a confirmed full-installer upgrade. It has not been uploaded, so this page continues to list Preview 11 as the downloadable release and does not retroactively promise these additions for Preview 11.
+> The next candidate, `V2.2.1 Preview 15`, has passed a full local build, isolated installation, verification of 8,741 installed files, startup health checks and interactive wizard inspection. It adds a CodeFlowMu-branded welcome page and logo, an editable destination step, final destination confirmation, and complete-release version detection followed by a confirmed full-installer upgrade. It has not been uploaded, so this page continues to list Preview 11 as the downloadable release and does not retroactively promise these additions for Preview 11.
 
 ## Why this is not another chat window
 
@@ -59,10 +59,11 @@ Click the poster to play in the browser. The video uses real product surfaces: t
 
 ## Install once, then upgrade by version
 
-Beginning with `V2.2.1 Preview 12`, the Windows distribution uses full-installer upgrades. Customers do not need to revisit the download page for each release:
+Beginning with `V2.2.1 Preview 15`, the Windows distribution uses a branded full installer and full-installer upgrades. Customers do not need to revisit the download page for each release:
 
 ```text
 First or manual installation
+→ see the CodeFlowMu welcome page, product name, version and logo
 → choose the destination in the installer
 → confirm the final destination before files are written
 
@@ -78,7 +79,7 @@ A higher complete release version is detected
 
 Version control compares both the product version and release candidate:
 
-- `V2.2.1-preview.11 < V2.2.1-preview.12`;
+- `V2.2.1-preview.11 < V2.2.1-preview.15`;
 - `V2.2.1 < V2.2.2`;
 - the same complete version is not downloaded again;
 - an older version is never treated as an upgrade.
@@ -269,6 +270,7 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 
 ### Engineering-accepted, awaiting the next candidate release
 
+- CodeFlowMu-branded welcome page, product logo, complete candidate identity and non-colliding installer filename;
 - interactive destination selection before installation;
 - update detection using both product version and release-candidate number;
 - user-confirmed download, verification and installation of the full Windows installer;

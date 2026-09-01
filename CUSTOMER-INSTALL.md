@@ -29,9 +29,11 @@ The candidate installer is not code-signed and may trigger Windows SmartScreen. 
 Download installers only from this repository's [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases). Customers need only these two files:
 
 ```text
-CodeFlowMu-Setup-<version>-win-x64.exe
+CodeFlowMu-Setup-<version>-<candidate>-win-x64.exe
 SHA256SUMS.txt
 ```
+
+Preview 11 still uses the legacy filename. Beginning with the next candidate, the filename contains the complete candidate number so multiple Preview builds of one product version cannot be confused.
 
 Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record instead of being distributed as customer attachments. Cursor is managed as a separate `sdk.v1` Provider Runtime; the installer does not bundle the real Cursor SDK or customer credentials.
 
@@ -39,12 +41,12 @@ Development candidates are not formal customer releases until every Release Gate
 
 ## Install CodeFlowMu
 
-1. Verify the SHA-256 of `CodeFlowMu-Setup-<version>-win-x64.exe` against `SHA256SUMS.txt`.
+1. Verify the SHA-256 of the downloaded CodeFlowMu installer against `SHA256SUMS.txt`.
 2. Run the installer.
 3. Complete the installation wizard.
 4. Start **CodeFlowMu** from the Start menu or desktop shortcut.
 
-The currently downloadable Preview 11 retains its existing installer-directory behavior. Beginning with Preview 12, an interactive installation explicitly shows the destination chooser and repeats the final destination on the confirmation page before writing files. A remembered previous directory is only an editable default and no longer suppresses the chooser.
+The currently downloadable Preview 11 retains its existing installer-directory behavior. Beginning with Preview 15, an interactive install first presents a CodeFlowMu-branded welcome page with the product name, complete candidate number and logo. It then shows an editable destination chooser and repeats the final destination on the confirmation page before writing files. A remembered previous directory is only an editable default and no longer suppresses the chooser.
 
 Windows Program Files remains the recommended default. Mutable runtime/customer data is kept outside the installed program tree.
 
@@ -109,7 +111,7 @@ Cursor Provider versions have a lifecycle separate from the CodeFlowMu applicati
 
 Upgrades must not treat customer work data as application files. Back up important workspaces, Evidence, Audit, Reports, and configuration before major upgrades.
 
-Beginning with Preview 12, the PC product checks a signed feed using both the product version and the release-candidate number. It prompts before downloading a higher complete version. After confirmation, it downloads the full installer, verifies signature, origin, size and SHA-256, applies the upgrade silently to the current installation directory, and restarts CodeFlowMu. The same version is not downloaded twice and an older version is never selected as an upgrade.
+Beginning with Preview 15, the PC product checks a signed feed using both the product version and the release-candidate number. It prompts before downloading a higher complete version. After confirmation, it downloads the full installer, verifies signature, origin, size and SHA-256, applies the upgrade silently to the current installation directory, and restarts CodeFlowMu. The same version is not downloaded twice and an older version is never selected as an upgrade.
 
 The Workbench activates an update only after the installer passes isolated-install and normal-startup acceptance and a maintainer explicitly publishes the candidate as a prerelease. While the repository is Private, unauthenticated external customers cannot use the GitHub update feed; this does not bypass publication acceptance.
 

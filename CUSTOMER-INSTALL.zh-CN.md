@@ -29,9 +29,11 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 安装包只从本仓库的 [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) 下载。客户只需下载以下两个文件：
 
 ```text
-CodeFlowMu-Setup-<version>-win-x64.exe
+CodeFlowMu-Setup-<version>-<candidate>-win-x64.exe
 SHA256SUMS.txt
 ```
+
+当前 Preview 11 仍使用旧文件名；从下一候选开始，文件名包含完整候选号，避免同一产品版本的多个 Preview 安装包互相混淆。
 
 其他产品清单、模块配置、安全审计和安装验收明细由发行工作台保存在内部版本记录中，不作为客户附件散发。Cursor 采用独立的 `sdk.v1` Provider Runtime，不把真实 Cursor SDK 或客户账户凭据打入安装包。
 
@@ -39,12 +41,12 @@ SHA256SUMS.txt
 
 ## 安装 CodeFlowMu
 
-1. 校验 `CodeFlowMu-Setup-<version>-win-x64.exe` 的 SHA-256 与 `SHA256SUMS.txt` 一致。
+1. 校验实际下载的 CodeFlowMu 安装器 SHA-256 与 `SHA256SUMS.txt` 一致。
 2. 双击安装器。
 3. 按安装向导完成安装。
 4. 从开始菜单或桌面快捷方式启动 **CodeFlowMu**。
 
-当前可下载的 Preview 11 使用其安装器既有目录规则。从 Preview 12 起，手动运行安装器时会明确显示安装目录选择页，并在真正写入文件前的确认页再次显示目标目录；记住的旧目录只作为可修改的默认值，不会跳过目录选择。
+当前可下载的 Preview 11 使用其安装器既有目录规则。从 Preview 15 起，手动运行安装器会先显示 CodeFlowMu 品牌欢迎页、产品名称、完整候选号和 Logo，再明确显示可编辑的安装目录选择页，并在真正写入文件前的确认页再次显示目标目录；记住的旧目录只作为可修改的默认值，不会跳过目录选择。
 
 默认建议把程序文件安装在 Windows `Program Files` 下；可变运行数据与程序文件分离，写入 CodeFlowMu 的产品数据目录。
 
@@ -109,7 +111,7 @@ Cursor Provider 与 CodeFlowMu 本体使用不同版本生命周期。正式支�
 
 程序升级不得把客户工作数据当作程序文件覆盖或删除。升级前仍建议对重要工作区、Evidence、Audit、Reports 和配置进行备份。
 
-从 Preview 12 起，PC 程序按“产品版本 + 候选号”检查签名更新源。检测到更高完整版本时先提示，不自动下载；用户确认后才下载完整安装包，核对签名、来源、大小和 SHA-256，然后使用当前安装目录静默覆盖升级并重启。相同版本不会重复下载，旧版本不会被当作升级目标。
+从 Preview 15 起，PC 程序按“产品版本 + 候选号”检查签名更新源。检测到更高完整版本时先提示，不自动下载；用户确认后才下载完整安装包，核对签名、来源、大小和 SHA-256，然后使用当前安装目录静默覆盖升级并重启。相同版本不会重复下载，旧版本不会被当作升级目标。
 
 发行工作台只有在安装包通过隔离安装和正常启动验收、并由维护者明确发布为 Pre-release 后，才激活该版本的更新源。仓库仍为 Private 时，未认证的外部客户无法使用 GitHub 更新源；这不会绕过公开前验收。
 
