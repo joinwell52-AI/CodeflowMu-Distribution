@@ -15,14 +15,14 @@ The installer carries the base product runtimes pinned and verified by the CodeF
 ## Download
 
 > [!IMPORTANT]
-> This repository provides V2.2.1 Preview 15, but no formally supported stable release. Prerelease software is for free preview and installation testing only.
+> This repository provides V2.2.1 Preview 17, but no formally supported stable release. Prerelease software is for free preview and installation testing only.
 
-For installation testing on another Windows x64 computer, use the explicitly non-formal [V2.2.1 Preview 15](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.15):
+For installation testing on another Windows x64 computer, use the explicitly non-formal [V2.2.1 Preview 17](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.17):
 
-- [Download the installer directly](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.15/CodeFlowMu-Setup-2.2.1-preview.15-win-x64.exe)
-- SHA-256: `6923af6c5b00f15c799413a03123db01ad4a0456bd67ec921847da684016e9be`
+- [Download the installer directly](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.17/CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe)
+- SHA-256: `9f934897c35a8e1c260b182d70d565eabfa9d0e6b0d62927788efe3e35e537d4`
 
-The installer passed automatic isolated silent installation and installed-program startup checks. This basic acceptance does not configure an external Provider account or cover mobile business tasks and upgrade scenarios, and it must not be treated as a formal or stable supported release.
+The installer passed automatic isolated silent installation, installed-file inventory verification, real first-project initialization and installed-program startup checks. This basic acceptance does not configure an external Provider account or cover mobile business tasks and upgrade scenarios, and it must not be treated as a formal or stable supported release.
 
 The candidate installer is not code-signed and may trigger Windows SmartScreen. Verify its SHA-256 before running it. CodeFlowMu itself is free during the public preview; external Provider accounts, services and usage charges are separate.
 
@@ -33,7 +33,7 @@ CodeFlowMu-Setup-<version>-<candidate>-win-x64.exe
 SHA256SUMS.txt
 ```
 
-The Preview 15 filename contains the complete candidate number so multiple Preview builds of one product version cannot be confused.
+The Preview 17 filename contains the complete candidate number so multiple Preview builds of one product version cannot be confused. Preview 15 had missing first-initialization resources and is superseded by Preview 17.
 
 Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record instead of being distributed as customer attachments. Cursor is managed as a separate `sdk.v1` Provider Runtime; the installer does not bundle the real Cursor SDK or customer credentials.
 
@@ -46,7 +46,7 @@ Development candidates are not formal customer releases until every Release Gate
 3. Complete the installation wizard.
 4. Start **CodeFlowMu** from the Start menu or desktop shortcut.
 
-The currently downloadable Preview 15 first presents a CodeFlowMu-branded welcome page with the product name, complete candidate number and logo. It then shows an editable destination chooser and repeats the final destination on the confirmation page before writing files. A remembered previous directory is only an editable default and no longer suppresses the chooser.
+The currently downloadable Preview 17 first presents a CodeFlowMu-branded welcome page with the product name, complete candidate number and logo. It then shows an editable destination chooser and repeats the final destination on the confirmation page before writing files. A remembered previous directory is only an editable default and no longer suppresses the chooser.
 
 Windows Program Files remains the recommended default. Mutable runtime/customer data is kept outside the installed program tree.
 
@@ -111,9 +111,9 @@ Cursor Provider versions have a lifecycle separate from the CodeFlowMu applicati
 
 Upgrades must not treat customer work data as application files. Back up important workspaces, Evidence, Audit, Reports, and configuration before major upgrades.
 
-Beginning with Preview 15, the PC product checks a signed feed using both the product version and the release-candidate number. It prompts before downloading a higher complete version. After confirmation, it downloads the full installer, verifies signature, origin, size and SHA-256, applies the upgrade silently to the current installation directory, and restarts CodeFlowMu. The same version is not downloaded twice and an older version is never selected as an upgrade.
+Beginning with Preview 15, the PC product checks a signed feed using both the product version and the release-candidate number. It prompts before downloading a higher complete version. After confirmation, it downloads the full installer, verifies signature, origin, size and SHA-256, applies the upgrade silently to the current installation directory, and restarts CodeFlowMu. The same version is not downloaded twice and an older version is never selected as an upgrade. Preview 17 also restores the complete FCoP and Agent Skills resources required for first-project initialization.
 
-The Workbench activates an update only after the installer passes isolated-install and normal-startup acceptance and a maintainer explicitly publishes the candidate as a prerelease. While the repository is Private, unauthenticated external customers cannot use the GitHub update feed; this does not bypass publication acceptance.
+The Workbench activates an update only after the installer passes isolated-install, first-project-initialization and normal-startup acceptance and a maintainer explicitly publishes the candidate as a prerelease. While the repository is Private, unauthenticated external customers cannot use the GitHub update feed; this does not bypass publication acceptance.
 
 Every formal upgrade remains subject to:
 

@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.15/CodeFlowMu-Setup-2.2.1-preview.15-win-x64.exe"><strong>Download V2.2.1 Preview 15</strong></a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.17/CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe"><strong>Download V2.2.1 Preview 17</strong></a> ·
   <a href="#see-it-in-60-seconds">Watch 60 seconds</a> ·
   <a href="#five-minutes-to-start-thirty-minutes-to-a-first-delivery">Quickstart</a> ·
   <a href="FIRST-PWA-TASK.md">First PWA task</a> ·
@@ -31,10 +31,10 @@
 </p>
 
 > [!IMPORTANT]
-> This is the distribution repository for a **free public preview of proprietary software**. It is not the CodeFlowMu source repository and it grants no open-source license. The current `v2.2.1-preview.15` passed isolated installation, verification of 8,741 installed files, installed-startup acceptance and interactive wizard inspection, but the installer is unsigned and remains a prerelease rather than a stable or formally supported release. The repository remains Private; making it Public still requires separate publication checks and explicit approval.
+> This is the distribution repository for a **free public preview of proprietary software**. It is not the CodeFlowMu source repository and it grants no open-source license. The current `v2.2.1-preview.17` passed isolated installation, verification of 8,882 installed files, real first-project initialization and installed-startup acceptance, but the installer is unsigned and remains a prerelease rather than a stable or formally supported release. The repository remains Private; making it Public still requires separate publication checks and explicit approval.
 
 > [!NOTE]
-> `V2.2.1 Preview 15` is now published as a GitHub Pre-release. It provides a CodeFlowMu-branded welcome page and logo, an editable destination step, final destination confirmation, and complete-release version detection followed by a confirmed full-installer upgrade. Customer downloads consist only of the installer and `SHA256SUMS.txt`; the Source code archives displayed automatically by GitHub are not customer installers.
+> `V2.2.1 Preview 17` is published as a GitHub Pre-release and replaces Preview 15, which lacked first-initialization resources. It provides the branded installer and full-package upgrades, plus FCoP bootstrap templates, the Agent Skills manifest and all 48 referenced Skill packages. Customer downloads consist only of the installer and `SHA256SUMS.txt`; the Source code archives displayed automatically by GitHub are not customer installers.
 
 ## Why this is not another chat window
 
@@ -79,7 +79,7 @@ A higher complete release version is detected
 
 Version control compares both the product version and release candidate:
 
-- `V2.2.1-preview.11 < V2.2.1-preview.15`;
+- `V2.2.1-preview.15 < V2.2.1-preview.17`;
 - `V2.2.1 < V2.2.2`;
 - the same complete version is not downloaded again;
 - an older version is never treated as an upgrade.
@@ -93,11 +93,11 @@ Only an accepted and explicitly published prerelease can become the signed updat
 
 A proprietary product cannot honestly claim a reproducible build from source in this repository. CodeFlowMu Distribution uses a **proprietary runtime plus reviewable release evidence**:
 
-| What to verify | V2.2.1 Preview 15 provides | Current conclusion |
+| What to verify | V2.2.1 Preview 17 provides | Current conclusion |
 | --- | --- | --- |
 | Download origin | This repository's GitHub Release and explicit version tag | Accept only the official Release, never a mirror or forwarded file |
 | File integrity | `SHA256SUMS.txt` | The installer hash can be recomputed independently; do not run a mismatch |
-| Install and startup | Automatic acceptance result in the Release notes | Isolated silent installation and installed `/api/v2/health` startup checks passed |
+| Install, initialize and start | Automatic acceptance result in the Release notes | Isolated silent installation, real first-project initialization and installed `/api/v2/health` startup checks passed |
 | Signing and provider | Unsigned installer; Cursor uses an external `sdk.v1` Provider | Preview only, not a stable formal release; provider accounts and compatibility are managed separately |
 
 The Release download page intentionally contains only the installer and `SHA256SUMS.txt`. Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record; customers are not asked to identify or download a collection of pipeline JSON files. See the [public repository readiness review](PUBLICATION-CHECKLIST.md) and [release policy](RELEASE-POLICY.md) for the boundary.
@@ -107,21 +107,21 @@ The Release download page intentionally contains only the installer and `SHA256S
 ### Five minutes: install and open the control center
 
 1. Use a Windows 10/11 x64 machine.
-2. Download the installer and `SHA256SUMS.txt` from [V2.2.1 Preview 15](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.15).
-3. Verify installer SHA-256: `6923af6c5b00f15c799413a03123db01ad4a0456bd67ec921847da684016e9be`.
+2. Download the installer and `SHA256SUMS.txt` from [V2.2.1 Preview 17](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.17).
+3. Verify installer SHA-256: `9f934897c35a8e1c260b182d70d565eabfa9d0e6b0d62927788efe3e35e537d4`.
 4. Install and launch **CodeFlowMu**.
 5. Confirm that the header reports a connected state, then register an empty example project in Settings.
 
 Verify the download in PowerShell:
 
 ```powershell
-(Get-FileHash .\CodeFlowMu-Setup-2.2.1-preview.15-win-x64.exe -Algorithm SHA256).Hash
+(Get-FileHash .\CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe -Algorithm SHA256).Hash
 ```
 
-The output must be `6923AF6C5B00F15C799413A03123DB01AD4A0456BD67EC921847DA684016E9BE`. Do not run the installer if it differs.
+The output must be `9F934897C35A8E1C260B182D70D565EABFA9D0E6B0D62927788EFEE3E35E537D4`. Do not run the installer if it differs.
 
 > [!WARNING]
-> V2.2.1 Preview 15 is unsigned and Windows SmartScreen may warn. Automatic acceptance proves only that the package installs in an isolated directory and that the installed program starts; it does not configure an external Provider account for the user. The installation root is not a business project and agents must not develop inside it. Provider accounts, credentials and any usage charges are separate from the free CodeFlowMu preview.
+> V2.2.1 Preview 17 is unsigned and Windows SmartScreen may warn. Automatic acceptance proves isolated installation, initialization of a new project from installed resources and normal startup; it does not configure an external Provider account for the user. The installation root is not a business project and agents must not develop inside it. Provider accounts, credentials and any usage charges are separate from the free CodeFlowMu preview.
 
 ### Thirty minutes: have the team deliver a real static PWA
 
@@ -228,7 +228,7 @@ This is a **Spec First + Proprietary Distribution** path, not a relabeling of th
 | **Evidence** | How is a real file, command, test or page demonstrated? | Evidence cannot accept business risk for a human |
 | **Human Gate** | Who approves external writes, sensitive actions and final delivery? | Technical checks cannot replace product acceptance |
 
-V2.2.1 Preview 15 ships a Skill schema, a controlled FCoP MCP execution boundary and Browser Use runtime components. A capability is usable only when the product actually ships it, the project enables it and the operation is authorized. This README does not promise automatic installation of arbitrary community MCP servers or formal support for unverified tools.
+V2.2.1 Preview 17 ships a Skill schema, 48 manifest-referenced Skill packages, a controlled FCoP MCP execution boundary and Browser Use runtime components. A capability is usable only when the product actually ships it, the project enables it and the operation is authorized. This README does not promise automatic installation of arbitrary community MCP servers or formal support for unverified tools.
 
 ## Real product surfaces
 
@@ -268,7 +268,7 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 - Mobile PWA bound to a running PC;
 - external Provider lifecycle plus release manifests, security and third-party license evidence.
 
-### Preview 15 is engineering-accepted and published
+### Preview 17 is engineering-accepted and published
 
 - CodeFlowMu-branded welcome page, product logo, complete candidate identity and non-colliding installer filename;
 - interactive destination selection before installation;
@@ -276,6 +276,7 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 - user-confirmed download, verification and installation of the full Windows installer;
 - post-upgrade version verification, preservation of the current install directory and automatic restart;
 - update-feed activation only after the Workbench publishes an accepted prerelease.
+- isolated first-project initialization from installed FCoP templates, the Agent Skills manifest and all 48 referenced Skill packages.
 
 ### Roadmap only
 

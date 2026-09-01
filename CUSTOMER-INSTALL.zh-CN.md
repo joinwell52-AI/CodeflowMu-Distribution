@@ -15,14 +15,14 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 ## 下载
 
 > [!IMPORTANT]
-> 当前仓库提供 `V2.2.1 Preview 15` 预发行版，但尚无正式支持的稳定版。预发行软件只用于免费预览和安装测试。
+> 当前仓库提供 `V2.2.1 Preview 17` 预发行版，但尚无正式支持的稳定版。预发行软件只用于免费预览和安装测试。
 
-需要在另一台 Windows x64 电脑上进行安装测试时，可使用明确标注为非正式版的 [V2.2.1 Preview 15](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.15)：
+需要在另一台 Windows x64 电脑上进行安装测试时，可使用明确标注为非正式版的 [V2.2.1 Preview 17](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.17)：
 
-- [直接下载安装程序](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.15/CodeFlowMu-Setup-2.2.1-preview.15-win-x64.exe)
-- SHA-256：`6923af6c5b00f15c799413a03123db01ad4a0456bd67ec921847da684016e9be`
+- [直接下载安装程序](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.17/CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe)
+- SHA-256：`9f934897c35a8e1c260b182d70d565eabfa9d0e6b0d62927788efe3e35e537d4`
 
-该安装包已经自动完成隔离静默安装和安装后程序启动检查。该基础验收不包含外部 Provider 账户配置、手机端业务任务或升级场景，不得据此把预发行版描述为正式客户版本或稳定支持版本。
+该安装包已经自动完成隔离静默安装、安装文件清单校验、真实首次项目初始化和安装后程序启动检查。该基础验收不包含外部 Provider 账户配置、手机端业务任务或升级场景，不得据此把预发行版描述为正式客户版本或稳定支持版本。
 
 候选安装器尚未进行代码签名，可能触发 Windows SmartScreen；运行前必须校验 SHA-256。CodeFlowMu 预览版本身免费，外部 Provider 的账户、服务和调用费用彼此独立。
 
@@ -33,7 +33,7 @@ CodeFlowMu-Setup-<version>-<candidate>-win-x64.exe
 SHA256SUMS.txt
 ```
 
-Preview 15 的文件名包含完整候选号，避免同一产品版本的多个 Preview 安装包互相混淆。
+Preview 17 的文件名包含完整候选号，避免同一产品版本的多个 Preview 安装包互相混淆。Preview 15 存在首次初始化资源缺失问题，已被 Preview 17 替代。
 
 其他产品清单、模块配置、安全审计和安装验收明细由发行工作台保存在内部版本记录中，不作为客户附件散发。Cursor 采用独立的 `sdk.v1` Provider Runtime，不把真实 Cursor SDK 或客户账户凭据打入安装包。
 
@@ -46,7 +46,7 @@ Preview 15 的文件名包含完整候选号，避免同一产品版本的多个
 3. 按安装向导完成安装。
 4. 从开始菜单或桌面快捷方式启动 **CodeFlowMu**。
 
-当前可下载的 Preview 15 会先显示 CodeFlowMu 品牌欢迎页、产品名称、完整候选号和 Logo，再明确显示可编辑的安装目录选择页，并在真正写入文件前的确认页再次显示目标目录；记住的旧目录只作为可修改的默认值，不会跳过目录选择。
+当前可下载的 Preview 17 会先显示 CodeFlowMu 品牌欢迎页、产品名称、完整候选号和 Logo，再明确显示可编辑的安装目录选择页，并在真正写入文件前的确认页再次显示目标目录；记住的旧目录只作为可修改的默认值，不会跳过目录选择。
 
 默认建议把程序文件安装在 Windows `Program Files` 下；可变运行数据与程序文件分离，写入 CodeFlowMu 的产品数据目录。
 
@@ -111,9 +111,9 @@ Cursor Provider 与 CodeFlowMu 本体使用不同版本生命周期。正式支�
 
 程序升级不得把客户工作数据当作程序文件覆盖或删除。升级前仍建议对重要工作区、Evidence、Audit、Reports 和配置进行备份。
 
-从 Preview 15 起，PC 程序按“产品版本 + 候选号”检查签名更新源。检测到更高完整版本时先提示，不自动下载；用户确认后才下载完整安装包，核对签名、来源、大小和 SHA-256，然后使用当前安装目录静默覆盖升级并重启。相同版本不会重复下载，旧版本不会被当作升级目标。
+从 Preview 15 起，PC 程序按“产品版本 + 候选号”检查签名更新源。检测到更高完整版本时先提示，不自动下载；用户确认后才下载完整安装包，核对签名、来源、大小和 SHA-256，然后使用当前安装目录静默覆盖升级并重启。相同版本不会重复下载，旧版本不会被当作升级目标。Preview 17 同时补齐首次项目初始化所需的 FCoP 与 Agent Skills 资源。
 
-发行工作台只有在安装包通过隔离安装和正常启动验收、并由维护者明确发布为 Pre-release 后，才激活该版本的更新源。仓库仍为 Private 时，未认证的外部客户无法使用 GitHub 更新源；这不会绕过公开前验收。
+发行工作台只有在安装包通过隔离安装、首次项目初始化和正常启动验收，并由维护者明确发布为 Pre-release 后，才激活该版本的更新源。仓库仍为 Private 时，未认证的外部客户无法使用 GitHub 更新源；这不会绕过公开前验收。
 
 正式升级包必须继续通过：
 
