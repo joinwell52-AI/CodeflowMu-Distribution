@@ -3,7 +3,7 @@
   "product": "CodeFlowMu",
   "channel": "preview",
   "version": "2.2.1",
-  "releaseCandidate": "V2.2.1-preview.15",
+  "releaseCandidate": "V2.2.1-preview.17",
   "target": "win-x64",
   "profile": {
     "id": "customer-preview",
@@ -30,18 +30,18 @@
       "windows_use"
     ]
   },
-  "publishedAt": "2026-09-01T14:51:01.282Z",
-  "releaseNotesUrl": "https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.15",
+  "publishedAt": "2026-09-01T16:40:57.343Z",
+  "releaseNotesUrl": "https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.17",
   "mandatory": false,
   "artifact": {
-    "file": "CodeFlowMu-Setup-2.2.1-preview.15-win-x64.exe",
-    "url": "https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.15/CodeFlowMu-Setup-2.2.1-preview.15-win-x64.exe",
-    "size": 69847968,
-    "sha256": "6923af6c5b00f15c799413a03123db01ad4a0456bd67ec921847da684016e9be"
+    "file": "CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe",
+    "url": "https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.17/CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe",
+    "size": 70018445,
+    "sha256": "9f934897c35a8e1c260b182d70d565eabfa9d0e6b0d62927788efe3e35e537d4"
   },
   "signature": {
     "algorithm": "ed25519",
     "keyId": "preview-2026-01",
-    "value": "15aRMc5/Mhd2aJ/oMEk8wmqAFuAdJUIa/lYjlNRp607reNXiCVMgshiZ3QG1nicDWGkqWrT0R15cfYELAevTAQ=="
+    "value": "YZzs5CNz/sC9g59F8H4ZKojpHhVJhWG/kgOgoMFLIimu4T3YjCagkWDDJ1hm85Tcl8HwYELyh7rT0ZTxqGRuBg=="
   }
 }
