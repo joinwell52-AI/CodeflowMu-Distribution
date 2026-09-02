@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.17/CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe"><strong>Download V2.2.1 Preview 17</strong></a> ·
+  <a href="#download-and-test-status"><strong>Download and test status</strong></a> ·
   <a href="#see-it-in-60-seconds">Watch 60 seconds</a> ·
   <a href="#five-minutes-to-start-thirty-minutes-to-a-first-delivery">Quickstart</a> ·
   <a href="FIRST-PWA-TASK.md">First PWA task</a> ·
@@ -31,10 +31,33 @@
 </p>
 
 > [!IMPORTANT]
-> This is the distribution repository for a **free public preview of proprietary software**. It is not the CodeFlowMu source repository and it grants no open-source license. The current `v2.2.1-preview.17` passed isolated installation, verification of 8,882 installed files, real first-project initialization and installed-startup acceptance, but the installer is unsigned and remains a prerelease rather than a stable or formally supported release. The repository remains Private; making it Public still requires separate publication checks and explicit approval.
+> This distributes a **free public preview of proprietary software**, not the CodeFlowMu source repository or an open-source license. Installers are unsigned and there is no formally supported stable version. The repository remains Private; publication requires separate checks and explicit approval.
 
 > [!NOTE]
-> `V2.2.1 Preview 17` is published as a GitHub Pre-release and replaces Preview 15, which lacked first-initialization resources. It provides the branded installer and full-package upgrades, plus FCoP bootstrap templates, the Agent Skills manifest and all 48 referenced Skill packages. Customer downloads consist only of the installer and `SHA256SUMS.txt`; the Source code archives displayed automatically by GitHub are not customer installers.
+> Preview 17 still fails real user initialization because of root discovery and lacks an explicit exit entry. It is no longer recommended for fresh installs. The previous resource-level initialization test did not exercise the real HTTP entry point; that success did not prove customer initialization worked.
+
+## Download and test status
+
+**V2.2.1 Preview 18 is a local test candidate**, not a published GitHub Release or active update target. User reinstall acceptance is pending. Isolated installation, 8,884-file inventory verification, real HTTP initialization with native confirmation, restart persistence, native exit and port release passed. Tests used bundled Node/Python without paid model calls.
+
+- Test installer: `CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe`.
+- SHA-256: `2958ffb025ed1572d082b7eb3e23bca8fec01f4929d91f1b6780f334b27af298`.
+- Historical Preview 17 on [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) **does not contain this repair**.
+- Published customer assets consist only of the installer and `SHA256SUMS.txt`; GitHub's automatic Source code archives are not installers.
+
+## Your installation directory is the default project root
+
+In Preview 18, choosing `E:\CodeFlowMu` means:
+
+| Content | Default location |
+| --- | --- |
+| Application and default project root | `E:\CodeFlowMu` |
+| Tasks, reports and collaboration files | `E:\CodeFlowMu\fcop` (created by initialization) |
+| State, project registry, logs, Provider and update cache | `E:\CodeFlowMu\data` |
+
+Fresh installs no longer default to `C:\ProgramData\CodeFlowMu` or a nested `projects\default`. Choose a directory writable by your Windows user. Separately registered business projects retain their own paths. A fresh installation needs no data migration; historical directories are not silently removed.
+
+**To close CodeFlowMu:** closing the browser only closes its interface. Right-click the CodeFlowMu notification-area icon, choose **Exit CodeFlowMu**, and confirm. Alternatively use **Exit CodeFlowMu** in the Start menu or run `CodeFlowMu.exe --exit` from the installation directory. This stops running tasks and disconnects the phone control surface.
 
 ## Why this is not another chat window
 
@@ -59,7 +82,7 @@ Click the poster to play in the browser. The video uses real product surfaces: t
 
 ## Install once, then upgrade by version
 
-Beginning with `V2.2.1 Preview 15`, the Windows distribution uses a branded full installer and full-installer upgrades. Customers do not need to revisit the download page for each release:
+The Windows distribution uses a branded installer and version-controlled full-installer upgrades. An accepted, published target is required; local Preview 18 is not automatically promoted into the update feed:
 
 ```text
 First or manual installation
@@ -93,11 +116,11 @@ Only an accepted and explicitly published prerelease can become the signed updat
 
 A proprietary product cannot honestly claim a reproducible build from source in this repository. CodeFlowMu Distribution uses a **proprietary runtime plus reviewable release evidence**:
 
-| What to verify | V2.2.1 Preview 17 provides | Current conclusion |
+| What to verify | Evidence to inspect | Current conclusion |
 | --- | --- | --- |
 | Download origin | This repository's GitHub Release and explicit version tag | Accept only the official Release, never a mirror or forwarded file |
 | File integrity | `SHA256SUMS.txt` | The installer hash can be recomputed independently; do not run a mismatch |
-| Install, initialize and start | Automatic acceptance result in the Release notes | Isolated silent installation, real first-project initialization and installed `/api/v2/health` startup checks passed |
+| Install, initialize and start | Checks bound to the installer hash | Preview 18 isolated install, real initialization, restart and exit passed; user acceptance is pending |
 | Signing and provider | Unsigned installer; Cursor uses an external `sdk.v1` Provider | Preview only, not a stable formal release; provider accounts and compatibility are managed separately |
 
 The Release download page intentionally contains only the installer and `SHA256SUMS.txt`. Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record; customers are not asked to identify or download a collection of pipeline JSON files. See the [public repository readiness review](PUBLICATION-CHECKLIST.md) and [release policy](RELEASE-POLICY.md) for the boundary.
@@ -107,21 +130,21 @@ The Release download page intentionally contains only the installer and `SHA256S
 ### Five minutes: install and open the control center
 
 1. Use a Windows 10/11 x64 machine.
-2. Download the installer and `SHA256SUMS.txt` from [V2.2.1 Preview 17](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.17).
-3. Verify installer SHA-256: `9f934897c35a8e1c260b182d70d565eabfa9d0e6b0d62927788efe3e35e537d4`.
+2. Read [download and test status](#download-and-test-status) and use the explicitly supplied test candidate, not historical Preview 17.
+3. Compare the installer SHA-256 against this candidate's record.
 4. Install and launch **CodeFlowMu**.
-5. Confirm that the header reports a connected state, then register an empty example project in Settings.
+5. Confirm that the header project root matches the chosen installation directory, then confirm initialization in Environment Preflight. Preserve errors instead of repeatedly clearing the environment. Additional business projects can be registered separately.
 
 Verify the download in PowerShell:
 
 ```powershell
-(Get-FileHash .\CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe -Algorithm SHA256).Hash
+(Get-FileHash .\CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe -Algorithm SHA256).Hash
 ```
 
-The output must be `9F934897C35A8E1C260B182D70D565EABFA9D0E6B0D62927788EFEE3E35E537D4`. Do not run the installer if it differs.
+Compare the output with this page's candidate SHA-256, ignoring case. Do not run a mismatch.
 
 > [!WARNING]
-> V2.2.1 Preview 17 is unsigned and Windows SmartScreen may warn. Automatic acceptance proves isolated installation, initialization of a new project from installed resources and normal startup; it does not configure an external Provider account for the user. The installation root is not a business project and agents must not develop inside it. Provider accounts, credentials and any usage charges are separate from the free CodeFlowMu preview.
+> The test installer is unsigned and Windows SmartScreen may warn. The default project shares the installation directory, but application binaries, bundled runtimes and `data` must not be deleted or overwritten as task outputs. Provider accounts, credentials and usage charges are separate from the free preview. Installation/startup checks do not prove a real model business workflow.
 
 ### Thirty minutes: have the team deliver a real static PWA
 
@@ -268,7 +291,7 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 - Mobile PWA bound to a running PC;
 - external Provider lifecycle plus release manifests, security and third-party license evidence.
 
-### Preview 17 is engineering-accepted and published
+### Installation and upgrade capabilities (check the version status)
 
 - CodeFlowMu-branded welcome page, product logo, complete candidate identity and non-colliding installer filename;
 - interactive destination selection before installation;
@@ -276,7 +299,7 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 - user-confirmed download, verification and installation of the full Windows installer;
 - post-upgrade version verification, preservation of the current install directory and automatic restart;
 - update-feed activation only after the Workbench publishes an accepted prerelease.
-- isolated first-project initialization from installed FCoP templates, the Agent Skills manifest and all 48 referenced Skill packages.
+- Preview 18 repairs root discovery, uses the installation as the default project root and adds native tray exit; local tests are not user acceptance or formal publication.
 
 ### Roadmap only
 

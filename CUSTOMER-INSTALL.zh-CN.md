@@ -15,14 +15,14 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 ## 下载
 
 > [!IMPORTANT]
-> 当前仓库提供 `V2.2.1 Preview 17` 预发行版，但尚无正式支持的稳定版。预发行软件只用于免费预览和安装测试。
+> 当前修复包是 `V2.2.1 Preview 18` 本地测试候选，尚未上传 Release 或激活更新；本地真实初始化已通过，等待用户重新安装验收。Preview 17 存在初始化根目录错误，不再推荐新安装。没有正式支持的稳定版。
 
-需要在另一台 Windows x64 电脑上进行安装测试时，可使用明确标注为非正式版的 [V2.2.1 Preview 17](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.17)：
+本次测试只能使用明确交付的候选安装器：
 
-- [直接下载安装程序](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.17/CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe)
-- SHA-256：`9f934897c35a8e1c260b182d70d565eabfa9d0e6b0d62927788efe3e35e537d4`
+- 文件名：`CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe`。
+- SHA-256：`2958ffb025ed1572d082b7eb3e23bca8fec01f4929d91f1b6780f334b27af298`。
 
-该安装包已经自动完成隔离静默安装、安装文件清单校验、真实首次项目初始化和安装后程序启动检查。该基础验收不包含外部 Provider 账户配置、手机端业务任务或升级场景，不得据此把预发行版描述为正式客户版本或稳定支持版本。
+该候选已通过隔离静默安装、8,884 项文件清单校验、真实 HTTP 初始化（含原生确认）、重启保留项目、原生 EXE 退出与端口释放。用户重新安装验收仍待完成；这些检查不包含外部 Provider 账户配置、手机业务任务或全量升级回归，不代表正式支持。
 
 候选安装器尚未进行代码签名，可能触发 Windows SmartScreen；运行前必须校验 SHA-256。CodeFlowMu 预览版本身免费，外部 Provider 的账户、服务和调用费用彼此独立。
 
@@ -33,7 +33,7 @@ CodeFlowMu-Setup-<version>-<candidate>-win-x64.exe
 SHA256SUMS.txt
 ```
 
-Preview 17 的文件名包含完整候选号，避免同一产品版本的多个 Preview 安装包互相混淆。Preview 15 存在首次初始化资源缺失问题，已被 Preview 17 替代。
+文件名包含完整候选号，避免同一产品版本的多个安装包混淆。GitHub 历史 Preview 17 不包含本次修复，不能用它验证 Preview 18。
 
 其他产品清单、模块配置、安全审计和安装验收明细由发行工作台保存在内部版本记录中，不作为客户附件散发。Cursor 采用独立的 `sdk.v1` Provider Runtime，不把真实 Cursor SDK 或客户账户凭据打入安装包。
 
@@ -46,9 +46,23 @@ Preview 17 的文件名包含完整候选号，避免同一产品版本的多个
 3. 按安装向导完成安装。
 4. 从开始菜单或桌面快捷方式启动 **CodeFlowMu**。
 
-当前可下载的 Preview 17 会先显示 CodeFlowMu 品牌欢迎页、产品名称、完整候选号和 Logo，再明确显示可编辑的安装目录选择页，并在真正写入文件前的确认页再次显示目标目录；记住的旧目录只作为可修改的默认值，不会跳过目录选择。
+安装向导先显示品牌欢迎页、产品名称、完整候选号和 Logo，再显示可编辑的目录选择页，并在写入前再次确认目标目录。
 
-默认建议把程序文件安装在 Windows `Program Files` 下；可变运行数据与程序文件分离，写入 CodeFlowMu 的产品数据目录。
+Preview 18 使用当前用户安装模式；选择当前用户可写的目录，例如 `E:\CodeFlowMu`。该目录本身就是默认项目根，初始化后协作文件位于其 `fcop` 子目录，运行状态、日志、Provider 和升级缓存位于 `data`。不再默认写入 `C:\ProgramData\CodeFlowMu` 或创建 `projects\default`。
+
+全新安装无需迁移数据；已有旧项目时先自行备份。安装器不会擅自删除历史 C 盘目录。不要把整个盘符根目录或已有重要文件的目录当作临时测试目录。
+
+## 退出 CodeFlowMu
+
+关闭浏览器不等于关闭后台。右键 Windows 通知区域的 CodeFlowMu 图标，选择“退出 CodeFlowMu”并确认；图标可能位于通知区域的展开列表中。
+
+也可选择开始菜单的 **Exit CodeFlowMu**，或在安装目录运行：
+
+```text
+CodeFlowMu.exe --exit
+```
+
+程序先请求正常停止，超时才结束本次运行的进程树。退出会停止当前任务并断开手机连接；不需要手动结束其他 `node.exe` 或 `python.exe`。
 
 产品运行不依赖源码目录，也不应依赖开发机上的 Git、npm、系统 Node.js 或系统 Python。
 
@@ -99,7 +113,7 @@ Provider Manager 只接受 CodeFlowMu 声明的候选/已测试版本，下载 C
 典型目录：
 
 ```text
-C:\ProgramData\CodeFlowMu\providers\cursor\
+E:\CodeFlowMu\data\providers\cursor\
 ├─ versions\<version>\
 ├─ current\
 └─ current.json
@@ -111,7 +125,7 @@ Cursor Provider 与 CodeFlowMu 本体使用不同版本生命周期。正式支�
 
 程序升级不得把客户工作数据当作程序文件覆盖或删除。升级前仍建议对重要工作区、Evidence、Audit、Reports 和配置进行备份。
 
-从 Preview 15 起，PC 程序按“产品版本 + 候选号”检查签名更新源。检测到更高完整版本时先提示，不自动下载；用户确认后才下载完整安装包，核对签名、来源、大小和 SHA-256，然后使用当前安装目录静默覆盖升级并重启。相同版本不会重复下载，旧版本不会被当作升级目标。Preview 17 同时补齐首次项目初始化所需的 FCoP 与 Agent Skills 资源。
+PC 程序按“产品版本 + 候选号”检查签名更新源。检测到更高完整版本先提示，确认后才下载并校验完整安装包，使用当前目录升级并重启。相同版本不重复下载，旧版本不会作为升级目标。Preview 18 目前只是本地候选，不在更新源中；本次也未宣称全量升级回归已完成。
 
 发行工作台只有在安装包通过隔离安装、首次项目初始化和正常启动验收，并由维护者明确发布为 Pre-release 后，才激活该版本的更新源。仓库仍为 Private 时，未认证的外部客户无法使用 GitHub 更新源；这不会绕过公开前验收。
 

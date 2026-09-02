@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.md">English</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.17/CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe"><strong>下载 V2.2.1 Preview 17</strong></a> ·
+  <a href="#下载与测试状态"><strong>下载与测试状态</strong></a> ·
   <a href="#60-秒看懂产品">观看 60 秒</a> ·
   <a href="#五分钟启动半小时完成第一个任务">快速开始</a> ·
   <a href="FIRST-PWA-TASK.zh-CN.md">第一个 PWA 任务</a> ·
@@ -31,10 +31,33 @@
 </p>
 
 > [!IMPORTANT]
-> 这是 **CodeFlowMu 专有软件免费公开预览版**的发行仓库，不是源码仓库，也不授予开源许可证。当前 `v2.2.1-preview.17` 已通过隔离安装、8882 项安装文件校验、真实首次项目初始化和安装后启动验收，但安装器尚未签名，仍是预发行版，不是稳定版或正式支持版本。仓库目前保持 Private；转为 Public 仍需单独完成公开检查与明确批准。
+> 这是 **CodeFlowMu 专有软件免费公开预览版**的发行仓库，不是源码仓库，也不授予开源许可证。安装器尚未签名，没有正式支持的稳定版本。仓库保持 Private；转为 Public 仍需单独完成公开检查与明确批准。
 
 > [!NOTE]
-> `V2.2.1 Preview 17` 已作为 GitHub Pre-release 发布并替代首次初始化缺包的 Preview 15。它提供 CodeFlowMu 品牌安装向导、可编辑安装目录、完整安装包升级，并携带 FCoP 初始化模板、Agent Skills 总表及其引用的 48 个 Skill 包。客户下载附件只有安装器和 `SHA256SUMS.txt`；GitHub 自动显示的 Source code 压缩包不是客户安装包。
+> Preview 17 的真实用户初始化仍存在根目录识别错误，且缺少明确的退出入口，不再推荐新安装。先前的资源级初始化测试没有覆盖实际 HTTP 初始化入口；该测试通过不能证明用户初始化成功。
+
+## 下载与测试状态
+
+当前修复包是 **V2.2.1 Preview 18 本地测试候选**，尚未上传 GitHub Release，也未激活自动更新，等待用户重新安装验收。已通过隔离安装、8,884 项文件校验、真实 HTTP 初始化（含原生确认）、重启保留项目，以及 EXE 退出与端口释放检查。测试使用内置 Node/Python，未调用付费模型。
+
+- 测试安装器：`CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe`。
+- SHA-256：`2958ffb025ed1572d082b7eb3e23bca8fec01f4929d91f1b6780f334b27af298`。
+- [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) 中的历史 Preview 17 **不包含本次修复**。不能用旧下载验证新功能。
+- 正式提供下载时只提供安装器和 `SHA256SUMS.txt`；GitHub 自动附带的 Source code 压缩包不是客户安装包。
+
+## 安装到哪里，默认项目就在哪里
+
+Preview 18 将你选择的安装目录直接作为默认项目根。例如安装到 `E:\CodeFlowMu`：
+
+| 内容 | 默认位置 |
+| --- | --- |
+| 程序与默认项目根 | `E:\CodeFlowMu` |
+| 任务、报告和协作文件 | `E:\CodeFlowMu\fcop`（初始化后生成） |
+| 状态、项目注册、日志、Provider 和升级缓存 | `E:\CodeFlowMu\data` |
+
+不再自动使用 `C:\ProgramData\CodeFlowMu`，也不再创建 `projects\default` 作为默认项目。安装目录必须允许当前用户写入；另外指定的业务项目仍使用其自己的目录。新安装不需要迁移旧数据；程序不会擅自删除历史目录。
+
+**如何关闭：** 关闭浏览器页面只关闭界面。右键 Windows 通知区域的 CodeFlowMu 图标，选择“退出 CodeFlowMu”并确认，才会停止后台。也可从开始菜单选择 **Exit CodeFlowMu**，或运行安装目录中的 `CodeFlowMu.exe --exit`。退出会停止正在运行的任务，手机端也会失去连接。
 
 ## 为什么不是另一个聊天窗口
 
@@ -59,7 +82,7 @@
 
 ## 安装一次，后续按版本升级
 
-从 `V2.2.1 Preview 15` 起，CodeFlowMu 的 Windows 发行版采用带品牌向导的完整安装包，并支持完整安装包升级；Preview 17 进一步修复了全新安装后的首次项目初始化：
+Windows 发行版采用带品牌向导的完整安装包和按版本升级流程。以下升级流程需有经过验收并发布的目标版本；本地 Preview 18 不会自动成为更新目标：
 
 ```text
 首次或手动安装
@@ -93,11 +116,11 @@
 
 闭源产品不能假装成“从本仓库源码可复现构建”。CodeFlowMu Distribution 采用的是**专有运行时 + 可审阅的发行证据**：
 
-| 要验证什么 | V2.2.1 Preview 17 提供的内容 | 当前结论 |
+| 要验证什么 | 应核对的内容 | 当前结论 |
 | --- | --- | --- |
 | 下载来源 | 本仓库的 GitHub Release 与明确版本标签 | 只接受官方 Release，不接受网盘或转发文件 |
 | 文件完整性 | `SHA256SUMS.txt` | 安装器哈希可独立复算；不一致时不要运行 |
-| 安装、初始化与启动 | Release 说明中的自动验收结论 | 隔离静默安装、首次项目初始化与安装后 `/api/v2/health` 启动检查通过 |
+| 安装、初始化与启动 | 与安装器哈希绑定的检查记录 | Preview 18 隔离安装、真实初始化、重启和退出检查通过；用户验收待完成 |
 | 签名与 Provider | 安装器未签名；Cursor 采用外部 `sdk.v1` Provider | 只能作为 Preview，不能称为稳定正式版；Provider 账户与兼容验证独立管理 |
 
 Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、模块配置、安全审计和安装验收明细保存在发行工作台的内部版本记录中，不要求客户辨认或下载一组流水线 JSON。本仓库不以一个泛化的 `CI Passing` 徽章代替逐版本检查；完整边界见[公开仓库门禁记录](PUBLICATION-CHECKLIST.md)和[发行政策](RELEASE-POLICY.md)。
@@ -107,21 +130,21 @@ Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、�
 ### 五分钟：安装并打开控制中心
 
 1. 使用 Windows 10/11 x64 电脑。
-2. 从 [V2.2.1 Preview 17](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.17) 下载安装器和 `SHA256SUMS.txt`。
-3. 校验安装器 SHA-256：`9f934897c35a8e1c260b182d70d565eabfa9d0e6b0d62927788efe3e35e537d4`。
+2. 先阅读[下载与测试状态](#下载与测试状态)，使用明确交付给你的本次候选包，不要重复下载历史 Preview 17。
+3. 校验安装器 SHA-256 与本次候选的记录一致。
 4. 安装并启动 **CodeFlowMu**。
-5. 确认顶部连接状态正常，并在设置中注册一个空白示例项目。
+5. 确认顶部项目根是你选择的安装目录，再在环境预检中确认初始化；看到错误时保留错误信息，不要反复清空环境。也可另外注册业务项目。
 
 在 PowerShell 中校验下载文件：
 
 ```powershell
-(Get-FileHash .\CodeFlowMu-Setup-2.2.1-preview.17-win-x64.exe -Algorithm SHA256).Hash
+(Get-FileHash .\CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe -Algorithm SHA256).Hash
 ```
 
-输出必须为 `9F934897C35A8E1C260B182D70D565EABFA9D0E6B0D62927788EFEE3E35E537D4`；不一致时不要运行安装器。
+输出必须与本页候选 SHA-256 一致（忽略大小写）；不一致时不要运行安装器。
 
 > [!WARNING]
-> V2.2.1 Preview 17 尚未签名，Windows SmartScreen 可能警告。自动验收证明安装包可在隔离目录安装、可从已安装资源初始化一个新项目并正常启动；不代表外部 Provider 账户已经替用户完成配置。安装根不是业务项目，不能让 Agent 在安装目录中开发。Provider 账户、凭据和可能产生的调用费用与 CodeFlowMu 免费预览彼此独立。
+> 测试安装器尚未签名，Windows SmartScreen 可能警告。默认项目根与安装目录相同，但程序二进制、基础运行环境和 `data` 不能作为任务产物被删除或覆盖。Provider 账户、凭据和可能产生的调用费用与免费预览彼此独立，安装启动检查不等于真实模型业务验收。
 
 ### 半小时：让团队交付一个真正的静态 PWA
 
@@ -265,7 +288,7 @@ PC 启动 CodeFlowMu
 - 绑定运行中 PC 的 Mobile PWA；
 - 外部 Provider 生命周期以及 Release manifest、安全与第三方许可证据。
 
-### Preview 17 已完成工程验收并发布
+### 安装与升级能力（以对应版本状态为准）
 
 - CodeFlowMu 品牌欢迎页、产品 Logo、完整候选号和不重名安装包文件名；
 - 交互式安装时选择目标目录，并在写入文件前显示最终目录；
@@ -273,7 +296,7 @@ PC 启动 CodeFlowMu
 - 用户确认后下载、校验并安装完整 Windows 安装包；
 - 升级后核对版本、保留当前安装目录并自动重启；
 - 发行工作台仅在已验收 Pre-release 发布后激活对应更新源。
-- 从安装后产品资源完成一次隔离的新项目初始化，核验 FCoP 模板、Skills 总表和 48 个引用 Skill 包。
+- Preview 18 修复根目录识别、改用安装目录作为默认项目根，并提供原生托盘退出；本地测试不等于用户验收或正式发布。
 
 ### 仍然只是路线
 
