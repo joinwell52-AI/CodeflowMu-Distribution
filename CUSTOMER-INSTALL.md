@@ -5,6 +5,7 @@ This repository distributes the **free public preview of the proprietary CodeFlo
 ## System requirements
 
 - Windows 10/11 x64 or another supported Windows x64 environment
+- A user-writable installation directory on an NTFS volume (first-start configuration requires hard-link support)
 - Git is not required
 - Node.js / npm are not required
 - Python is not required
@@ -15,15 +16,15 @@ The installer carries the base product runtimes pinned and verified by the CodeF
 ## Download
 
 > [!IMPORTANT]
-> [V2.2.1 Preview 18](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.18) is available as a GitHub Pre-release download, not an active update target. Local real initialization passed; user reinstall acceptance is pending. Preview 17 has a root-discovery defect and is not recommended for fresh installs. There is no formally supported stable release. This Private repository requires a GitHub account with access.
+> [V2.2.1 Preview 19](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.19) is available as a GitHub Pre-release download, not an active update target. User reinstall acceptance is pending. Preview 17 has a root-discovery defect; Preview 18 lacks first-start team configuration and embedded EXE icons. Use Preview 19 for this repair. There is no formally supported stable release. This Private repository requires a GitHub account with access.
 
 Download this candidate and its checksum file from GitHub:
 
-- [Download CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.18/CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe).
-- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.18/SHA256SUMS.txt).
-- SHA-256: `2958ffb025ed1572d082b7eb3e23bca8fec01f4929d91f1b6780f334b27af298`.
+- [Download CodeFlowMu-Setup-2.2.1-preview.19-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.19/CodeFlowMu-Setup-2.2.1-preview.19-win-x64.exe).
+- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.19/SHA256SUMS.txt).
+- SHA-256: `cd774146001b8ffbb924b9b059cbcbd76c300e1d09e3ae2b4dfbabb91dd4395c`.
 
-Isolated installation, 8,884-file inventory verification, real HTTP initialization with native confirmation, restart persistence, native EXE exit and port release passed. User reinstall acceptance is pending. These checks do not cover Provider accounts, mobile business tasks or full upgrade regression and do not establish formal support.
+Checks cover isolated installation, 8,886-file inventory verification, startup, initialization, the real team API, team configuration persistence across restart and native exit. Both EXEs contain seven verified icon sizes. First startup generates a clean default team; existing customer configuration is preserved. User reinstall acceptance is pending. These checks do not cover Provider accounts, mobile business tasks or full upgrade regression and do not establish formal support.
 
 The candidate installer is not code-signed and may trigger Windows SmartScreen. Verify its SHA-256 before running it. CodeFlowMu itself is free during the public preview; external Provider accounts, services and usage charges are separate.
 
@@ -34,7 +35,7 @@ CodeFlowMu-Setup-<version>-<candidate>-win-x64.exe
 SHA256SUMS.txt
 ```
 
-The filename includes the complete candidate identity. Historical Preview 17 on GitHub does not contain this repair and cannot be used to test Preview 18.
+The filename includes the complete candidate identity. Historical Preview 17 on GitHub does not contain this repair and cannot be used to test Preview 19.
 
 Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record instead of being distributed as customer attachments. Cursor is managed as a separate `sdk.v1` Provider Runtime; the installer does not bundle the real Cursor SDK or customer credentials.
 
@@ -49,7 +50,7 @@ Development candidates are not formal customer releases until every Release Gate
 
 The installer presents a branded welcome page, complete candidate identity, editable destination chooser and final destination confirmation before writing files.
 
-Preview 18 uses a per-user installation. Choose a directory writable by your Windows user, such as `E:\CodeFlowMu`. This is also the default project root: initialization creates collaboration files under `fcop`; state, logs, Provider and update cache live under `data`. It no longer defaults to `C:\ProgramData\CodeFlowMu` or creates a nested `projects\default`.
+Preview 19 uses a per-user installation. Choose a directory writable by your Windows user, such as `E:\CodeFlowMu`. This is also the default project root: initialization creates collaboration files under `fcop`; state, logs, Provider and update cache live under `data`. It no longer defaults to `C:\ProgramData\CodeFlowMu` or creates a nested `projects\default`.
 
 Fresh installs require no migration. Back up existing projects yourself before making changes; the installer does not silently remove historical C-drive directories. Do not use a drive root or a directory containing important unrelated files as a disposable test directory.
 
@@ -126,7 +127,7 @@ Cursor Provider versions have a lifecycle separate from the CodeFlowMu applicati
 
 Upgrades must not treat customer work data as application files. Back up important workspaces, Evidence, Audit, Reports, and configuration before major upgrades.
 
-The PC product compares both product version and candidate number in a signed update feed. It prompts before downloading, verifies the full installer, applies it to the existing directory and restarts. Equal or older versions are not upgrade targets. Preview 18 is a manual GitHub download and absent from the feed; this handoff does not claim full upgrade regression coverage.
+The PC product compares both product version and candidate number in a signed update feed. It prompts before downloading, verifies the full installer, applies it to the existing directory and restarts. Equal or older versions are not upgrade targets. Preview 19 is a manual GitHub download and absent from the feed; this handoff does not claim full upgrade regression coverage.
 
 The Workbench activates an update only after the installer passes isolated-install, first-project-initialization and normal-startup acceptance and a maintainer explicitly publishes the candidate as a prerelease. While the repository is Private, unauthenticated external customers cannot use the GitHub update feed; this does not bypass publication acceptance.
 

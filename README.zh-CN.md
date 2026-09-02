@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.md">English</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.18"><strong>下载 Windows 版 · Preview 18</strong></a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.19"><strong>下载 Windows 版 · Preview 19</strong></a> ·
   <a href="#60-秒看懂产品">观看 60 秒</a> ·
   <a href="#五分钟启动半小时完成第一个任务">快速开始</a> ·
   <a href="FIRST-PWA-TASK.zh-CN.md">第一个 PWA 任务</a> ·
@@ -38,17 +38,19 @@
 
 ## 下载与测试状态
 
-当前修复包是 **[V2.2.1 Preview 18](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.18)**，通过 GitHub Pre-release 提供下载，未激活自动更新，等待用户重新安装验收。已通过隔离安装、8,884 项文件校验、真实 HTTP 初始化（含原生确认）、重启保留项目，以及 EXE 退出与端口释放检查。测试使用内置 Node/Python，未调用付费模型。
+当前修复包是 **[V2.2.1 Preview 19](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.19)**，通过 GitHub Pre-release 提供下载，未激活自动更新，等待用户重新安装验收。已检查隔离安装、8,886 项文件清单、程序启动、真实团队接口、初始化、重启保留配置，以及原生 EXE 退出。测试使用内置 Node/Python，未调用付费模型。
 
-- [下载安装器：CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.18/CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe)。
-- [下载 SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.18/SHA256SUMS.txt)。
-- SHA-256：`2958ffb025ed1572d082b7eb3e23bca8fec01f4929d91f1b6780f334b27af298`。
+Preview 19 在首次启动前生成干净的默认团队配置，保留已有客户配置；`CodeFlowMu.exe` 和 `CodeFlowMuUpdater.exe` 都已内嵌 7 个尺寸的产品图标。Preview 18 不包含这两项修复。请安装到当前用户可写的 **NTFS** 分区目录；首次生成配置需要文件系统支持硬链接。
+
+- [下载安装器：CodeFlowMu-Setup-2.2.1-preview.19-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.19/CodeFlowMu-Setup-2.2.1-preview.19-win-x64.exe)。
+- [下载 SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.19/SHA256SUMS.txt)。
+- SHA-256：`cd774146001b8ffbb924b9b059cbcbd76c300e1d09e3ae2b4dfbabb91dd4395c`。
 - [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) 中的历史 Preview 17 **不包含本次修复**。不能用旧下载验证新功能。
 - 客户附件只有安装器和 `SHA256SUMS.txt`；GitHub 自动附带的 Source code 压缩包不是客户安装包。仓库当前为 Private，需要有访问权限的 GitHub 账号。
 
 ## 安装到哪里，默认项目就在哪里
 
-Preview 18 将你选择的安装目录直接作为默认项目根。例如安装到 `E:\CodeFlowMu`：
+Preview 19 将你选择的安装目录直接作为默认项目根。例如安装到 `E:\CodeFlowMu`：
 
 | 内容 | 默认位置 |
 | --- | --- |
@@ -83,7 +85,7 @@ Preview 18 将你选择的安装目录直接作为默认项目根。例如安装
 
 ## 安装一次，后续按版本升级
 
-Windows 发行版采用带品牌向导的完整安装包和按版本升级流程。以下升级流程需有经过验收并写入签名更新源的目标版本；Preview 18 本次仅提供 GitHub 手动下载，不会自动成为更新目标：
+Windows 发行版采用带品牌向导的完整安装包和按版本升级流程。以下升级流程需有经过验收并写入签名更新源的目标版本；Preview 19 本次仅提供 GitHub 手动下载，不会自动成为更新目标：
 
 ```text
 首次或手动安装
@@ -121,7 +123,7 @@ Windows 发行版采用带品牌向导的完整安装包和按版本升级流程
 | --- | --- | --- |
 | 下载来源 | 本仓库的 GitHub Release 与明确版本标签 | 只接受官方 Release，不接受网盘或转发文件 |
 | 文件完整性 | `SHA256SUMS.txt` | 安装器哈希可独立复算；不一致时不要运行 |
-| 安装、初始化与启动 | 与安装器哈希绑定的检查记录 | Preview 18 隔离安装、真实初始化、重启和退出检查通过；用户验收待完成 |
+| 安装、初始化与启动 | 与安装器哈希绑定的检查记录 | 已检查 Preview 19 隔离安装、初始化、团队配置、重启和退出；用户验收待完成 |
 | 签名与 Provider | 安装器未签名；Cursor 采用外部 `sdk.v1` Provider | 只能作为 Preview，不能称为稳定正式版；Provider 账户与兼容验证独立管理 |
 
 Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、模块配置、安全审计和安装验收明细保存在发行工作台的内部版本记录中，不要求客户辨认或下载一组流水线 JSON。本仓库不以一个泛化的 `CI Passing` 徽章代替逐版本检查；完整边界见[公开仓库门禁记录](PUBLICATION-CHECKLIST.md)和[发行政策](RELEASE-POLICY.md)。
@@ -131,7 +133,7 @@ Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、�
 ### 五分钟：安装并打开控制中心
 
 1. 使用 Windows 10/11 x64 电脑。
-2. 从 [V2.2.1 Preview 18 下载页](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.18)下载安装器和 `SHA256SUMS.txt`，不要重复下载历史 Preview 17。
+2. 从 [V2.2.1 Preview 19 下载页](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.19)下载安装器和 `SHA256SUMS.txt`，不要重复下载历史 Preview 17。
 3. 校验安装器 SHA-256 与本次候选的记录一致。
 4. 安装并启动 **CodeFlowMu**。
 5. 确认顶部项目根是你选择的安装目录，再在环境预检中确认初始化；看到错误时保留错误信息，不要反复清空环境。也可另外注册业务项目。
@@ -139,7 +141,7 @@ Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、�
 在 PowerShell 中校验下载文件：
 
 ```powershell
-(Get-FileHash .\CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe -Algorithm SHA256).Hash
+(Get-FileHash .\CodeFlowMu-Setup-2.2.1-preview.19-win-x64.exe -Algorithm SHA256).Hash
 ```
 
 输出必须与本页候选 SHA-256 一致（忽略大小写）；不一致时不要运行安装器。
@@ -249,7 +251,7 @@ CodeFlowMu 是这套公开三段架构中的工程实现：TMPA 定义治理理�
 | **Evidence** | 如何证明文件、命令、测试或页面真实产生 | 证据本身不能替人接受业务风险 |
 | **Human Gate** | 谁批准外部写入、敏感动作和最终交付 | 技术检查不能替代人的产品验收 |
 
-V2.2.1 Preview 18 包含 Skill schema、48 个清单引用 Skill 包、FCoP 受控 MCP 执行边界和 Browser Use 运行组件；具体能力只有在产品实际提供、项目启用并获得授权时才可使用。本 README 不承诺自动安装任意社区 MCP，也不把未验证工具描述为正式支持能力。
+V2.2.1 Preview 19 包含 Skill schema、48 个清单引用 Skill 包、FCoP 受控 MCP 执行边界和 Browser Use 运行组件；具体能力只有在产品实际提供、项目启用并获得授权时才可使用。本 README 不承诺自动安装任意社区 MCP，也不把未验证工具描述为正式支持能力。
 
 ## 真实产品界面
 
@@ -297,7 +299,7 @@ PC 启动 CodeFlowMu
 - 用户确认后下载、校验并安装完整 Windows 安装包；
 - 升级后核对版本、保留当前安装目录并自动重启；
 - 发行工作台仅在已验收 Pre-release 发布后激活对应更新源。
-- Preview 18 修复根目录识别、改用安装目录作为默认项目根，并提供原生托盘退出；已提供 GitHub Pre-release 下载，用户验收与正式版放行仍待完成。
+- Preview 19 修复首次启动团队配置和 EXE 图标，保留 Preview 18 的安装目录即项目根、原生托盘退出能力；用户验收与正式版放行仍待完成。
 
 ### 仍然只是路线
 
