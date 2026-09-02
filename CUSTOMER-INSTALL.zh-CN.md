@@ -15,11 +15,12 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 ## 下载
 
 > [!IMPORTANT]
-> 当前修复包是 `V2.2.1 Preview 18` 本地测试候选，尚未上传 Release 或激活更新；本地真实初始化已通过，等待用户重新安装验收。Preview 17 存在初始化根目录错误，不再推荐新安装。没有正式支持的稳定版。
+> 当前修复包 [V2.2.1 Preview 18](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.18) 已通过 GitHub Pre-release 提供下载，未激活自动更新；本地真实初始化已通过，等待用户重新安装验收。Preview 17 存在初始化根目录错误，不再推荐新安装。没有正式支持的稳定版。仓库为 Private，下载需要有访问权限的 GitHub 账号。
 
-本次测试只能使用明确交付的候选安装器：
+请从 GitHub 下载本次候选安装器和校验文件：
 
-- 文件名：`CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe`。
+- [下载安装器：CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.18/CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe)。
+- [下载 SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.18/SHA256SUMS.txt)。
 - SHA-256：`2958ffb025ed1572d082b7eb3e23bca8fec01f4929d91f1b6780f334b27af298`。
 
 该候选已通过隔离静默安装、8,884 项文件清单校验、真实 HTTP 初始化（含原生确认）、重启保留项目、原生 EXE 退出与端口释放。用户重新安装验收仍待完成；这些检查不包含外部 Provider 账户配置、手机业务任务或全量升级回归，不代表正式支持。
@@ -125,7 +126,7 @@ Cursor Provider 与 CodeFlowMu 本体使用不同版本生命周期。正式支�
 
 程序升级不得把客户工作数据当作程序文件覆盖或删除。升级前仍建议对重要工作区、Evidence、Audit、Reports 和配置进行备份。
 
-PC 程序按“产品版本 + 候选号”检查签名更新源。检测到更高完整版本先提示，确认后才下载并校验完整安装包，使用当前目录升级并重启。相同版本不重复下载，旧版本不会作为升级目标。Preview 18 目前只是本地候选，不在更新源中；本次也未宣称全量升级回归已完成。
+PC 程序按“产品版本 + 候选号”检查签名更新源。检测到更高完整版本先提示，确认后才下载并校验完整安装包，使用当前目录升级并重启。相同版本不重复下载，旧版本不会作为升级目标。Preview 18 本次仅提供 GitHub 手动下载，不在更新源中；本次也未宣称全量升级回归已完成。
 
 发行工作台只有在安装包通过隔离安装、首次项目初始化和正常启动验收，并由维护者明确发布为 Pre-release 后，才激活该版本的更新源。仓库仍为 Private 时，未认证的外部客户无法使用 GitHub 更新源；这不会绕过公开前验收。
 

@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> ·
-  <a href="#download-and-test-status"><strong>Download and test status</strong></a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.18"><strong>Download for Windows · Preview 18</strong></a> ·
   <a href="#see-it-in-60-seconds">Watch 60 seconds</a> ·
   <a href="#five-minutes-to-start-thirty-minutes-to-a-first-delivery">Quickstart</a> ·
   <a href="FIRST-PWA-TASK.md">First PWA task</a> ·
@@ -38,12 +38,13 @@
 
 ## Download and test status
 
-**V2.2.1 Preview 18 is a local test candidate**, not a published GitHub Release or active update target. User reinstall acceptance is pending. Isolated installation, 8,884-file inventory verification, real HTTP initialization with native confirmation, restart persistence, native exit and port release passed. Tests used bundled Node/Python without paid model calls.
+**[V2.2.1 Preview 18](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.18) is available as a GitHub Pre-release download**, not an active update target or stable release. User reinstall acceptance is pending. Isolated installation, 8,884-file inventory verification, real HTTP initialization with native confirmation, restart persistence, native exit and port release passed. Tests used bundled Node/Python without paid model calls.
 
-- Test installer: `CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe`.
+- [Download CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.18/CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe).
+- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.18/SHA256SUMS.txt).
 - SHA-256: `2958ffb025ed1572d082b7eb3e23bca8fec01f4929d91f1b6780f334b27af298`.
 - Historical Preview 17 on [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) **does not contain this repair**.
-- Published customer assets consist only of the installer and `SHA256SUMS.txt`; GitHub's automatic Source code archives are not installers.
+- Customer assets consist only of the installer and `SHA256SUMS.txt`; GitHub's automatic Source code archives are not installers. The repository remains Private and requires a GitHub account with access.
 
 ## Your installation directory is the default project root
 
@@ -82,7 +83,7 @@ Click the poster to play in the browser. The video uses real product surfaces: t
 
 ## Install once, then upgrade by version
 
-The Windows distribution uses a branded installer and version-controlled full-installer upgrades. An accepted, published target is required; local Preview 18 is not automatically promoted into the update feed:
+The Windows distribution uses a branded installer and version-controlled full-installer upgrades. An accepted target in the signed feed is required; Preview 18 is a manual GitHub download and is not automatically promoted into the update feed:
 
 ```text
 First or manual installation
@@ -130,7 +131,7 @@ The Release download page intentionally contains only the installer and `SHA256S
 ### Five minutes: install and open the control center
 
 1. Use a Windows 10/11 x64 machine.
-2. Read [download and test status](#download-and-test-status) and use the explicitly supplied test candidate, not historical Preview 17.
+2. Download the installer and `SHA256SUMS.txt` from [V2.2.1 Preview 18](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.18), not historical Preview 17.
 3. Compare the installer SHA-256 against this candidate's record.
 4. Install and launch **CodeFlowMu**.
 5. Confirm that the header project root matches the chosen installation directory, then confirm initialization in Environment Preflight. Preserve errors instead of repeatedly clearing the environment. Additional business projects can be registered separately.
@@ -251,7 +252,7 @@ This is a **Spec First + Proprietary Distribution** path, not a relabeling of th
 | **Evidence** | How is a real file, command, test or page demonstrated? | Evidence cannot accept business risk for a human |
 | **Human Gate** | Who approves external writes, sensitive actions and final delivery? | Technical checks cannot replace product acceptance |
 
-V2.2.1 Preview 17 ships a Skill schema, 48 manifest-referenced Skill packages, a controlled FCoP MCP execution boundary and Browser Use runtime components. A capability is usable only when the product actually ships it, the project enables it and the operation is authorized. This README does not promise automatic installation of arbitrary community MCP servers or formal support for unverified tools.
+V2.2.1 Preview 18 ships a Skill schema, 48 manifest-referenced Skill packages, a controlled FCoP MCP execution boundary and Browser Use runtime components. A capability is usable only when the product actually ships it, the project enables it and the operation is authorized. This README does not promise automatic installation of arbitrary community MCP servers or formal support for unverified tools.
 
 ## Real product surfaces
 
@@ -299,7 +300,7 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 - user-confirmed download, verification and installation of the full Windows installer;
 - post-upgrade version verification, preservation of the current install directory and automatic restart;
 - update-feed activation only after the Workbench publishes an accepted prerelease.
-- Preview 18 repairs root discovery, uses the installation as the default project root and adds native tray exit; local tests are not user acceptance or formal publication.
+- Preview 18 repairs root discovery, uses the installation as the default project root and adds native tray exit; its GitHub Pre-release is available while user acceptance and formal release approval remain pending.
 
 ### Roadmap only
 

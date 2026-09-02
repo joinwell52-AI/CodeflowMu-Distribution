@@ -15,11 +15,12 @@ The installer carries the base product runtimes pinned and verified by the CodeF
 ## Download
 
 > [!IMPORTANT]
-> V2.2.1 Preview 18 is a local repair candidate, not yet uploaded to Releases or activated as an update. Local real initialization passed; user reinstall acceptance is pending. Preview 17 has a root-discovery defect and is not recommended for fresh installs. There is no formally supported stable release.
+> [V2.2.1 Preview 18](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.18) is available as a GitHub Pre-release download, not an active update target. Local real initialization passed; user reinstall acceptance is pending. Preview 17 has a root-discovery defect and is not recommended for fresh installs. There is no formally supported stable release. This Private repository requires a GitHub account with access.
 
-Use only the explicitly supplied candidate for this test:
+Download this candidate and its checksum file from GitHub:
 
-- File: `CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe`.
+- [Download CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.18/CodeFlowMu-Setup-2.2.1-preview.18-win-x64.exe).
+- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.18/SHA256SUMS.txt).
 - SHA-256: `2958ffb025ed1572d082b7eb3e23bca8fec01f4929d91f1b6780f334b27af298`.
 
 Isolated installation, 8,884-file inventory verification, real HTTP initialization with native confirmation, restart persistence, native EXE exit and port release passed. User reinstall acceptance is pending. These checks do not cover Provider accounts, mobile business tasks or full upgrade regression and do not establish formal support.
@@ -125,7 +126,7 @@ Cursor Provider versions have a lifecycle separate from the CodeFlowMu applicati
 
 Upgrades must not treat customer work data as application files. Back up important workspaces, Evidence, Audit, Reports, and configuration before major upgrades.
 
-The PC product compares both product version and candidate number in a signed update feed. It prompts before downloading, verifies the full installer, applies it to the existing directory and restarts. Equal or older versions are not upgrade targets. Preview 18 is currently local only and absent from the feed; this handoff does not claim full upgrade regression coverage.
+The PC product compares both product version and candidate number in a signed update feed. It prompts before downloading, verifies the full installer, applies it to the existing directory and restarts. Equal or older versions are not upgrade targets. Preview 18 is a manual GitHub download and absent from the feed; this handoff does not claim full upgrade regression coverage.
 
 The Workbench activates an update only after the installer passes isolated-install, first-project-initialization and normal-startup acceptance and a maintainer explicitly publishes the candidate as a prerelease. While the repository is Private, unauthenticated external customers cannot use the GitHub update feed; this does not bypass publication acceptance.
 
