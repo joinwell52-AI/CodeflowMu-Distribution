@@ -16,15 +16,15 @@ CodeFlowMu 安装包自带经产品流水线锁定并验证的基础运行环境
 ## 下载
 
 > [!IMPORTANT]
-> 当前修复包 [V2.2.1 Preview 19](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.19) 已通过 GitHub Pre-release 提供下载，未激活自动更新，等待用户重新安装验收。Preview 17 存在初始化根目录错误；Preview 18 缺少首次启动团队配置和 EXE 内置图标，请使用 Preview 19 验证本次修复。没有正式支持的稳定版。仓库为 Private，下载需要有访问权限的 GitHub 账号。
+> 当前修复包 [V2.2.2 Preview 3](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.3) 已通过 GitHub Pre-release 提供下载，未激活自动更新，等待用户重新安装验收。Preview 17 存在初始化根目录错误；Preview 18 缺少首次启动团队配置和 EXE 内置图标，请使用 V2.2.2 Preview 3 验证本次修复。没有正式支持的稳定版。仓库为 Private，下载需要有访问权限的 GitHub 账号。
 
 请从 GitHub 下载本次候选安装器和校验文件：
 
-- [下载安装器：CodeFlowMu-Setup-2.2.1-preview.19-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.19/CodeFlowMu-Setup-2.2.1-preview.19-win-x64.exe)。
-- [下载 SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.19/SHA256SUMS.txt)。
-- SHA-256：`cd774146001b8ffbb924b9b059cbcbd76c300e1d09e3ae2b4dfbabb91dd4395c`。
+- [下载安装器：CodeFlowMu-Setup-2.2.2-preview.3-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.3/CodeFlowMu-Setup-2.2.2-preview.3-win-x64.exe)。
+- [下载 SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.3/SHA256SUMS.txt)。
+- SHA-256：`55bb468c3fa33a06f7090415befb4909b22544d3224708f7868227feecac9048`。
 
-本次检查覆盖隔离静默安装、8,886 项文件清单、启动、初始化、真实团队接口、重启保留团队配置和原生 EXE 退出。两个 EXE 均包含经核对的 7 个尺寸图标；首次启动生成干净的默认团队，已有客户配置保持不变。用户重新安装验收仍待完成；这些检查不包含外部 Provider 账户配置、手机业务任务或全量升级回归，不代表正式支持。
+本次检查覆盖隔离静默安装、8,888 项文件清单、启动、初始化、真实团队接口、重启保留团队配置和原生 EXE 退出。两个 EXE 均包含经核对的 7 个尺寸图标；首次启动生成干净的默认团队，已有客户配置保持不变。用户重新安装验收仍待完成；这些检查不包含外部 Provider 账户配置、手机业务任务或全量升级回归，不代表正式支持。
 
 候选安装器尚未进行代码签名，可能触发 Windows SmartScreen；运行前必须校验 SHA-256。CodeFlowMu 预览版本身免费，外部 Provider 的账户、服务和调用费用彼此独立。
 
@@ -35,11 +35,20 @@ CodeFlowMu-Setup-<version>-<candidate>-win-x64.exe
 SHA256SUMS.txt
 ```
 
-文件名包含完整候选号，避免同一产品版本的多个安装包混淆。GitHub 历史 Preview 17 不包含本次修复，不能用它验证 Preview 19。
+文件名包含完整候选号，避免同一产品版本的多个安装包混淆。GitHub 历史 Preview 17 不包含本次修复，不能用它验证 V2.2.2 Preview 3。
 
 其他产品清单、模块配置、安全审计和安装验收明细由发行工作台保存在内部版本记录中，不作为客户附件散发。Cursor 采用独立的 `sdk.v1` Provider Runtime，不把真实 Cursor SDK 或客户账户凭据打入安装包。
 
 在 Release Gate 全部通过之前，本仓库不会把开发候选产物声明为正式客户版本。
+
+## 本次修复：重启、项目切换与版本信息
+
+- 重启使用安装包内置的启动器和 Node，不依赖客户电脑上的 npm；等待中的启动恢复任务可正常取消，避免退出超时。
+- 切换到独立业务项目时，Runtime、MCP 与任务/报告监听器同步切换；退出后重新执行 EXE 会恢复上次选择的项目。
+- 程序资源来自安装目录，业务项目保留自己的目录和账本；启动时补齐派生的 Skills 配置与事实源目录，不要求删除业务项目。
+- 左上角与设置中恢复产品版本、八项组件版本和版本更新日志，切换业务项目不会改变已安装程序的版本信息。
+
+本次使用最终 EXE 完成隔离安装、8,888 项文件校验、初始化、启动与退出；连续 10 次 HTTP 重启和 10 次项目切换通过，重开恢复项目选择，测试项目配置与内容保持不变。页面重启按钮与确认流程也已验证：旧进程退出、新进程启动，页面自动重连并保留所选项目和版本信息。未执行付费模型任务、手机端完整业务流程或全量升级/回滚矩阵；仍是未签名的 Preview。
 
 ## 安装 CodeFlowMu
 
@@ -50,7 +59,7 @@ SHA256SUMS.txt
 
 安装向导先显示品牌欢迎页、产品名称、完整候选号和 Logo，再显示可编辑的目录选择页，并在写入前再次确认目标目录。
 
-Preview 19 使用当前用户安装模式；选择当前用户可写的目录，例如 `E:\CodeFlowMu`。该目录本身就是默认项目根，初始化后协作文件位于其 `fcop` 子目录，运行状态、日志、Provider 和升级缓存位于 `data`。不再默认写入 `C:\ProgramData\CodeFlowMu` 或创建 `projects\default`。
+V2.2.2 Preview 3 使用当前用户安装模式；选择当前用户可写的目录，例如 `E:\CodeFlowMu`。该目录本身就是默认项目根，初始化后协作文件位于其 `fcop` 子目录，运行状态、日志、Provider 和升级缓存位于 `data`。不再默认写入 `C:\ProgramData\CodeFlowMu` 或创建 `projects\default`。
 
 全新安装无需迁移数据；已有旧项目时先自行备份。安装器不会擅自删除历史 C 盘目录。不要把整个盘符根目录或已有重要文件的目录当作临时测试目录。
 
@@ -127,7 +136,7 @@ Cursor Provider 与 CodeFlowMu 本体使用不同版本生命周期。正式支�
 
 程序升级不得把客户工作数据当作程序文件覆盖或删除。升级前仍建议对重要工作区、Evidence、Audit、Reports 和配置进行备份。
 
-PC 程序按“产品版本 + 候选号”检查签名更新源。检测到更高完整版本先提示，确认后才下载并校验完整安装包，使用当前目录升级并重启。相同版本不重复下载，旧版本不会作为升级目标。Preview 19 本次仅提供 GitHub 手动下载，不在更新源中；本次也未宣称全量升级回归已完成。
+PC 程序按“产品版本 + 候选号”检查签名更新源。检测到更高完整版本先提示，确认后才下载并校验完整安装包，使用当前目录升级并重启。相同版本不重复下载，旧版本不会作为升级目标。V2.2.2 Preview 3 本次仅提供 GitHub 手动下载，不在更新源中；本次也未宣称全量升级回归已完成。
 
 发行工作台只有在安装包通过隔离安装、首次项目初始化和正常启动验收，并由维护者明确发布为 Pre-release 后，才激活该版本的更新源。仓库仍为 Private 时，未认证的外部客户无法使用 GitHub 更新源；这不会绕过公开前验收。
 

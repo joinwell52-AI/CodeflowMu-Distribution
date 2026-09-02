@@ -16,15 +16,15 @@ The installer carries the base product runtimes pinned and verified by the CodeF
 ## Download
 
 > [!IMPORTANT]
-> [V2.2.1 Preview 19](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.1-preview.19) is available as a GitHub Pre-release download, not an active update target. User reinstall acceptance is pending. Preview 17 has a root-discovery defect; Preview 18 lacks first-start team configuration and embedded EXE icons. Use Preview 19 for this repair. There is no formally supported stable release. This Private repository requires a GitHub account with access.
+> [V2.2.2 Preview 3](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.3) is available as a GitHub Pre-release download, not an active update target. User reinstall acceptance is pending. Preview 17 has a root-discovery defect; Preview 18 lacks first-start team configuration and embedded EXE icons. Use V2.2.2 Preview 3 for this repair. There is no formally supported stable release. This Private repository requires a GitHub account with access.
 
 Download this candidate and its checksum file from GitHub:
 
-- [Download CodeFlowMu-Setup-2.2.1-preview.19-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.19/CodeFlowMu-Setup-2.2.1-preview.19-win-x64.exe).
-- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.1-preview.19/SHA256SUMS.txt).
-- SHA-256: `cd774146001b8ffbb924b9b059cbcbd76c300e1d09e3ae2b4dfbabb91dd4395c`.
+- [Download CodeFlowMu-Setup-2.2.2-preview.3-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.3/CodeFlowMu-Setup-2.2.2-preview.3-win-x64.exe).
+- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.3/SHA256SUMS.txt).
+- SHA-256: `55bb468c3fa33a06f7090415befb4909b22544d3224708f7868227feecac9048`.
 
-Checks cover isolated installation, 8,886-file inventory verification, startup, initialization, the real team API, team configuration persistence across restart and native exit. Both EXEs contain seven verified icon sizes. First startup generates a clean default team; existing customer configuration is preserved. User reinstall acceptance is pending. These checks do not cover Provider accounts, mobile business tasks or full upgrade regression and do not establish formal support.
+Checks cover isolated installation, 8,888-file inventory verification, startup, initialization, the real team API, team configuration persistence across restart and native exit. Both EXEs contain seven verified icon sizes. First startup generates a clean default team; existing customer configuration is preserved. User reinstall acceptance is pending. These checks do not cover Provider accounts, mobile business tasks or full upgrade regression and do not establish formal support.
 
 The candidate installer is not code-signed and may trigger Windows SmartScreen. Verify its SHA-256 before running it. CodeFlowMu itself is free during the public preview; external Provider accounts, services and usage charges are separate.
 
@@ -35,11 +35,20 @@ CodeFlowMu-Setup-<version>-<candidate>-win-x64.exe
 SHA256SUMS.txt
 ```
 
-The filename includes the complete candidate identity. Historical Preview 17 on GitHub does not contain this repair and cannot be used to test Preview 19.
+The filename includes the complete candidate identity. Historical Preview 17 on GitHub does not contain this repair and cannot be used to test V2.2.2 Preview 3.
 
 Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record instead of being distributed as customer attachments. Cursor is managed as a separate `sdk.v1` Provider Runtime; the installer does not bundle the real Cursor SDK or customer credentials.
 
 Development candidates are not formal customer releases until every Release Gate passes.
+
+## Repairs: restart, project switching and version information
+
+- Restart uses the installed launcher and bundled Node, not a customer-installed npm. Pending startup recovery waits can be cancelled during shutdown.
+- Switching business projects rebinds Runtime, MCP and task/report watchers. Reopening the EXE restores the previously selected project.
+- Product resources come from the installation; business projects retain their own directories and ledgers. Derived Skills configuration and fact-source directories are repaired without requiring deletion of the business project.
+- The header and Settings show product version, eight component versions and version history. Switching projects does not change the installed product identity.
+
+The final EXE passed isolated installation, 8,888-file inventory, initialization, startup and exit. Ten HTTP restarts and ten project switches passed; reopening restored project selection and fixture configuration/content remained unchanged. The visible restart button and confirmation also passed: the old process exited, the new process started, and the page reconnected with the project and versions preserved. Paid-model tasks, full mobile workflows and the full upgrade/rollback matrix were not exercised. This remains an unsigned Preview.
 
 ## Install CodeFlowMu
 
@@ -50,7 +59,7 @@ Development candidates are not formal customer releases until every Release Gate
 
 The installer presents a branded welcome page, complete candidate identity, editable destination chooser and final destination confirmation before writing files.
 
-Preview 19 uses a per-user installation. Choose a directory writable by your Windows user, such as `E:\CodeFlowMu`. This is also the default project root: initialization creates collaboration files under `fcop`; state, logs, Provider and update cache live under `data`. It no longer defaults to `C:\ProgramData\CodeFlowMu` or creates a nested `projects\default`.
+V2.2.2 Preview 3 uses a per-user installation. Choose a directory writable by your Windows user, such as `E:\CodeFlowMu`. This is also the default project root: initialization creates collaboration files under `fcop`; state, logs, Provider and update cache live under `data`. It no longer defaults to `C:\ProgramData\CodeFlowMu` or creates a nested `projects\default`.
 
 Fresh installs require no migration. Back up existing projects yourself before making changes; the installer does not silently remove historical C-drive directories. Do not use a drive root or a directory containing important unrelated files as a disposable test directory.
 
@@ -127,7 +136,7 @@ Cursor Provider versions have a lifecycle separate from the CodeFlowMu applicati
 
 Upgrades must not treat customer work data as application files. Back up important workspaces, Evidence, Audit, Reports, and configuration before major upgrades.
 
-The PC product compares both product version and candidate number in a signed update feed. It prompts before downloading, verifies the full installer, applies it to the existing directory and restarts. Equal or older versions are not upgrade targets. Preview 19 is a manual GitHub download and absent from the feed; this handoff does not claim full upgrade regression coverage.
+The PC product compares both product version and candidate number in a signed update feed. It prompts before downloading, verifies the full installer, applies it to the existing directory and restarts. Equal or older versions are not upgrade targets. V2.2.2 Preview 3 is a manual GitHub download and absent from the feed; this handoff does not claim full upgrade regression coverage.
 
 The Workbench activates an update only after the installer passes isolated-install, first-project-initialization and normal-startup acceptance and a maintainer explicitly publishes the candidate as a prerelease. While the repository is Private, unauthenticated external customers cannot use the GitHub update feed; this does not bypass publication acceptance.
 
