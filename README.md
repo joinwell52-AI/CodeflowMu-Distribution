@@ -13,16 +13,16 @@
 <p align="center"><strong>Start the control center in 5 minutes · Run a first installable, offline-capable and statically hostable PWA task in 30 minutes</strong></p>
 
 <p align="center">
-  <img alt="Free public preview" src="https://img.shields.io/badge/status-free_preview-0891b2">
+  <img alt="Free preview" src="https://img.shields.io/badge/status-free_preview-0891b2">
   <img alt="Windows x64" src="https://img.shields.io/badge/platform-Windows_x64-0078D4?logo=windows11">
   <img alt="Proprietary software" src="https://img.shields.io/badge/license-proprietary-111827">
 </p>
 
-<p align="center">Free public preview · Proprietary software · Windows x64 · Local-first control plane</p>
+<p align="center">Free preview · Proprietary software · Windows x64 · Local-first control plane</p>
 
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.3"><strong>Download for Windows · V2.2.2 Preview 3</strong></a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.4"><strong>Download for Windows · V2.2.2 Preview 4</strong></a> ·
   <a href="#see-it-in-60-seconds">Watch 60 seconds</a> ·
   <a href="#five-minutes-to-start-thirty-minutes-to-a-first-delivery">Quickstart</a> ·
   <a href="FIRST-PWA-TASK.md">First PWA task</a> ·
@@ -31,35 +31,42 @@
 </p>
 
 > [!IMPORTANT]
-> This distributes a **free public preview of proprietary software**, not the CodeFlowMu source repository or an open-source license. Installers are unsigned and there is no formally supported stable version. The repository remains Private; publication requires separate checks and explicit approval.
+> This distributes a **free preview of proprietary software**, not the CodeFlowMu source repository or an open-source license. Installers are unsigned and there is no formally supported stable version. The repository remains Private; publication requires separate checks and explicit approval.
 
 > [!NOTE]
 > Users reported restart, project-switching and version-display defects in V2.2.1 Preview 19. Use the new complete release identity below rather than downloading the old asset again.
 
 ## Download and test status
 
-**[V2.2.2 Preview 3](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.3) is available as a GitHub Pre-release download**, not an active update target or stable release. User reinstall acceptance is pending. Isolated installation, 8,888-file inventory verification, startup, the real team API, initialization, configuration persistence across restart and native exit were checked using bundled Node/Python without paid model calls.
+**[V2.2.2 Preview 4](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.4) is available as a GitHub Pre-release download**, not an active update target or stable release. User reinstall acceptance is pending. Isolated installation, 8,888-file inventory verification, startup, the real team API, initialization, configuration persistence across restart and native exit were checked using bundled Node/Python without paid model calls.
 
-V2.2.2 Preview 3 creates a clean default team configuration before first startup and preserves existing customer configuration. Both `CodeFlowMu.exe` and `CodeFlowMuUpdater.exe` now contain the product icon in seven sizes. Preview 18 lacks these fixes. Use a user-writable directory on an **NTFS** volume; initial configuration creation requires hard-link support.
+V2.2.2 Preview 4 creates a clean default team configuration before first startup and preserves existing customer configuration. Both `CodeFlowMu.exe` and `CodeFlowMuUpdater.exe` now contain the product icon in seven sizes. Preview 18 lacks these fixes. Use a user-writable directory on an **NTFS** volume; initial configuration creation requires hard-link support.
 
-- [Download CodeFlowMu-Setup-2.2.2-preview.3-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.3/CodeFlowMu-Setup-2.2.2-preview.3-win-x64.exe).
-- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.3/SHA256SUMS.txt).
-- SHA-256: `55bb468c3fa33a06f7090415befb4909b22544d3224708f7868227feecac9048`.
+- [Download CodeFlowMu-Setup-2.2.2-preview.4-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.4/CodeFlowMu-Setup-2.2.2-preview.4-win-x64.exe).
+- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.4/SHA256SUMS.txt).
+- SHA-256: `4086fdc1b0f491af79f1abe2e4636aeb89aa7391376b9cf50c0145d5aa5951f5`.
 - Historical Preview 17 on [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) **does not contain this repair**.
 - Customer assets consist only of the installer and `SHA256SUMS.txt`; GitHub's automatic Source code archives are not installers. The repository remains Private and requires a GitHub account with access.
 
-## Repairs: restart, project switching and version information
+## This repair: restore provider selection
+
+- Fix legacy business-project edition metadata incorrectly showing a Cursor-only Open edition and disabling the selector. Preview 3 does not contain this repair.
+- Keep the five existing choices: Cursor, Google, Claude, ChatGPT subscription / Codex and Doubao. Existing configuration, permission and execution-mode boundaries still apply.
+- Installed product identity comes from the installation, not an old project marker. No project files or credential settings need to be deleted.
+- The final EXE was checked with legacy-marked test projects: all five choices remained selectable through restarts and project switches. No account settings were saved and no paid model calls were made.
+
+## Retained repairs: restart, project switching and version information
 
 - Restart uses the installed launcher and bundled Node, not a customer-installed npm. Pending startup recovery waits can be cancelled during shutdown.
 - Switching business projects rebinds Runtime, MCP and task/report watchers. Reopening the EXE restores the previously selected project.
 - Product resources come from the installation; business projects retain their own directories and ledgers. Derived Skills configuration and fact-source directories are repaired without requiring deletion of the business project.
 - The header and Settings show product version, eight component versions and version history. Switching projects does not change the installed product identity.
 
-The final EXE passed isolated installation, 8,888-file inventory, initialization, startup and exit. Ten HTTP restarts and ten project switches passed; reopening restored project selection and fixture configuration/content remained unchanged. The visible restart button and confirmation also passed: the old process exited, the new process started, and the page reconnected with the project and versions preserved. Paid-model tasks, full mobile workflows and the full upgrade/rollback matrix were not exercised. This remains an unsigned Preview.
+The final EXE passed isolated installation, 8,888-file inventory, initialization, startup and exit. Ten HTTP restarts and ten project switches passed; reopening restored project selection and fixture configuration/content remained unchanged. The visible restart button also passed: the old process exited, the new process started, and the page reconnected with the project and versions preserved. Paid-model tasks, full mobile workflows and the full upgrade/rollback matrix were not exercised. This remains an unsigned Preview.
 
 ## Your installation directory is the default project root
 
-In V2.2.2 Preview 3, choosing `E:\CodeFlowMu` means:
+In V2.2.2 Preview 4, choosing `E:\CodeFlowMu` means:
 
 | Content | Default location |
 | --- | --- |
@@ -95,7 +102,7 @@ Click the poster to play in the browser. The video uses real product surfaces: t
 
 ## Install once, then upgrade by version
 
-The Windows distribution uses a branded installer and version-controlled full-installer upgrades. An accepted target in the signed feed is required; V2.2.2 Preview 3 is a manual GitHub download and is not automatically promoted into the update feed:
+The Windows distribution uses a branded installer and version-controlled full-installer upgrades. An accepted target in the signed feed is required; V2.2.2 Preview 4 is a manual GitHub download and is not automatically promoted into the update feed:
 
 ```text
 First or manual installation
@@ -133,7 +140,7 @@ A proprietary product cannot honestly claim a reproducible build from source in 
 | --- | --- | --- |
 | Download origin | This repository's GitHub Release and explicit version tag | Accept only the official Release, never a mirror or forwarded file |
 | File integrity | `SHA256SUMS.txt` | The installer hash can be recomputed independently; do not run a mismatch |
-| Install, initialize and start | Checks bound to the installer hash | V2.2.2 Preview 3 isolated install, initialization, team configuration, restart and exit checked; user acceptance is pending |
+| Install, initialize and start | Checks bound to the installer hash | V2.2.2 Preview 4 isolated install, initialization, team configuration, restart and exit checked; user acceptance is pending |
 | Signing and provider | Unsigned installer; Cursor uses an external `sdk.v1` Provider | Preview only, not a stable formal release; provider accounts and compatibility are managed separately |
 
 The Release download page intentionally contains only the installer and `SHA256SUMS.txt`. Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record; customers are not asked to identify or download a collection of pipeline JSON files. See the [public repository readiness review](PUBLICATION-CHECKLIST.md) and [release policy](RELEASE-POLICY.md) for the boundary.
@@ -143,7 +150,7 @@ The Release download page intentionally contains only the installer and `SHA256S
 ### Five minutes: install and open the control center
 
 1. Use a Windows 10/11 x64 machine.
-2. Download the installer and `SHA256SUMS.txt` from [V2.2.2 Preview 3](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.3), not historical Preview 17.
+2. Download the installer and `SHA256SUMS.txt` from [V2.2.2 Preview 4](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.4), not historical Preview 17.
 3. Compare the installer SHA-256 against this candidate's record.
 4. Install and launch **CodeFlowMu**.
 5. Confirm that the header project root matches the chosen installation directory, then confirm initialization in Environment Preflight. Preserve errors instead of repeatedly clearing the environment. Additional business projects can be registered separately.
@@ -151,7 +158,7 @@ The Release download page intentionally contains only the installer and `SHA256S
 Verify the download in PowerShell:
 
 ```powershell
-(Get-FileHash .\CodeFlowMu-Setup-2.2.2-preview.3-win-x64.exe -Algorithm SHA256).Hash
+(Get-FileHash .\CodeFlowMu-Setup-2.2.2-preview.4-win-x64.exe -Algorithm SHA256).Hash
 ```
 
 Compare the output with this page's candidate SHA-256, ignoring case. Do not run a mismatch.
@@ -264,7 +271,7 @@ This is a **Spec First + Proprietary Distribution** path, not a relabeling of th
 | **Evidence** | How is a real file, command, test or page demonstrated? | Evidence cannot accept business risk for a human |
 | **Human Gate** | Who approves external writes, sensitive actions and final delivery? | Technical checks cannot replace product acceptance |
 
-V2.2.2 Preview 3 ships a Skill schema, 48 manifest-referenced Skill packages, a controlled FCoP MCP execution boundary and Browser Use runtime components. A capability is usable only when the product actually ships it, the project enables it and the operation is authorized. This README does not promise automatic installation of arbitrary community MCP servers or formal support for unverified tools.
+V2.2.2 Preview 4 ships a Skill schema, 48 manifest-referenced Skill packages, a controlled FCoP MCP execution boundary and Browser Use runtime components. A capability is usable only when the product actually ships it, the project enables it and the operation is authorized. This README does not promise automatic installation of arbitrary community MCP servers or formal support for unverified tools.
 
 ## Real product surfaces
 
@@ -312,7 +319,7 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 - user-confirmed download, verification and installation of the full Windows installer;
 - post-upgrade version verification, preservation of the current install directory and automatic restart;
 - update-feed activation only after the Workbench publishes an accepted prerelease.
-- V2.2.2 Preview 3 repairs installed restart, project switching and version information, retaining first-start team configuration, EXE icons, destination selection and native tray exit. User acceptance and formal stable-release approval remain pending.
+- V2.2.2 Preview 4 repairs installed restart, project switching and version information, retaining first-start team configuration, EXE icons, destination selection and native tray exit. User acceptance and formal stable-release approval remain pending.
 
 ### Roadmap only
 
