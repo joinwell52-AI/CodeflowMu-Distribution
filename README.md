@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.4"><strong>Download for Windows · V2.2.2 Preview 4</strong></a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2"><strong>Download for Windows · V2.2.8 Preview 2</strong></a> ·
   <a href="#see-it-in-60-seconds">Watch 60 seconds</a> ·
   <a href="#five-minutes-to-start-thirty-minutes-to-a-first-delivery">Quickstart</a> ·
   <a href="FIRST-PWA-TASK.md">First PWA task</a> ·
@@ -31,29 +31,29 @@
 </p>
 
 > [!IMPORTANT]
-> This distributes a **free preview of proprietary software**, not the CodeFlowMu source repository or an open-source license. Installers are unsigned and there is no formally supported stable version. The repository remains Private; publication requires separate checks and explicit approval.
+> This public repository distributes a **free preview of proprietary software**. It is not the CodeFlowMu source repository and does not grant an open-source license. The installer is unsigned, and the current version is a prerelease rather than a formally supported stable release.
 
 > [!NOTE]
-> Users reported restart, project-switching and version-display defects in V2.2.1 Preview 19. Use the new complete release identity below rather than downloading the old asset again.
+> The current complete release identity is **V2.2.8-preview.2**. Downloads, verification and update comparison all use the complete release identity; do not use an old installer to validate current behavior.
 
 ## Download and test status
 
-**[V2.2.2 Preview 4](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.4) is available as a GitHub Pre-release download**, not an active update target or stable release. User reinstall acceptance is pending. Isolated installation, 8,888-file inventory verification, startup, the real team API, initialization, configuration persistence across restart and native exit were checked using bundled Node/Python without paid model calls.
+**[V2.2.8 Preview 2](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2) is available from the public GitHub Pre-release**, and it is the target in the signed public Preview update manifest. Release acceptance records an isolated silent-install pass and a startup pass from the installed directory through `/api/v2/health`.
 
-V2.2.2 Preview 4 creates a clean default team configuration before first startup and preserves existing customer configuration. Both `CodeFlowMu.exe` and `CodeFlowMuUpdater.exe` now contain the product icon in seven sizes. Preview 18 lacks these fixes. Use a user-writable directory on an **NTFS** volume; initial configuration creation requires hard-link support.
+V2.2.8 Preview 2 improves Codex app-server agent startup and recovery: it registers an observable RunHandle before checking role-specific FCoP tools; a short preparation failure or one wait-window timeout enters recovery and continues polling, while a real subprocess exit, protocol error or explicit cancellation still settles the session as a failure. Install to a user-writable directory on an **NTFS** volume.
 
-- [Download CodeFlowMu-Setup-2.2.2-preview.4-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.4/CodeFlowMu-Setup-2.2.2-preview.4-win-x64.exe).
-- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.4/SHA256SUMS.txt).
-- SHA-256: `4086fdc1b0f491af79f1abe2e4636aeb89aa7391376b9cf50c0145d5aa5951f5`.
-- Historical Preview 17 on [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) **does not contain this repair**.
-- Customer assets consist only of the installer and `SHA256SUMS.txt`; GitHub's automatic Source code archives are not installers. The repository remains Private and requires a GitHub account with access.
+- [Download CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.8-preview.2/CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe).
+- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.8-preview.2/SHA256SUMS.txt).
+- SHA-256: `3d8c459e5636ef18bbba8538b714796d4f23fba333b5ee31cbd20a31aa3e97a9`.
+- Customer assets consist only of the installer and `SHA256SUMS.txt`; GitHub's automatic Source code archives are not installers.
 
-## This repair: restore provider selection
+## This update: agent startup and session recovery
 
-- Fix legacy business-project edition metadata incorrectly showing a Cursor-only Open edition and disabling the selector. Preview 3 does not contain this repair.
-- Keep the five existing choices: Cursor, Google, Claude, ChatGPT subscription / Codex and Doubao. Existing configuration, permission and execution-mode boundaries still apply.
-- Installed product identity comes from the installation, not an old project marker. No project files or credential settings need to be deleted.
-- The final EXE was checked with legacy-marked test projects: all five choices remained selectable through restarts and project switches. No account settings were saved and no paid model calls were made.
+- `CodexCliAdapter.send()` returns immediately and registers an observable RunHandle instead of synchronously waiting for MCP readiness.
+- After `thread/start`, Codex app-server checks the role's configured FCoP tools and calls `turn/start` only when the tool contract is satisfied.
+- A `failed` or `cancelled` readiness result, or one 30-second wait-window timeout, records recovery evidence and continues polling in the same session.
+- Chat and track wakeups arriving during preparation wait on the same readiness promise and are delivered through `turn/steer` after the first turn starts.
+- A real subprocess exit, protocol error or explicit cancellation still settles the session; real technical failures are not reported as success.
 
 ## Retained repairs: restart, project switching and version information
 
@@ -62,11 +62,11 @@ V2.2.2 Preview 4 creates a clean default team configuration before first startup
 - Product resources come from the installation; business projects retain their own directories and ledgers. Derived Skills configuration and fact-source directories are repaired without requiring deletion of the business project.
 - The header and Settings show product version, eight component versions and version history. Switching projects does not change the installed product identity.
 
-The final EXE passed isolated installation, 8,888-file inventory, initialization, startup and exit. Ten HTTP restarts and ten project switches passed; reopening restored project selection and fixture configuration/content remained unchanged. The visible restart button also passed: the old process exited, the new process started, and the page reconnected with the project and versions preserved. Paid-model tasks, full mobile workflows and the full upgrade/rollback matrix were not exercised. This remains an unsigned Preview.
+The final V2.2.8 Preview 2 EXE passed a silent installation into an isolated directory and then started from that directory with `/api/v2/health` passing. This conclusion covers the install-and-start loop only; it does not claim acceptance of paid-model tasks, the full mobile workflow or a complete upgrade/rollback matrix. This remains an unsigned Preview.
 
 ## Your installation directory is the default project root
 
-In V2.2.2 Preview 4, choosing `E:\CodeFlowMu` means:
+In V2.2.8 Preview 2, choosing `E:\CodeFlowMu` means:
 
 | Content | Default location |
 | --- | --- |
@@ -102,7 +102,7 @@ Click the poster to play in the browser. The video uses real product surfaces: t
 
 ## Install once, then upgrade by version
 
-The Windows distribution uses a branded installer and version-controlled full-installer upgrades. An accepted target in the signed feed is required; V2.2.2 Preview 4 is a manual GitHub download and is not automatically promoted into the update feed:
+The Windows distribution uses a branded installer and version-controlled full-installer upgrades. V2.2.8 Preview 2 has passed release acceptance and is present in the signed public Preview update manifest; older installed versions can discover it by its complete release identity:
 
 ```text
 First or manual installation
@@ -122,15 +122,15 @@ A higher complete release version is detected
 
 Version control compares both the product version and release candidate:
 
-- `V2.2.1-preview.15 < V2.2.1-preview.17`;
-- `V2.2.1 < V2.2.2`;
+- `V2.2.8-preview.1 < V2.2.8-preview.2`;
+- `V2.2.7 < V2.2.8`;
 - the same complete version is not downloaded again;
 - an older version is never treated as an upgrade.
 
 Only an accepted and explicitly published prerelease can become the signed update target. Drafts, local builds and unpublished candidates cannot trigger a customer upgrade. The updater preserves the existing installation directory; projects, tasks, reports and other mutable customer data must not be treated as replaceable program files.
 
 > [!CAUTION]
-> While this repository remains Private, ordinary external customers cannot anonymously read its update feed or Release assets. External customer upgrades can be enabled only after publication acceptance and an explicit switch to Public, or through a future supported authenticated download service. This change never alters repository visibility automatically.
+> This distribution repository is public, so customers can anonymously read the Preview update manifest and Release assets. A full upgrade runs only when the manifest's complete target version is newer than the installed version and the user confirms download and installation. Drafts, unpublished candidates and older versions do not trigger an upgrade.
 
 ## Before running the installer: verify, do not merely trust
 
@@ -140,7 +140,7 @@ A proprietary product cannot honestly claim a reproducible build from source in 
 | --- | --- | --- |
 | Download origin | This repository's GitHub Release and explicit version tag | Accept only the official Release, never a mirror or forwarded file |
 | File integrity | `SHA256SUMS.txt` | The installer hash can be recomputed independently; do not run a mismatch |
-| Install, initialize and start | Checks bound to the installer hash | V2.2.2 Preview 4 isolated install, initialization, team configuration, restart and exit checked; user acceptance is pending |
+| Install and start | Checks bound to the installer hash | V2.2.8 Preview 2 silent install into an isolated directory passed; startup from the installed directory passed `/api/v2/health` |
 | Signing and provider | Unsigned installer; Cursor uses an external `sdk.v1` Provider | Preview only, not a stable formal release; provider accounts and compatibility are managed separately |
 
 The Release download page intentionally contains only the installer and `SHA256SUMS.txt`. Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record; customers are not asked to identify or download a collection of pipeline JSON files. See the [public repository readiness review](PUBLICATION-CHECKLIST.md) and [release policy](RELEASE-POLICY.md) for the boundary.
@@ -150,7 +150,7 @@ The Release download page intentionally contains only the installer and `SHA256S
 ### Five minutes: install and open the control center
 
 1. Use a Windows 10/11 x64 machine.
-2. Download the installer and `SHA256SUMS.txt` from [V2.2.2 Preview 4](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.4), not historical Preview 17.
+2. Download the installer and `SHA256SUMS.txt` from [V2.2.8 Preview 2](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2).
 3. Compare the installer SHA-256 against this candidate's record.
 4. Install and launch **CodeFlowMu**.
 5. Confirm that the header project root matches the chosen installation directory, then confirm initialization in Environment Preflight. Preserve errors instead of repeatedly clearing the environment. Additional business projects can be registered separately.
@@ -158,7 +158,7 @@ The Release download page intentionally contains only the installer and `SHA256S
 Verify the download in PowerShell:
 
 ```powershell
-(Get-FileHash .\CodeFlowMu-Setup-2.2.2-preview.4-win-x64.exe -Algorithm SHA256).Hash
+(Get-FileHash .\CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe -Algorithm SHA256).Hash
 ```
 
 Compare the output with this page's candidate SHA-256, ignoring case. Do not run a mismatch.
@@ -271,7 +271,7 @@ This is a **Spec First + Proprietary Distribution** path, not a relabeling of th
 | **Evidence** | How is a real file, command, test or page demonstrated? | Evidence cannot accept business risk for a human |
 | **Human Gate** | Who approves external writes, sensitive actions and final delivery? | Technical checks cannot replace product acceptance |
 
-V2.2.2 Preview 4 ships a Skill schema, 48 manifest-referenced Skill packages, a controlled FCoP MCP execution boundary and Browser Use runtime components. A capability is usable only when the product actually ships it, the project enables it and the operation is authorized. This README does not promise automatic installation of arbitrary community MCP servers or formal support for unverified tools.
+The current release ships a Skill schema, a controlled FCoP MCP execution boundary and Browser Use runtime components. A capability is usable only when the product actually ships it, the project enables it and the operation is authorized. This README does not promise automatic installation of arbitrary community MCP servers or formal support for unverified tools.
 
 ## Real product surfaces
 
@@ -319,7 +319,7 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 - user-confirmed download, verification and installation of the full Windows installer;
 - post-upgrade version verification, preservation of the current install directory and automatic restart;
 - update-feed activation only after the Workbench publishes an accepted prerelease.
-- V2.2.2 Preview 4 repairs installed restart, project switching and version information, retaining first-start team configuration, EXE icons, destination selection and native tray exit. User acceptance and formal stable-release approval remain pending.
+- V2.2.8 Preview 2 improves agent startup, FCoP tool readiness and short-failure recovery within the same session while retaining destination selection, complete-version comparison, full-installer upgrades and native exit. It is still not a stable formal release.
 
 ### Roadmap only
 
@@ -327,7 +327,7 @@ The “digital employee development machine” is intended to produce, test, ass
 
 ### Near-term release gates, not date commitments
 
-- repository visibility may change only after repository-owner product acceptance;
+- keep the public README, update manifest and each GitHub Release aligned on version, download links and hashes;
 - add code signing for a formal installer;
 - add real-account Cursor Provider compatibility evidence;
 - continue to record versions, changes, hashes and compatibility boundaries through GitHub Releases;
@@ -344,7 +344,7 @@ The “digital employee development machine” is intended to produce, test, ass
 | Install, first-task, PWA binding and static deployment tutorials | Standalone static examples and verification tools | Signing material, release credentials, internal test accounts and private pipelines |
 | Installer, hashes, manifests, third-party notices and reviewed public security evidence | Versioned compatibility matrices and migration examples | Any build or runtime material that has not passed sanitization and publication review |
 
-Public repository visibility does not make the product open source. Technical checks also do not complete product acceptance; only the repository owner's explicit acceptance and publication approval can authorize a future visibility change.
+The distribution repository is public, but the product is not open source. Technical checks do not complete product acceptance; each later version still requires repository-owner acceptance and explicit publication before it can become a public download or automatic-update target.
 
 ## Documentation and support
 
@@ -358,7 +358,7 @@ Public repository visibility does not make the product open source. Technical ch
 - [Security policy](SECURITY.md)
 - [Proprietary software notice](LICENSE.md)
 
-After publication, use GitHub Issues for sanitized reproducible problems. Never post API keys, bind links, customer data, private source or internal tasks. Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md).
+Use GitHub Issues for sanitized reproducible problems. Never post API keys, bind links, customer data, private source or internal tasks. Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md).
 
 ---
 

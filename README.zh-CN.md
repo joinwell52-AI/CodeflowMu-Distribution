@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.md">English</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.4"><strong>下载 Windows 版 · V2.2.2 Preview 4</strong></a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2"><strong>下载 Windows 版 · V2.2.8 Preview 2</strong></a> ·
   <a href="#60-秒看懂产品">观看 60 秒</a> ·
   <a href="#五分钟启动半小时完成第一个任务">快速开始</a> ·
   <a href="FIRST-PWA-TASK.zh-CN.md">第一个 PWA 任务</a> ·
@@ -31,29 +31,29 @@
 </p>
 
 > [!IMPORTANT]
-> 这是 **CodeFlowMu 专有软件免费预览版**的发行仓库，不是源码仓库，也不授予开源许可证。安装器尚未签名，没有正式支持的稳定版本。仓库保持 Private；转为 Public 仍需单独完成公开检查与明确批准。
+> 这是 **CodeFlowMu 专有软件免费预览版**的公开发行仓库，不是源码仓库，也不授予开源许可证。安装器尚未签名，当前版本是 Pre-release，不是正式稳定版。
 
 > [!NOTE]
-> 旧 V2.2.1 Preview 19 存在用户报告的重启、项目切换与版本信息问题。请使用下方完整版本号对应的新安装包，不要重复下载旧包。
+> 当前完整版本号是 **V2.2.8-preview.2**。下载、校验和自动升级判断均以完整版本号为准，不要使用旧版本安装包验证当前功能。
 
 ## 下载与测试状态
 
-当前修复包是 **[V2.2.2 Preview 4](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.4)**，通过 GitHub Pre-release 提供下载，未激活自动更新，等待用户重新安装验收。已检查隔离安装、8,888 项文件清单、程序启动、真实团队接口、初始化、重启保留配置，以及原生 EXE 退出。测试使用内置 Node/Python，未调用付费模型。
+当前版本是 **[V2.2.8 Preview 2](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2)**，通过公开 GitHub Pre-release 提供下载，并已写入带签名的公开 Preview 更新清单。发行验收记录显示：隔离目录静默安装通过，从安装目录启动并通过 `/api/v2/health` 健康检查。
 
-V2.2.2 Preview 4 在首次启动前生成干净的默认团队配置，保留已有客户配置；`CodeFlowMu.exe` 和 `CodeFlowMuUpdater.exe` 都已内嵌 7 个尺寸的产品图标。Preview 18 不包含这两项修复。请安装到当前用户可写的 **NTFS** 分区目录；首次生成配置需要文件系统支持硬链接。
+V2.2.8 Preview 2 改进 Codex app-server 的 Agent 启动与恢复：任务先登记可观察的 RunHandle，再检查角色所需 FCoP 工具；短时准备失败或单次等待超时进入恢复状态并继续查询，真实子进程退出、协议错误或显式取消仍按失败结算。请安装到当前用户可写的 **NTFS** 分区目录。
 
-- [下载安装器：CodeFlowMu-Setup-2.2.2-preview.4-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.4/CodeFlowMu-Setup-2.2.2-preview.4-win-x64.exe)。
-- [下载 SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.2-preview.4/SHA256SUMS.txt)。
-- SHA-256：`4086fdc1b0f491af79f1abe2e4636aeb89aa7391376b9cf50c0145d5aa5951f5`。
-- [GitHub Releases](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases) 中的历史 Preview 17 **不包含本次修复**。不能用旧下载验证新功能。
-- 客户附件只有安装器和 `SHA256SUMS.txt`；GitHub 自动附带的 Source code 压缩包不是客户安装包。仓库当前为 Private，需要有访问权限的 GitHub 账号。
+- [下载安装器：CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.8-preview.2/CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe)。
+- [下载 SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.8-preview.2/SHA256SUMS.txt)。
+- SHA-256：`3d8c459e5636ef18bbba8538b714796d4f23fba333b5ee31cbd20a31aa3e97a9`。
+- 客户附件只有安装器和 `SHA256SUMS.txt`；GitHub 自动附带的 Source code 压缩包不是客户安装包。
 
-## 本次修复：恢复接入通道选择
+## 本次更新：Agent 启动与会话恢复
 
-- 修复旧业务项目中的版本标记导致“公开版固定 Cursor”、通道下拉框被禁用的问题；Preview 3 不包含这项修复。
-- 可选择 Cursor、Google、Claude、ChatGPT 订阅 / Codex、豆包五个现有通道；保留各通道原有接入条件、权限和运行模式边界。
-- 程序版本身份由安装目录确定，不再由业务项目中的旧版标记覆盖；无需删除项目文件或密钥配置。
-- 已用本次最终 EXE 在保留旧版标记的测试项目中逐项切换五个通道，并验证重启与项目切换后仍不被锁定；未保存账户配置或调用付费模型。
+- `CodexCliAdapter.send()` 立即返回并登记可观察的 RunHandle，不再同步等待 MCP 准备结果。
+- Codex app-server 在 `thread/start` 后检查角色配置的 FCoP 工具；满足配置合同后才调用 `turn/start`。
+- `failed`、`cancelled` 和单个 30 秒等待窗口超时只产生恢复事实，并在同一 Session 中继续查询。
+- 准备期间到达的聊天或轨道唤醒等待同一就绪 Promise，首轮任务开始后通过 `turn/steer` 送达。
+- 实际子进程退出、协议错误或显式取消仍会结算 Session，不会把真实技术故障伪装成成功。
 
 ## 保留的修复：重启、项目切换与版本信息
 
@@ -62,11 +62,11 @@ V2.2.2 Preview 4 在首次启动前生成干净的默认团队配置，保留已
 - 程序资源来自安装目录，业务项目保留自己的目录和账本；启动时补齐派生的 Skills 配置与事实源目录，不要求删除业务项目。
 - 左上角与设置中恢复产品版本、八项组件版本和版本更新日志，切换业务项目不会改变已安装程序的版本信息。
 
-本次使用最终 EXE 完成隔离安装、8,888 项文件校验、初始化、启动与退出；连续 10 次 HTTP 重启和 10 次项目切换通过，重开恢复项目选择，测试项目配置与内容保持不变。页面重启按钮也已验证：旧进程退出、新进程启动，页面自动重连并保留所选项目和版本信息。未执行付费模型任务、手机端完整业务流程或全量升级/回滚矩阵；仍是未签名的 Preview。
+V2.2.8 Preview 2 使用最终 EXE 完成隔离目录静默安装，并从安装目录启动后通过 `/api/v2/health` 健康检查。该结论只覆盖安装与启动闭环，不等于付费模型任务、手机端完整业务流程或全量升级/回滚矩阵已经验收；当前仍是未签名的 Preview。
 
 ## 安装到哪里，默认项目就在哪里
 
-V2.2.2 Preview 4 将你选择的安装目录直接作为默认项目根。例如安装到 `E:\CodeFlowMu`：
+V2.2.8 Preview 2 将你选择的安装目录直接作为默认项目根。例如安装到 `E:\CodeFlowMu`：
 
 | 内容 | 默认位置 |
 | --- | --- |
@@ -102,7 +102,7 @@ V2.2.2 Preview 4 将你选择的安装目录直接作为默认项目根。例如
 
 ## 安装一次，后续按版本升级
 
-Windows 发行版采用带品牌向导的完整安装包和按版本升级流程。以下升级流程需有经过验收并写入签名更新源的目标版本；V2.2.2 Preview 4 本次仅提供 GitHub 手动下载，不会自动成为更新目标：
+Windows 发行版采用带品牌向导的完整安装包和按版本升级流程。V2.2.8 Preview 2 已通过验收并写入公开的带签名 Preview 更新清单；运行旧版本时，程序会按完整版本号发现这个更新目标：
 
 ```text
 首次或手动安装
@@ -122,15 +122,15 @@ Windows 发行版采用带品牌向导的完整安装包和按版本升级流程
 
 版本判断同时使用产品版本和候选号，例如：
 
-- `V2.2.1-preview.15 < V2.2.1-preview.17`；
-- `V2.2.1 < V2.2.2`；
+- `V2.2.8-preview.1 < V2.2.8-preview.2`；
+- `V2.2.7 < V2.2.8`；
 - 相同完整版本不重复下载；
 - 更旧版本不会被当作升级目标。
 
 只有通过发行验收并明确发布的 Pre-release，才会写入签名更新源。草稿、本地构建和未发布候选不会触发客户升级。安装程序升级使用客户现有安装目录；客户项目、任务、报告和其他可变数据不应作为程序文件被覆盖。
 
 > [!CAUTION]
-> 发行仓库保持 Private 时，普通外部客户无法匿名读取更新源或 Release 安装包。自动升级只有在仓库通过公开验收并明确转为 Public，或未来提供受支持的认证下载服务后，才能作为外部客户能力启用；本次修改不会自动改变仓库可见性。
+> 本发行仓库已经公开，客户可匿名读取 Preview 更新清单和 Release 安装包。只有更新清单中的目标完整版本高于当前安装版本，并且用户确认下载和安装时，才会执行全量升级；草稿、未发布候选和旧版本不会触发升级。
 
 ## 运行安装包之前：先验证，而不是先信任
 
@@ -140,7 +140,7 @@ Windows 发行版采用带品牌向导的完整安装包和按版本升级流程
 | --- | --- | --- |
 | 下载来源 | 本仓库的 GitHub Release 与明确版本标签 | 只接受官方 Release，不接受网盘或转发文件 |
 | 文件完整性 | `SHA256SUMS.txt` | 安装器哈希可独立复算；不一致时不要运行 |
-| 安装、初始化与启动 | 与安装器哈希绑定的检查记录 | 已检查 V2.2.2 Preview 4 隔离安装、初始化、团队配置、重启和退出；用户验收待完成 |
+| 安装与启动 | 与安装器哈希绑定的检查记录 | V2.2.8 Preview 2 隔离目录静默安装通过；从安装目录启动并通过 `/api/v2/health` |
 | 签名与 Provider | 安装器未签名；Cursor 采用外部 `sdk.v1` Provider | 只能作为 Preview，不能称为稳定正式版；Provider 账户与兼容验证独立管理 |
 
 Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、模块配置、安全审计和安装验收明细保存在发行工作台的内部版本记录中，不要求客户辨认或下载一组流水线 JSON。本仓库不以一个泛化的 `CI Passing` 徽章代替逐版本检查；完整边界见[公开仓库门禁记录](PUBLICATION-CHECKLIST.md)和[发行政策](RELEASE-POLICY.md)。
@@ -150,7 +150,7 @@ Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、�
 ### 五分钟：安装并打开控制中心
 
 1. 使用 Windows 10/11 x64 电脑。
-2. 从 [V2.2.2 Preview 4 下载页](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.2-preview.4)下载安装器和 `SHA256SUMS.txt`，不要重复下载历史 Preview 17。
+2. 从 [V2.2.8 Preview 2 下载页](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2)下载安装器和 `SHA256SUMS.txt`。
 3. 校验安装器 SHA-256 与本次候选的记录一致。
 4. 安装并启动 **CodeFlowMu**。
 5. 确认顶部项目根是你选择的安装目录，再在环境预检中确认初始化；看到错误时保留错误信息，不要反复清空环境。也可另外注册业务项目。
@@ -158,7 +158,7 @@ Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、�
 在 PowerShell 中校验下载文件：
 
 ```powershell
-(Get-FileHash .\CodeFlowMu-Setup-2.2.2-preview.4-win-x64.exe -Algorithm SHA256).Hash
+(Get-FileHash .\CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe -Algorithm SHA256).Hash
 ```
 
 输出必须与本页候选 SHA-256 一致（忽略大小写）；不一致时不要运行安装器。
@@ -268,7 +268,7 @@ CodeFlowMu 是这套公开三段架构中的工程实现：TMPA 定义治理理�
 | **Evidence** | 如何证明文件、命令、测试或页面真实产生 | 证据本身不能替人接受业务风险 |
 | **Human Gate** | 谁批准外部写入、敏感动作和最终交付 | 技术检查不能替代人的产品验收 |
 
-V2.2.2 Preview 4 包含 Skill schema、48 个清单引用 Skill 包、FCoP 受控 MCP 执行边界和 Browser Use 运行组件；具体能力只有在产品实际提供、项目启用并获得授权时才可使用。本 README 不承诺自动安装任意社区 MCP，也不把未验证工具描述为正式支持能力。
+当前发行版包含 Skill schema、FCoP 受控 MCP 执行边界和 Browser Use 运行组件；具体能力只有在产品实际提供、项目启用并获得授权时才可使用。本 README 不承诺自动安装任意社区 MCP，也不把未验证工具描述为正式支持能力。
 
 ## 真实产品界面
 
@@ -316,7 +316,7 @@ PC 启动 CodeFlowMu
 - 用户确认后下载、校验并安装完整 Windows 安装包；
 - 升级后核对版本、保留当前安装目录并自动重启；
 - 发行工作台仅在已验收 Pre-release 发布后激活对应更新源。
-- V2.2.2 Preview 4 修复安装版重启、项目切换和版本信息，保留首次启动团队配置、EXE 图标、目录选择和原生托盘退出能力；用户验收与稳定正式版放行仍待完成。
+- V2.2.8 Preview 2 改进 Agent 启动、FCoP 工具准备与同一 Session 内的短时故障恢复，并保留安装目录选择、完整版本判断、全量升级和原生退出能力；仍不是稳定正式版。
 
 ### 仍然只是路线
 
@@ -324,7 +324,7 @@ PC 启动 CodeFlowMu
 
 ### 近期发行门禁，不是日期承诺
 
-- 完成仓库所有者产品验收后，才允许把发行仓库转为 Public；
+- 保持公开 README、更新清单与每次 GitHub Release 的版本、下载链接和哈希同步；
 - 为正式安装器补齐代码签名；
 - 补齐 Cursor Provider 的真实账户兼容证据；
 - 继续通过 GitHub Releases 记录版本、变更、哈希与兼容边界；
@@ -341,7 +341,7 @@ PC 启动 CodeFlowMu
 | 安装、首任务、PWA 绑定和静态部署教程 | 独立静态示例应用与验证工具 | 签名材料、发行凭据、内部测试账户和私有流水线 |
 | 安装包、哈希、manifest、第三方许可与公开安全证据 | 版本化兼容矩阵与迁移示例 | 未完成脱敏和公开审查的任何构建或运行材料 |
 
-仓库可见性变为 Public 不等于产品开源。技术检查通过也不等于产品验收完成；只有仓库所有者明确验收并批准后才能公开。
+发行仓库已经公开，但这不等于产品开源。技术检查通过也不等于产品验收完成；后续版本仍须经过仓库所有者验收和明确发布，才能成为公开下载或自动升级目标。
 
 ## 文档与支持
 
@@ -355,7 +355,7 @@ PC 启动 CodeFlowMu
 - [安全政策](SECURITY.md)
 - [专有软件说明](LICENSE.md)
 
-公开后可通过 GitHub Issues 提交脱敏后的可复现问题。严禁公开提交 API Key、绑定链接、客户数据、私有源码或内部任务；安全漏洞必须按 [SECURITY.md](SECURITY.md) 私下报告。
+可通过 GitHub Issues 提交脱敏后的可复现问题。严禁公开提交 API Key、绑定链接、客户数据、私有源码或内部任务；安全漏洞必须按 [SECURITY.md](SECURITY.md) 私下报告。
 
 ---
 
