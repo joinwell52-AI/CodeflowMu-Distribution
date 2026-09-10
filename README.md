@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2"><strong>Download for Windows · V2.2.8 Preview 2</strong></a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.10-preview.3"><strong>Download for Windows · V2.2.10 Preview 3</strong></a> ·
   <a href="#see-it-in-60-seconds">Watch 60 seconds</a> ·
   <a href="#five-minutes-to-start-thirty-minutes-to-a-first-delivery">Quickstart</a> ·
   <a href="FIRST-PWA-TASK.md">First PWA task</a> ·
@@ -34,20 +34,20 @@
 > This public repository distributes a **free preview of proprietary software**. It is not the CodeFlowMu source repository and does not grant an open-source license. The installer is unsigned, and the current version is a prerelease rather than a formally supported stable release.
 
 > [!NOTE]
-> The current complete release identity is **V2.2.8-preview.2**. Downloads, verification and update comparison all use the complete release identity; do not use an old installer to validate current behavior.
+> The current complete release identity is **V2.2.10-preview.3**. Downloads, verification and update comparison all use the complete release identity; do not use an old installer to validate current behavior.
 
 ## Download and test status
 
-**[V2.2.8 Preview 2](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2) is available from the public GitHub Pre-release**, and it is the target in the signed public Preview update manifest. Release acceptance records an isolated silent-install pass and a startup pass from the installed directory through `/api/v2/health`.
+**[V2.2.10 Preview 3](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.10-preview.3) is available from the public GitHub Pre-release**, and it is the target in the signed public Preview update manifest. Release acceptance records an isolated silent-install pass and a startup pass from the installed directory through `/api/v2/health`.
 
-V2.2.8 Preview 2 improves Codex app-server agent startup and recovery: it registers an observable RunHandle before checking role-specific FCoP tools; a short preparation failure or one wait-window timeout enters recovery and continues polling, while a real subprocess exit, protocol error or explicit cancellation still settles the session as a failure. Install to a user-writable directory on an **NTFS** volume.
+V2.2.10 Preview 3 is the current public download and automatic-update target; see the in-product version history for detailed product changes. It retains destination selection, complete-version comparison, full-installer upgrades, agent session recovery and native exit. Install to a user-writable directory on an **NTFS** volume.
 
-- [Download CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.8-preview.2/CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe).
-- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.8-preview.2/SHA256SUMS.txt).
-- SHA-256: `3d8c459e5636ef18bbba8538b714796d4f23fba333b5ee31cbd20a31aa3e97a9`.
+- [Download CodeFlowMu-Setup-2.2.10-preview.3-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.10-preview.3/CodeFlowMu-Setup-2.2.10-preview.3-win-x64.exe).
+- [Download SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.10-preview.3/SHA256SUMS.txt).
+- SHA-256: `5210221ecbec481b885f53b22b0d888dd51c0e5c04a94d4f87360c1ef05ac290`.
 - Customer assets consist only of the installer and `SHA256SUMS.txt`; GitHub's automatic Source code archives are not installers.
 
-## This update: agent startup and session recovery
+## Agent startup and session recovery retained in this release
 
 - `CodexCliAdapter.send()` returns immediately and registers an observable RunHandle instead of synchronously waiting for MCP readiness.
 - After `thread/start`, Codex app-server checks the role's configured FCoP tools and calls `turn/start` only when the tool contract is satisfied.
@@ -62,11 +62,11 @@ V2.2.8 Preview 2 improves Codex app-server agent startup and recovery: it regist
 - Product resources come from the installation; business projects retain their own directories and ledgers. Derived Skills configuration and fact-source directories are repaired without requiring deletion of the business project.
 - The header and Settings show product version, eight component versions and version history. Switching projects does not change the installed product identity.
 
-The final V2.2.8 Preview 2 EXE passed a silent installation into an isolated directory and then started from that directory with `/api/v2/health` passing. This conclusion covers the install-and-start loop only; it does not claim acceptance of paid-model tasks, the full mobile workflow or a complete upgrade/rollback matrix. This remains an unsigned Preview.
+The final V2.2.10 Preview 3 EXE passed a silent installation into an isolated directory and then started from that directory with `/api/v2/health` passing. This conclusion covers the install-and-start loop only; it does not claim acceptance of paid-model tasks, the full mobile workflow or a complete upgrade/rollback matrix. This remains an unsigned Preview.
 
 ## Your installation directory is the default project root
 
-In V2.2.8 Preview 2, choosing `E:\CodeFlowMu` means:
+In V2.2.10 Preview 3, choosing `E:\CodeFlowMu` means:
 
 | Content | Default location |
 | --- | --- |
@@ -102,7 +102,7 @@ Click the poster to play in the browser. The video uses real product surfaces: t
 
 ## Install once, then upgrade by version
 
-The Windows distribution uses a branded installer and version-controlled full-installer upgrades. V2.2.8 Preview 2 has passed release acceptance and is present in the signed public Preview update manifest; older installed versions can discover it by its complete release identity:
+The Windows distribution uses a branded installer and version-controlled full-installer upgrades. V2.2.10 Preview 3 has passed release gates and is present in the signed public Preview update manifest; older installed versions can discover it by its complete release identity:
 
 ```text
 First or manual installation
@@ -122,8 +122,8 @@ A higher complete release version is detected
 
 Version control compares both the product version and release candidate:
 
-- `V2.2.8-preview.1 < V2.2.8-preview.2`;
-- `V2.2.7 < V2.2.8`;
+- `V2.2.10-preview.2 < V2.2.10-preview.3`;
+- `V2.2.9 < V2.2.10`;
 - the same complete version is not downloaded again;
 - an older version is never treated as an upgrade.
 
@@ -140,7 +140,7 @@ A proprietary product cannot honestly claim a reproducible build from source in 
 | --- | --- | --- |
 | Download origin | This repository's GitHub Release and explicit version tag | Accept only the official Release, never a mirror or forwarded file |
 | File integrity | `SHA256SUMS.txt` | The installer hash can be recomputed independently; do not run a mismatch |
-| Install and start | Checks bound to the installer hash | V2.2.8 Preview 2 silent install into an isolated directory passed; startup from the installed directory passed `/api/v2/health` |
+| Install and start | Checks bound to the installer hash | V2.2.10 Preview 3 silent install into an isolated directory passed; startup from the installed directory passed `/api/v2/health` |
 | Signing and provider | Unsigned installer; Cursor uses an external `sdk.v1` Provider | Preview only, not a stable formal release; provider accounts and compatibility are managed separately |
 
 The Release download page intentionally contains only the installer and `SHA256SUMS.txt`. Product inventory, module configuration, security audit and installation-acceptance details remain in the Workbench's internal version record; customers are not asked to identify or download a collection of pipeline JSON files. See the [public repository readiness review](PUBLICATION-CHECKLIST.md) and [release policy](RELEASE-POLICY.md) for the boundary.
@@ -150,7 +150,7 @@ The Release download page intentionally contains only the installer and `SHA256S
 ### Five minutes: install and open the control center
 
 1. Use a Windows 10/11 x64 machine.
-2. Download the installer and `SHA256SUMS.txt` from [V2.2.8 Preview 2](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2).
+2. Download the installer and `SHA256SUMS.txt` from [V2.2.10 Preview 3](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.10-preview.3).
 3. Compare the installer SHA-256 against this candidate's record.
 4. Install and launch **CodeFlowMu**.
 5. Confirm that the header project root matches the chosen installation directory, then confirm initialization in Environment Preflight. Preserve errors instead of repeatedly clearing the environment. Additional business projects can be registered separately.
@@ -158,7 +158,7 @@ The Release download page intentionally contains only the installer and `SHA256S
 Verify the download in PowerShell:
 
 ```powershell
-(Get-FileHash .\CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe -Algorithm SHA256).Hash
+(Get-FileHash .\CodeFlowMu-Setup-2.2.10-preview.3-win-x64.exe -Algorithm SHA256).Hash
 ```
 
 Compare the output with this page's candidate SHA-256, ignoring case. Do not run a mismatch.
@@ -319,7 +319,7 @@ Never share a QR code or bind link. Revoke lost or retired devices from the PC. 
 - user-confirmed download, verification and installation of the full Windows installer;
 - post-upgrade version verification, preservation of the current install directory and automatic restart;
 - update-feed activation only after the Workbench publishes an accepted prerelease.
-- V2.2.8 Preview 2 improves agent startup, FCoP tool readiness and short-failure recovery within the same session while retaining destination selection, complete-version comparison, full-installer upgrades and native exit. It is still not a stable formal release.
+- V2.2.10 Preview 3 is the current public download and automatic-update target while retaining agent startup recovery, destination selection, complete-version comparison, full-installer upgrades and native exit. It is still not a stable formal release.
 
 ### Roadmap only
 

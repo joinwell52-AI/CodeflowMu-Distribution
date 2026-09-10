@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="README.md">English</a> ·
-  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2"><strong>下载 Windows 版 · V2.2.8 Preview 2</strong></a> ·
+  <a href="https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.10-preview.3"><strong>下载 Windows 版 · V2.2.10 Preview 3</strong></a> ·
   <a href="#60-秒看懂产品">观看 60 秒</a> ·
   <a href="#五分钟启动半小时完成第一个任务">快速开始</a> ·
   <a href="FIRST-PWA-TASK.zh-CN.md">第一个 PWA 任务</a> ·
@@ -34,20 +34,20 @@
 > 这是 **CodeFlowMu 专有软件免费预览版**的公开发行仓库，不是源码仓库，也不授予开源许可证。安装器尚未签名，当前版本是 Pre-release，不是正式稳定版。
 
 > [!NOTE]
-> 当前完整版本号是 **V2.2.8-preview.2**。下载、校验和自动升级判断均以完整版本号为准，不要使用旧版本安装包验证当前功能。
+> 当前完整版本号是 **V2.2.10-preview.3**。下载、校验和自动升级判断均以完整版本号为准，不要使用旧版本安装包验证当前功能。
 
 ## 下载与测试状态
 
-当前版本是 **[V2.2.8 Preview 2](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2)**，通过公开 GitHub Pre-release 提供下载，并已写入带签名的公开 Preview 更新清单。发行验收记录显示：隔离目录静默安装通过，从安装目录启动并通过 `/api/v2/health` 健康检查。
+当前版本是 **[V2.2.10 Preview 3](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.10-preview.3)**，通过公开 GitHub Pre-release 提供下载，并已写入带签名的公开 Preview 更新清单。发行验收记录显示：隔离目录静默安装通过，从安装目录启动并通过 `/api/v2/health` 健康检查。
 
-V2.2.8 Preview 2 改进 Codex app-server 的 Agent 启动与恢复：任务先登记可观察的 RunHandle，再检查角色所需 FCoP 工具；短时准备失败或单次等待超时进入恢复状态并继续查询，真实子进程退出、协议错误或显式取消仍按失败结算。请安装到当前用户可写的 **NTFS** 分区目录。
+V2.2.10 Preview 3 是当前公开下载与自动升级目标；具体产品变化以程序内版本更新日志为准。该版本继续保留安装目录选择、完整版本判断、全量安装包升级、Agent 会话恢复和原生退出能力。请安装到当前用户可写的 **NTFS** 分区目录。
 
-- [下载安装器：CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.8-preview.2/CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe)。
-- [下载 SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.8-preview.2/SHA256SUMS.txt)。
-- SHA-256：`3d8c459e5636ef18bbba8538b714796d4f23fba333b5ee31cbd20a31aa3e97a9`。
+- [下载安装器：CodeFlowMu-Setup-2.2.10-preview.3-win-x64.exe](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.10-preview.3/CodeFlowMu-Setup-2.2.10-preview.3-win-x64.exe)。
+- [下载 SHA256SUMS.txt](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/download/v2.2.10-preview.3/SHA256SUMS.txt)。
+- SHA-256：`5210221ecbec481b885f53b22b0d888dd51c0e5c04a94d4f87360c1ef05ac290`。
 - 客户附件只有安装器和 `SHA256SUMS.txt`；GitHub 自动附带的 Source code 压缩包不是客户安装包。
 
-## 本次更新：Agent 启动与会话恢复
+## 当前版本保留的 Agent 启动与会话恢复能力
 
 - `CodexCliAdapter.send()` 立即返回并登记可观察的 RunHandle，不再同步等待 MCP 准备结果。
 - Codex app-server 在 `thread/start` 后检查角色配置的 FCoP 工具；满足配置合同后才调用 `turn/start`。
@@ -62,11 +62,11 @@ V2.2.8 Preview 2 改进 Codex app-server 的 Agent 启动与恢复：任务先�
 - 程序资源来自安装目录，业务项目保留自己的目录和账本；启动时补齐派生的 Skills 配置与事实源目录，不要求删除业务项目。
 - 左上角与设置中恢复产品版本、八项组件版本和版本更新日志，切换业务项目不会改变已安装程序的版本信息。
 
-V2.2.8 Preview 2 使用最终 EXE 完成隔离目录静默安装，并从安装目录启动后通过 `/api/v2/health` 健康检查。该结论只覆盖安装与启动闭环，不等于付费模型任务、手机端完整业务流程或全量升级/回滚矩阵已经验收；当前仍是未签名的 Preview。
+V2.2.10 Preview 3 使用最终 EXE 完成隔离目录静默安装，并从安装目录启动后通过 `/api/v2/health` 健康检查。该结论只覆盖安装与启动闭环，不等于付费模型任务、手机端完整业务流程或全量升级/回滚矩阵已经验收；当前仍是未签名的 Preview。
 
 ## 安装到哪里，默认项目就在哪里
 
-V2.2.8 Preview 2 将你选择的安装目录直接作为默认项目根。例如安装到 `E:\CodeFlowMu`：
+V2.2.10 Preview 3 将你选择的安装目录直接作为默认项目根。例如安装到 `E:\CodeFlowMu`：
 
 | 内容 | 默认位置 |
 | --- | --- |
@@ -102,7 +102,7 @@ V2.2.8 Preview 2 将你选择的安装目录直接作为默认项目根。例如
 
 ## 安装一次，后续按版本升级
 
-Windows 发行版采用带品牌向导的完整安装包和按版本升级流程。V2.2.8 Preview 2 已通过验收并写入公开的带签名 Preview 更新清单；运行旧版本时，程序会按完整版本号发现这个更新目标：
+Windows 发行版采用带品牌向导的完整安装包和按版本升级流程。V2.2.10 Preview 3 已通过发行门禁并写入公开的带签名 Preview 更新清单；运行旧版本时，程序会按完整版本号发现这个更新目标：
 
 ```text
 首次或手动安装
@@ -122,8 +122,8 @@ Windows 发行版采用带品牌向导的完整安装包和按版本升级流程
 
 版本判断同时使用产品版本和候选号，例如：
 
-- `V2.2.8-preview.1 < V2.2.8-preview.2`；
-- `V2.2.7 < V2.2.8`；
+- `V2.2.10-preview.2 < V2.2.10-preview.3`；
+- `V2.2.9 < V2.2.10`；
 - 相同完整版本不重复下载；
 - 更旧版本不会被当作升级目标。
 
@@ -140,7 +140,7 @@ Windows 发行版采用带品牌向导的完整安装包和按版本升级流程
 | --- | --- | --- |
 | 下载来源 | 本仓库的 GitHub Release 与明确版本标签 | 只接受官方 Release，不接受网盘或转发文件 |
 | 文件完整性 | `SHA256SUMS.txt` | 安装器哈希可独立复算；不一致时不要运行 |
-| 安装与启动 | 与安装器哈希绑定的检查记录 | V2.2.8 Preview 2 隔离目录静默安装通过；从安装目录启动并通过 `/api/v2/health` |
+| 安装与启动 | 与安装器哈希绑定的检查记录 | V2.2.10 Preview 3 隔离目录静默安装通过；从安装目录启动并通过 `/api/v2/health` |
 | 签名与 Provider | 安装器未签名；Cursor 采用外部 `sdk.v1` Provider | 只能作为 Preview，不能称为稳定正式版；Provider 账户与兼容验证独立管理 |
 
 Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、模块配置、安全审计和安装验收明细保存在发行工作台的内部版本记录中，不要求客户辨认或下载一组流水线 JSON。本仓库不以一个泛化的 `CI Passing` 徽章代替逐版本检查；完整边界见[公开仓库门禁记录](PUBLICATION-CHECKLIST.md)和[发行政策](RELEASE-POLICY.md)。
@@ -150,7 +150,7 @@ Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、�
 ### 五分钟：安装并打开控制中心
 
 1. 使用 Windows 10/11 x64 电脑。
-2. 从 [V2.2.8 Preview 2 下载页](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.8-preview.2)下载安装器和 `SHA256SUMS.txt`。
+2. 从 [V2.2.10 Preview 3 下载页](https://github.com/joinwell52-AI/CodeflowMu-Distribution/releases/tag/v2.2.10-preview.3)下载安装器和 `SHA256SUMS.txt`。
 3. 校验安装器 SHA-256 与本次候选的记录一致。
 4. 安装并启动 **CodeFlowMu**。
 5. 确认顶部项目根是你选择的安装目录，再在环境预检中确认初始化；看到错误时保留错误信息，不要反复清空环境。也可另外注册业务项目。
@@ -158,7 +158,7 @@ Release 下载页刻意只提供安装器和 `SHA256SUMS.txt`。产品清单、�
 在 PowerShell 中校验下载文件：
 
 ```powershell
-(Get-FileHash .\CodeFlowMu-Setup-2.2.8-preview.2-win-x64.exe -Algorithm SHA256).Hash
+(Get-FileHash .\CodeFlowMu-Setup-2.2.10-preview.3-win-x64.exe -Algorithm SHA256).Hash
 ```
 
 输出必须与本页候选 SHA-256 一致（忽略大小写）；不一致时不要运行安装器。
@@ -316,7 +316,7 @@ PC 启动 CodeFlowMu
 - 用户确认后下载、校验并安装完整 Windows 安装包；
 - 升级后核对版本、保留当前安装目录并自动重启；
 - 发行工作台仅在已验收 Pre-release 发布后激活对应更新源。
-- V2.2.8 Preview 2 改进 Agent 启动、FCoP 工具准备与同一 Session 内的短时故障恢复，并保留安装目录选择、完整版本判断、全量升级和原生退出能力；仍不是稳定正式版。
+- V2.2.10 Preview 3 是当前公开下载与自动升级目标，并保留 Agent 启动恢复、安装目录选择、完整版本判断、全量升级和原生退出能力；仍不是稳定正式版。
 
 ### 仍然只是路线
 
